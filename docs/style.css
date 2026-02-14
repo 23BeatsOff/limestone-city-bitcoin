@@ -1,0 +1,61 @@
+/* Color Variables - Easy to change later! */
+:root {
+    --btc-orange: #F7931A;
+    --dark-bg: #121212;
+    --card-bg: #1e1e1e;
+    --text-main: #ffffff;
+    --text-muted: #888888;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Logo Styling */
+.logo-container img {
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Block Clock Styling */
+.block-clock {
+    background: var(--card-bg);
+    padding: 20px 40px;
+    border-radius: 12px;
+    border: 1px solid var(--btc-orange);
+    font-family: 'Courier New', monospace;
+    display: inline-block;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.height-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+#block-height {
+    color: var(--btc-orange);
+    font-size: 2.5rem;
+    font-weight: bold;
+}
