@@ -1,32 +1,36 @@
-/* Color Variables - Easy to change later! */
 :root {
     --btc-orange: #F7931A;
-    --dark-bg: #121212;
-    --card-bg: #1e1e1e;
-    --text-main: #ffffff;
-    --text-muted: #888888;
+    --light-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #777777;
+    --border-light: #eeeeee;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    min-height: 100vh;
+    /* This makes the body a "flex container" */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column; 
     align-items: center;
-    background-color: var(--dark-bg);
+    min-height: 100vh;
+    background-color: var(--light-bg);
     color: var(--text-main);
-    padding: 20px;
     text-align: center;
 }
 
-/* Logo Styling */
+.logo-container {
+    /* This allows the logo to take up the middle space */
+    flex-grow: 1; 
+    display: flex;
+    align-items: center; /* Centers logo vertically in the remaining space */
+    justify-content: center;
+}
+
 .logo-container img {
     max-width: 500px;
-    width: 90%;
+    width: 85%;
     height: auto;
-    margin-bottom: 20px;
     transition: transform 0.3s ease;
 }
 
@@ -34,28 +38,27 @@ body {
     transform: scale(1.02);
 }
 
-/* Block Clock Styling */
+/* Block Clock - Anchored at the bottom */
 .block-clock {
-    background: var(--card-bg);
-    padding: 20px 40px;
-    border-radius: 12px;
-    border: 1px solid var(--btc-orange);
+    width: 100%;
+    padding: 20px 0;
+    background: #fdfdfd;
+    border-top: 1px solid var(--border-light);
     font-family: 'Courier New', monospace;
-    display: inline-block;
-    margin-top: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    /* Keeps it at the bottom of the viewport */
+    margin-top: auto; 
 }
 
 .height-label {
     color: var(--text-muted);
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
     text-transform: uppercase;
 }
 
 #block-height {
     color: var(--btc-orange);
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
