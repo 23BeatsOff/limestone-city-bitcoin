@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limestone City Bitcoin</title>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="font-family: Arial, sans-serif; margin: 0; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: #ffffff; padding: 20px; text-align: center;">
+<body>
 
-    <!-- Logo centered with GitHub Easter Egg - now larger -->
-    <div>
+    <div class="logo-container">
         <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" target="_blank">
-            <img src="logo.PNG" alt="Limestone City Bitcoin" style="max-width: 600px; width: 90%; height: auto;">
+            <img src="logo.PNG" alt="Limestone City Bitcoin Logo">
         </a>
     </div>
 
+    <div class="block-clock">
+        <div class="height-label">Current Block Height</div>
+        <div id="block-height">-------</div>
+    </div>
+
+    <script src="script.js"></script>
     
 </body>
 </html>
