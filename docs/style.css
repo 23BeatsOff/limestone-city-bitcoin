@@ -1,51 +1,45 @@
-:root {
-    --btc-orange: #F7931A;
-    --light-bg: #ffffff;
-    --text-main: #333333;
-}
-
 body {
-    font-family: Arial, sans-serif;
+    background-color: #ffffff;
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    /* This ensures the page is at least the height of the screen */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Force the page to be the full height of the screen */
-    background-color: var(--light-bg);
 }
 
-.content {
-    flex: 1; /* This pushes the footer to the bottom */
+.logo-wrapper {
+    flex: 1; /* This pushes the footer down */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
-.main-logo {
-    max-width: 600px; /* Matching your original size */
+.logo-wrapper img {
+    max-width: 600px;
     width: 90%;
     height: auto;
     display: block;
 }
 
-.block-clock {
-    text-align: center;
-    padding: 20px 0;
+.footer-bar {
+    background-color: #f9f9f9;
     border-top: 1px solid #eeeeee;
-    background: #fafafa;
+    padding: 20px;
+    text-align: center;
 }
 
 .height-label {
-    color: #888;
-    font-size: 0.8rem;
+    color: #888888;
+    font-size: 12px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
 #block-height {
-    color: var(--btc-orange);
-    font-size: 2rem;
+    color: #F7931A; /* Bitcoin Orange */
+    font-size: 28px;
     font-weight: bold;
-    margin-top: 5px;
 }
