@@ -2,63 +2,50 @@
     --btc-orange: #F7931A;
     --light-bg: #ffffff;
     --text-main: #333333;
-    --text-muted: #777777;
-    --border-light: #eeeeee;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
-    /* This makes the body a "flex container" */
+    padding: 0;
     display: flex;
-    flex-direction: column; 
-    align-items: center;
-    min-height: 100vh;
+    flex-direction: column;
+    height: 100vh; /* Force the page to be the full height of the screen */
     background-color: var(--light-bg);
-    color: var(--text-main);
-    text-align: center;
 }
 
-.logo-container {
-    /* This allows the logo to take up the middle space */
-    flex-grow: 1; 
+.content {
+    flex: 1; /* This pushes the footer to the bottom */
     display: flex;
-    align-items: center; /* Centers logo vertically in the remaining space */
     justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-.logo-container img {
-    max-width: 500px;
-    width: 85%;
+.main-logo {
+    max-width: 600px; /* Matching your original size */
+    width: 90%;
     height: auto;
-    transition: transform 0.3s ease;
+    display: block;
 }
 
-.logo-container img:hover {
-    transform: scale(1.02);
-}
-
-/* Block Clock - Anchored at the bottom */
 .block-clock {
-    width: 100%;
+    text-align: center;
     padding: 20px 0;
-    background: #fdfdfd;
-    border-top: 1px solid var(--border-light);
-    font-family: 'Courier New', monospace;
-    /* Keeps it at the bottom of the viewport */
-    margin-top: auto; 
+    border-top: 1px solid #eeeeee;
+    background: #fafafa;
 }
 
 .height-label {
-    color: var(--text-muted);
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 4px;
+    color: #888;
+    font-size: 0.8rem;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #block-height {
     color: var(--btc-orange);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: bold;
+    margin-top: 5px;
 }
