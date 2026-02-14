@@ -4,21 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limestone City Bitcoin</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* This CSS is inside the file so it CANNOT fail to load */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* The Main Container */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* The Logo Area (Centered) */
+        .content {
+            flex: 1; /* Takes up all available space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content img {
+            max-width: 600px;
+            width: 90%;
+            height: auto;
+            display: block;
+        }
+
+        /* The Footer Area (Fixed at bottom) */
+        .footer {
+            background-color: #f9f9f9;
+            border-top: 1px solid #eeeeee;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .label {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .number {
+            color: #F7931A;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+    </style>
 </head>
-<body class="site-container">
+<body>
 
-    <div class="centered-logo">
-        <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" target="_blank">
-            <img src="logo.png" alt="Limestone City Bitcoin">
-        </a>
+    <div class="wrapper">
+        <div class="content">
+            <a href="https://github.com/23BeatsOff/limestone-city-bitcoin">
+                <img src="logo.png" alt="Limestone City Bitcoin">
+            </a>
+        </div>
+
+        <div class="footer">
+            <div class="label">Current Block Height</div>
+            <p id="block-height" class="number">-------</p>
+        </div>
     </div>
 
-    <div class="bottom-bar">
-        <div class="height-label">Current Block Height</div>
-        <div id="block-height">-------</div>
-    </div>
-
-    <script src="script.js"></script>
+    <script>
+        async function getBlock() {
+            try {
+                const res = await fetch('https://mempool.space/api/blocks/tip/height');
+                const height = await res.text();
+                document.getElementById('block-height').innerText = height;
+            } catch (e) {
+                document.getElementById('block-height').innerText = "Offline";
+            }
+        }
+        getBlock();
+        setInterval(getBlock, 60000);
+    </script>
 </body>
 </html>
