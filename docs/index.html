@@ -5,47 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Limestone City Bitcoin</title>
     <style>
-        body {
+        /* 1. Global Reset */
+        * {
+            box-sizing: border-box; /* Ensures padding doesn't mess up widths */
+        }
+        
+        body, html {
             margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            background-color: #ffffff;
-            font-family: sans-serif;
-            text-align: center;
+            align-items: center; /* Forces everything to the horizontal center */
         }
+
+        /* 2. Main Content Area */
         .main-content {
             flex: 1;
+            width: 100%;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Center horizontally */
+            align-items: center;     /* Center vertically */
             padding: 20px;
         }
-        .main-content img {
+
+        /* 3. The Logo Container */
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .main-logo {
             max-width: 600px;
             width: 90%;
             height: auto;
+            display: block;
+            margin: 0 auto; /* Extra insurance for centering */
         }
+
+        /* 4. Signal Icon Positioning */
+        .signal-link {
+            position: absolute;
+            bottom: 5%;  /* Uses percentage so it scales with the logo */
+            right: 5%;   
+            width: 45px;
+            height: 45px;
+            transition: transform 0.2s ease;
+            z-index: 10;
+        }
+
+        .signal-link:hover {
+            transform: scale(1.1);
+        }
+
+        .signal-link img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 5. The Footer / Block Height */
         .footer-status {
-            padding: 30px;
-            background: #f8f8f8;
+            width: 100%; /* Force full width so text stays centered */
+            padding: 25px 0;
+            background: #fcfcfc;
             border-top: 1px solid #eeeeee;
+            text-align: center;
         }
-        .label { color: #888; font-size: 14px; margin-bottom: 5px; text-transform: uppercase; }
-        .height { color: #F7931A; font-size: 32px; font-weight: bold; margin: 0; }
+
+        .label { 
+            color: #888; 
+            font-size: 12px; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            margin: 0 0 5px 0; 
+        }
+
+        .height { 
+            color: #F7931A; 
+            font-size: 28px; 
+            font-weight: bold; 
+            margin: 0;
+            line-height: 1; 
+        }
     </style>
 </head>
 <body>
 
     <div class="main-content">
-        <a href="https://github.com/23BeatsOff/limestone-city-bitcoin">
-            <img src="logo.png" alt="Limestone City Bitcoin Logo">
-        </a>
+        <div class="logo-container">
+            <a href="https://github.com/23BeatsOff/limestone-city-bitcoin">
+                <img src="logo.png" alt="Limestone City Bitcoin" class="main-logo">
+            </a>
+
+            <a href="YOUR_SIGNAL_LINK_HERE" class="signal-link" target="_blank" title="Join our Signal Chat">
+                <img src="signal-logo.png" alt="Signal">
+            </a>
+        </div>
     </div>
 
     <div class="footer-status">
         <div class="label">Current Block Height</div>
-        <p id="block-height" class="height">Loading...</p>
+        <p id="block-height" class="height">-------</p>
     </div>
 
     <script>
@@ -55,7 +119,7 @@
                 const data = await response.text();
                 document.getElementById('block-height').innerText = data;
             } catch (err) {
-                document.getElementById('block-height').innerText = "Network Error";
+                document.getElementById('block-height').innerText = "Offline";
             }
         }
         updateBlock();
