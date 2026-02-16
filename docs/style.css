@@ -54,15 +54,15 @@ html, body {
 
 .logo-link {
     display: block;
-    width: 90%;
-    max-width: 500px;
+    width: 95%;
+    max-width: 665px;
 }
 
 .logo-link img {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 45vh; /* Prevents logo from being too tall */
+    max-height: 60vh; /* Prevents logo from being too tall */
     object-fit: contain;
 }
 
