@@ -1,4 +1,4 @@
-# Limestone City Bitcoin 🍊
+# Limestone City Bitcoin 
 
 A community-led initiative dedicated to Bitcoin education and adoption in Kingston, Ontario, and the surrounding area. 
 
