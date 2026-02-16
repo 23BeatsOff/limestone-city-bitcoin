@@ -31,12 +31,20 @@ html, body {
     min-height: 80px;
 }
 
+.header-center {
+    display: flex;
+    flex-direction: column; /* Stacks label on top of number */
+    align-items: center;    /* This is the key: centers them relative to each other */
+    text-align: center;
+}
+
 .label { 
     color: #999; 
     font-size: 11px; 
     text-transform: uppercase; 
     letter-spacing: 2.5px; 
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
+    width: 100%;
 }
 
 .height { 
