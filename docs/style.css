@@ -184,3 +184,38 @@ html, body {
         text-align: center;
     }
 }
+
+/* 7. Navigation Dropdown Styling */
+.nav-dropdown summary {
+    padding: 20px 40px;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    list-style: none; /* Removes default arrow */
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+    display: none; /* Hides arrow in Safari */
+}
+
+.nav-dropdown summary::after {
+    content: ' +'; /* Adds a subtle indicator */
+    color: #F7931A;
+}
+
+.dropdown-content {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    padding: 15px 60px !important; /* Extra indentation for sub-links */
+    font-size: 14px !important;
+    text-transform: none !important;
+    border-bottom: 1px solid #eee !important;
+}
