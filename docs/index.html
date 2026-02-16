@@ -19,10 +19,35 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Master horizontal centering */
+            align-items: center; 
         }
 
-        /* 2. Main Logo Section */
+        /* 2. Header / Block Status (Moved to Top) */
+        .header-status {
+            width: 100%;
+            padding: 20px 0; /* Reduced padding slightly for a tighter top look */
+            background: #fcfcfc;
+            border-bottom: 1px solid #eeeeee; /* Changed from top to bottom border */
+            text-align: center;
+        }
+
+        .label { 
+            color: #999; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            letter-spacing: 2.5px; 
+            margin-bottom: 8px; 
+        }
+
+        .height { 
+            color: #F7931A; 
+            font-size: 32px; 
+            font-weight: bold; 
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* 3. Main Logo Section */
         .main-content {
             flex: 1;
             width: 100%;
@@ -48,34 +73,14 @@
             height: auto;
             display: block;
         }
-
-        /* 3. Footer / Block Status */
-        .footer-status {
-            width: 100%;
-            padding: 30px 0;
-            background: #fcfcfc;
-            border-top: 1px solid #eeeeee;
-            text-align: center;
-        }
-
-        .label { 
-            color: #999; 
-            font-size: 11px; 
-            text-transform: uppercase; 
-            letter-spacing: 2.5px; 
-            margin-bottom: 8px; 
-        }
-
-        .height { 
-            color: #F7931A; 
-            font-size: 32px; 
-            font-weight: bold; 
-            margin: 0;
-            font-family: 'Courier New', Courier, monospace; /* Monospaced for that 'ticker' feel */
-        }
     </style>
 </head>
 <body>
+
+    <header class="header-status">
+        <div class="label">Current Block Height</div>
+        <p id="block-height" class="height">-------</p>
+    </header>
 
     <main class="main-content">
         <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" class="logo-link">
@@ -83,18 +88,11 @@
         </a>
     </main>
 
-    <footer class="footer-status">
-        <div class="label">Current Block Height</div>
-        <p id="block-height" class="height">-------</p>
-    </footer>
-
     <script>
         async function updateBlock() {
             try {
-                // Fetching the current height from Mempool.space
                 const response = await fetch('https://mempool.space/api/blocks/tip/height');
                 const data = await response.text();
-                // Check if data is a number to ensure the API responded correctly
                 if (!isNaN(data)) {
                     document.getElementById('block-height').innerText = Number(data).toLocaleString();
                 }
@@ -104,7 +102,6 @@
             }
         }
 
-        // Initialize and set interval
         updateBlock();
         setInterval(updateBlock, 60000);
     </script>
