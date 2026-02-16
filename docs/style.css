@@ -18,30 +18,49 @@ html, body {
 
 /* 2. Header (Top) */
 .header-status {
+    position: relative; /* Necessary to pin the nav inside here */
     width: 100%;
     padding: 20px 0;
     background: #fcfcfc;
     border-bottom: 1px solid #eeeeee;
-    text-align: center;
-    flex-shrink: 0;
+    display: flex;
+    justify-content: center; /* Keeps the block height centered */
+    align-items: center;
+    min-height: 80px;
 }
 
-.label { 
-    color: #999; 
-    font-size: 11px; 
-    text-transform: uppercase; 
-    letter-spacing: 2.5px; 
-    margin-bottom: 8px; 
+/* Navigation Style */
+.top-nav {
+    position: absolute;
+    left: 20px; /* Distance from the left edge */
+    display: flex;
+    gap: 15px;
 }
 
-.height { 
-    color: #F7931A; 
-    font-size: 32px; 
-    font-weight: bold; 
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+.top-nav a {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
 }
 
+.top-nav a:hover {
+    color: #F7931A; /* Turns Bitcoin Orange on hover */
+}
+
+/* Mobile Tweak: If the screen is too small, we might want to hide or move it */
+@media (max-width: 768px) {
+    .top-nav {
+        position: static; /* Moves it back into the flow on small phones */
+        padding-bottom: 10px;
+    }
+    .header-status {
+        flex-direction: column; /* Stacks nav above block height on mobile */
+    }
+}
 /* 3. Main Content (The Logo) */
 .main-content {
     flex: 1;
