@@ -1,4 +1,4 @@
-/* 1. MASTER LAYOUT & RESET */
+/* 1. MASTER LAYOUT & ZOOM KILLERS */
 * {
     box-sizing: border-box;
 }
@@ -7,8 +7,10 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    /* These two lines stop the "Zoom" effect */
+    max-width: 100vw;
+    overflow-x: hidden; 
     min-height: 100vh;
-    overflow-x: hidden;
     background-color: #ffffff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     display: flex;
@@ -17,12 +19,11 @@ html, body {
 
 /* 2. HEADER SECTION */
 .header-status {
-    position: relative;
+    position: relative; /* Anchor for the hamburger */
     width: 100%;
     padding: 15px 0;
     background: #fcfcfc;
     border-bottom: 1px solid #eeeeee;
-    text-align: center;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -55,13 +56,16 @@ html, body {
     cursor: pointer;
     z-index: 1000;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .bar {
     display: block;
     width: 22px;
     height: 2px;
-    margin: 5px 0;
+    margin: 4px 0;
     background-color: #333;
     transition: 0.3s;
 }
@@ -71,13 +75,13 @@ html, body {
     top: 0;
     left: -100%; 
     width: 280px;
-    height: 100vh;
+    height: 100%;
     background-color: #ffffff;
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
-    transition: 0.4s ease;
+    padding-top: 80px;
+    transition: 0.3s ease-in-out;
     z-index: 999;
 }
 
@@ -96,5 +100,74 @@ html, body {
     border-bottom: 1px solid #f9f9f9;
 }
 
-.nav-menu a:hover {
-    color: #F7931A;
+/* 4. MAIN LOGO SECTION */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 100vw; /* Keeps the main area within screen bounds */
+}
+
+.logo-link {
+    display: block;
+    width: 90%;
+    max-width: 665px; /* Your 33% larger size */
+}
+
+.logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 60vh; 
+    object-fit: contain;
+}
+
+/* 5. FOOTER SECTION */
+.site-footer {
+    width: 100%;
+    background: #fcfcfc;
+    border-top: 1px solid #eeeeee;
+    padding: 20px 0;
+    flex-shrink: 0;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-text p {
+    margin: 0;
+    font-size: 11px;
+    color: #666;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-icons img {
+    filter: brightness(0);
+    width: 22px;
+    height: 22px;
+}
+
+/* 6. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .footer-row {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}
