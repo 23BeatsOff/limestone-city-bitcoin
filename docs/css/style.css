@@ -167,9 +167,10 @@ html, body {
 
 .footer-row {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column; /* Stacks text on top of icons */
+    align-items: center;    /* Centers them horizontally */
+    text-align: center;     /* Centers the lines of text */
+    gap: 20px;              /* Adds breathing room between text and icons */
 }
 
 .footer-text p {
