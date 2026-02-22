@@ -233,28 +233,3 @@ html, body {
     color: #F7931A;
     background-color: #fcfcfc;
 }
-
-/* 8. THE BLOCK DROP ANIMATION */
-@keyframes blockDrop {
-    0% {
-        transform: translateY(-500px) scale(0.8); /* Start high up and slightly smaller */
-        opacity: 0;
-    }
-    60% {
-        transform: translateY(20px) scale(1.02); /* Slight overshoot (the "thud") */
-        opacity: 1;
-    }
-    80% {
-        transform: translateY(-5px); /* Small bounce back up */
-    }
-    100% {
-        transform: translateY(0) scale(1); /* Final resting place */
-    }
-}
-
-/* Apply it to your logo */
-.logo-link img {
-    animation: blockDrop 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    /* This ensures it only happens once when the page loads */
-    will-change: transform; 
-}
