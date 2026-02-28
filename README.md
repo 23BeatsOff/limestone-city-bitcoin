@@ -29,7 +29,7 @@ We welcome contributions from fellow Bitcoiners! Whether you are a developer, a 
 ## 📡 Contact & Connect
 * **Website**: [limestonecitybitcoin.com](https://limestonecitybitcoin.com)
 * **Email**: hello@limestonecitybitcoin.com
-* **Signal**: [Join our secure community chat](https://signal.group/#...)
+* **Signal**: [Join our secure community chat](https://signal.group/#CjQKIN65dM3kLRkn1UcJwmxcDUcBEww4IGvL1FFIGee557yaEhAs_fvpE6t8Fa9Yn_PncDi8)
 * **Nostr**: [Insert Public Key if applicable]
 
 ---
