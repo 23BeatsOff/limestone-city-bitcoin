@@ -3,6 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Pioneers Directory - Canadian businesses, exchanges, and vendors supporting the Bitcoin ecosystem. Curated by Limestone City Bitcoin.">
+    <meta name="keywords" content="Bitcoin, Canada, Bull Bitcoin, Coinkite, Sparrow, Liana, exchanges, hardware wallet, Ontario">
+    <meta property="og:title" content="Pioneers | Limestone City Bitcoin">
+    <meta property="og:description" content="Directory of Canadian Bitcoin businesses and vendors supporting the circular economy.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./assets/images/logo.png">
+    <title>Pioneers | Limestone City Bitcoin</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="header-status">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+        <div class="header-center">
+            <div class="label">Current Block Height</div>
+            <p id="block-height" class="height">-------</p>
+        </div>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="what-is-bitcoin.html" class="nav-item">What is Bitcoin</a>
+            <a href="40hpw.html" class="nav-item">#40HPW</a>
+            <a href="pioneers.html" class="nav-item">Pioneers</a>
+            
+            <details class="nav-dropdown">
+                <summary>Resources</summary>
+                <div class="dropdown-content">
+                    <a href="./assets/resources/papers/bitcoin-white-paper-in-plain-text.pdf" target="_blank">The Bitcoin White Paper</a>
+                    <a href="recommended-reading.html">Recommended Reading</a>
+                    <a href="resources.html#technical">Technical Resources</a>
+                </div>
+            </details>
+
+            <a href="meetups.html" class="nav-item">Meetups</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content" style="flex-direction: column; align-items: flex-start; max-width: 885px; margin: 0 auto; padding: 40px 20px;">
+        <h1 style="color: #333; font-size: 24px; text-transform: uppercase; letter-spacing: 2px;">Pioneers</h1>
+        <p style="color: #666; margin-bottom: 40px;">A directory of the communities and businesses supporting the Bitcoin ecosystem and circular economies.</p>
+
+        <h2 style="color: #F7931A; font-size: 18px; border-bottom: 2px solid #F7931A; width: 100%; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase;">Community</h2>
+        <div style="width: 100%; margin-bottom: 40px;">
+            <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Ottawa Bitcoin Meetup</h3>
+                <p style="font-size: 14px; color: #555; margin: 5px 0;">A monthly gathering for everyone interested or active in Bitcoin. Learn, laugh, chat, and help us build a vibrant Bitcoin community in Ottawa.</p>
+                <a href="https://www.meetup.com/ottawa-bitcoin-group/" target="_blank" style="color: #F7931A; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase;">View Meetup →</a>
+            </div>
+        </div>
+
+        <h2 style="color: #F7931A; font-size: 18px; border-bottom: 2px solid #F7931A; width: 100%; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase;">Exchanges + Software</h2>
+        <div style="width: 100%; margin-bottom: 40px;">
+            <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Bull Bitcoin</h3>
+                <p style="font-size: 14px; color: #555; margin: 5px 0;">Canada's premier non-custodial exchange. Mission-driven to help Canadians achieve financial sovereignty.</p>
+                <a href="https://www.bullbitcoin.com/" target="_blank" style="color: #F7931A; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase;">Visit Website →</a>
+            </div>
+
+            <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Liana Wallet</h3>
+                <p style="font-size: 14px; color: #555; margin: 5px 0;">Open-source, Bitcoin-only wallet built with loss prevention in mind.</p>
+                <a href="https://lianawallet.com/" target="_blank" style="color: #F7931A; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase;">Visit Website →</a>
+            </div>
+
+            <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Sparrow Wallet</h3>
+                <p style="font-size: 14px; color: #555; margin: 5px 0;">Sparrow is a Bitcoin wallet for those who value financial self sovereignty. Sparrow's emphasis is on security, privacy and usability.</p>
+                <a href="https://github.com/sparrowwallet/sparrow/" target="_blank" style="color: #F7931A; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase;">Visit Website →</a>
+            </div>
+        </div>
+
+        <h2 style="color: #F7931A; font-size: 18px; border-bottom: 2px solid #F7931A; width: 100%; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase;">Vendors</h2>
+        <div style="width: 100%; margin-bottom: 40px;">
+            <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <h3 style="margin: 0; font-size: 16px; color: #333;">Coinkite</h3>
+                <p style="font-size: 14px; color: #555; margin: 5px 0;">Makers of the Coldcard. Based in Canada, providing the best hardware tools for securing your Bitcoin.</p>
+                <a href="https://coinkite.com/" target="_blank" style="color: #F7931A; text-decoration: none; font-size: 12px; font-weight: bold; text-transform: uppercase;">Shop Tools →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-text">
+                    <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>
+                </div>
+                <div class="footer-icons">
+                    <a href="https://signal.group/#..." target="_blank" aria-label="Signal Group">
+                        <img src="./assets/images/signal.svg" alt="Signal">
+                    </a>
+                    <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" target="_blank" aria-label="GitHub Repository">
+                        <img src="./assets/images/github.svg" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pioneers | Limestone City Bitcoin</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
