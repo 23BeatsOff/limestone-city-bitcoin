@@ -1,84 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- NEW META TAGS - Add these here -->
     <meta name="description" content="Limestone City Bitcoin - A Bitcoin meetup in Kingston, Ontario. Join us to learn about Bitcoin, meet fellow Bitcoiners, and orange-pill nocoiners.">
     <meta name="keywords" content="Bitcoin, meetup, Kingston, Limestone City, cryptocurrency, Ontario">
     <meta property="og:title" content="Limestone City Bitcoin">
     <meta property="og:description" content="Kingston's Bitcoin meetup - All are welcome!">
     <meta property="og:type" content="website">
-    
-    <!-- Favicon (the little icon in browser tabs) -->
     <link rel="icon" type="image/png" href="./assets/images/logo.png">
-    
     <title>Limestone City Bitcoin</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
 
     <header class="header-status">
-    <div class="menu-toggle" id="mobile-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-
-    <div class="header-center">
-        <div class="label">Current Block Height</div>
-        <p id="block-height" class="height">-------</p>
-    </div>
-
-    <nav class="nav-menu" id="nav-menu">
-    <a href="index.html" class="nav-item">Home</a>
-    <a href="about.html" class="nav-item">About</a>
-    <a href="what-is-bitcoin.html" class="nav-item">What is Bitcoin</a>
-    <a href="40hpw.html" class="nav-item">#40HPW</a>
-    <a href="pioneers.html" class="nav-item">Pioneers</a>
-    
-    <details class="nav-dropdown">
-        <summary>Resources</summary>
-        <div class="dropdown-content">
-            <a href="./assets/resources/papers/bitcoin-white-paper-in-plain-text.pdf" target="_blank">The Bitcoin White Paper</a>
-            
-            <a href="recommended-reading.html">Recommended Reading</a>
-            
-            <a href="resources.html#technical">Technical Resources</a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-    </details>
 
-    <a href="meetups.html" class="nav-item">Meetups</a>
-    <a href="contact.html" class="nav-item">Contact</a>
-</nav>
-</header>
+        <div class="header-center">
+            <div class="label">Current Block Height</div>
+            <p id="block-height" class="height">-------</p>
+        </div>
 
-    <main class="main-content">
-        <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" class="logo-link">
-            <img src="./assets/images/logo.png" alt="Limestone City Bitcoin">
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="what-is-bitcoin.html" class="nav-item">What is Bitcoin</a>
+            <a href="40hpw.html" class="nav-item">#40HPW</a>
+            <a href="pioneers.html" class="nav-item">Pioneers</a>
+            
+            <details class="nav-dropdown">
+                <summary>Resources</summary>
+                <div class="dropdown-content">
+                    <a href="block-bits.html">Block Bits</a>
+                    <a href="recommended-reading.html">Money Education</a>
+                    <a href="resources.html">Technical Resources</a>
+                </div>
+            </details>
+
+            <a href="meetups.html" class="nav-item">Meetups</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content" style="flex-direction: column; text-align: center; max-width: 800px; margin: 0 auto; padding: 40px 20px;">
+        
+        <!-- Logo -->
+        <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" class="logo-link" style="margin-bottom: 40px;">
+            <img src="./assets/images/logo.png" alt="Limestone City Bitcoin" style="max-width: 400px; width: 90%;">
         </a>
+
+        <!-- Welcome Section -->
+        <div style="margin-bottom: 50px;">
+            <h1 style="color: #333; font-size: 28px; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px;">Kingston's Bitcoin Meetup</h1>
+            <p style="color: #666; font-size: 18px; line-height: 1.6; max-width: 600px; margin: 0 auto 30px;">
+                Join us in the Limestone City to discuss Bitcoin, sound money, and freedom technology. 
+                All are welcome—from curious beginners to seasoned cypherpunks.
+            </p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="what-is-bitcoin.html" style="display: inline-block; background: #F7931A; color: white; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 14px;">New to Bitcoin?</a>
+                <a href="contact.html" style="display: inline-block; background: #fff; color: #333; border: 2px solid #333; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; text-transform: uppercase; font-size: 14px;">Join the Community</a>
+            </div>
+        </div>
+
+        <!-- Featured Block Bits Post -->
+        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 8px; padding: 30px; margin-bottom: 40px; text-align: left; width: 100%;">
+            <div style="color: #F7931A; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Latest from Block Bits</div>
+            <h2 style="color: #333; font-size: 20px; margin-bottom: 10px;">Owen's First Year Out of University</h2>
+            <p style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 15px;">
+                A Queen's graduate discovers Bitcoin in the Limestone City. A story about doing everything "right" but still feeling like you're running in place—and finding a new way forward.
+            </p>
+            <a href="block-bits.html" style="color: #F7931A; text-decoration: none; font-weight: bold; font-size: 13px; text-transform: uppercase;">Read the Story →</a>
+        </div>
+
+        <!-- Quick Links Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; width: 100%; margin-top: 20px;">
+            
+            <a href="pioneers.html" style="text-decoration: none; color: inherit;">
+                <div style="padding: 20px; border: 1px solid #eee; border-radius: 8px; transition: 0.3s;">
+                    <h3 style="color: #F7931A; font-size: 16px; margin-bottom: 8px; text-transform: uppercase;">Pioneers</h3>
+                    <p style="color: #666; font-size: 14px; margin: 0;">Canadian Bitcoin businesses and tools</p>
+                </div>
+            </a>
+
+            <a href="40hpw.html" style="text-decoration: none; color: inherit;">
+                <div style="padding: 20px; border: 1px solid #eee; border-radius: 8px; transition: 0.3s;">
+                    <h3 style="color: #F7931A; font-size: 16px; margin-bottom: 8px; text-transform: uppercase;">#40HPW</h3>
+                    <p style="color: #666; font-size: 14px; margin: 0;">Value-for-Value podcasts we love</p>
+                </div>
+            </a>
+
+            <a href="recommended-reading.html" style="text-decoration: none; color: inherit;">
+                <div style="padding: 20px; border: 1px solid #eee; border-radius: 8px; transition: 0.3s;">
+                    <h3 style="color: #F7931A; font-size: 16px; margin-bottom: 8px; text-transform: uppercase;">Reading</h3>
+                    <p style="color: #666; font-size: 14px; margin: 0;">Free books on sound money</p>
+                </div>
+            </a>
+
+        </div>
+
     </main>
 
     <footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-row">
-            <div class="footer-text">
-                <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>
-            </div>
-            <div class="footer-icons">
-                <a href="https://signal.group/#..." target="_blank" aria-label="Signal Group">
-                    <img src="./assets/images/signal.svg" alt="Signal">
-                </a>
-                <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" target="_blank" aria-label="GitHub Repository">
-                    <img src="./assets/images/github.svg" alt="GitHub">
-                </a>
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-text">
+                    <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>
+                </div>
+                <div class="footer-icons">
+                    <a href="https://signal.group/#CjQKIN65dM3kLRkn1UcJwmxcDUcBEww4IGvL1FFIGee557yaEhAs_fvpE6t8Fa9Yn_PncDi8" target="_blank" aria-label="Signal Group">
+                        <img src="./assets/images/signal.svg" alt="Signal">
+                    </a>
+                    <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" target="_blank" aria-label="GitHub Repository">
+                        <img src="./assets/images/github.svg" alt="GitHub">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
-        <script src="./js/script.js"></script>
+    </footer>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
