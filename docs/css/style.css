@@ -206,12 +206,19 @@ html, body {
 .footer-icons {
     display: flex;
     gap: 21px;
+    align-items: center;
 }
 
 .footer-icons img {
     filter: brightness(0);
     width: 23px;
     height: 23px;
+}
+
+/* Nostr icon size adjustment */
+.footer-icons img[alt="Nostr"] {
+    width: 27px;
+    height: 27px;
 }
 
 /* 7. RESPONSIVE DESIGN */
@@ -270,7 +277,6 @@ html, body {
    9. PAGE LAYOUT — shared across inner pages
    ============================================== */
 
-/* The main content wrapper for all inner pages */
 .page-wrapper {
     flex-direction: column;
     align-items: flex-start;
@@ -279,7 +285,6 @@ html, body {
     padding: 40px 20px;
 }
 
-/* Page title — the big H1 at the top of each page */
 .page-title {
     color: #333;
     font-size: 26px;
@@ -288,7 +293,6 @@ html, body {
     margin-bottom: 5px;
 }
 
-/* Orange subtitle line beneath the page title */
 .page-subtitle {
     color: #F7931A;
     font-weight: bold;
@@ -296,7 +300,6 @@ html, body {
     font-size: 19px;
 }
 
-/* Standard body text */
 .page-body {
     line-height: 1.8;
     color: #444;
@@ -308,7 +311,6 @@ html, body {
    10. SECTION HEADINGS
    ============================================== */
 
-/* Orange section heading with underline — used in Pioneers, Meetups */
 .section-heading-orange {
     color: #F7931A;
     font-size: 18px;
@@ -319,7 +321,6 @@ html, body {
     text-transform: uppercase;
 }
 
-/* Grey section heading with underline — used in recommended-reading, resources */
 .section-heading-grey {
     color: #333;
     font-size: 19px;
@@ -330,7 +331,6 @@ html, body {
     margin-bottom: 20px;
 }
 
-/* Article/content H2 — inline with content, no full-width underline */
 .content-heading {
     color: #F7931A;
     font-size: 18px;
@@ -344,7 +344,6 @@ html, body {
    11. DIRECTORY ENTRIES — Pioneers, 40HPW, Reading
    ============================================== */
 
-/* Wrapper for each entry row */
 .entry {
     margin-bottom: 25px;
     border-bottom: 1px solid #eee;
@@ -352,21 +351,18 @@ html, body {
     width: 100%;
 }
 
-/* Entry title */
 .entry-title {
     margin: 0;
     font-size: 16px;
     color: #333;
 }
 
-/* Entry description */
 .entry-desc {
     font-size: 14px;
     color: #555;
     margin: 5px 0;
 }
 
-/* Entry link — orange arrow style */
 .entry-link {
     color: #F7931A;
     text-decoration: none;
@@ -379,7 +375,6 @@ html, body {
     text-decoration: underline;
 }
 
-/* Entry group wrapper — adds bottom margin to a section of entries */
 .entry-group {
     width: 100%;
     margin-bottom: 40px;
@@ -390,7 +385,6 @@ html, body {
    12. CALLOUT / INFO BOXES
    ============================================== */
 
-/* Orange left-border info box — used in 40HPW, block-bits */
 .callout-box {
     background: #fff8f0;
     border-left: 4px solid #F7931A;
@@ -406,7 +400,6 @@ html, body {
     line-height: 1.6;
 }
 
-/* Light grey info box — used in 40HPW for Fountain app */
 .info-box {
     width: 100%;
     margin-bottom: 30px;
@@ -440,7 +433,6 @@ html, body {
    13. BUTTONS
    ============================================== */
 
-/* Solid orange button */
 .btn-primary {
     display: inline-block;
     background: #F7931A;
@@ -458,7 +450,6 @@ html, body {
     background: #e07f0f;
 }
 
-/* Outlined dark button */
 .btn-secondary {
     display: inline-block;
     border: 2px solid #333;
