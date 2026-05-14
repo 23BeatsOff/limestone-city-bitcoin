@@ -66,25 +66,23 @@ html, body {
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 1000;
-    padding: 16px; /* Larger touch target */
+    padding: 16px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 6px; /* More space between bars */
+    gap: 6px;
 }
 
-/* Larger, thicker Bitcoin orange bars */
 .bar {
     display: block;
-    width: 32px; /* Increased from 25px */
-    height: 4px; /* Increased from 2.5px */
-    background-color: #F7931A; /* Bitcoin orange */
+    width: 32px;
+    height: 4px;
+    background-color: #F7931A;
     transition: 0.3s;
     border-radius: 2px;
 }
 
-/* Add MENU text below the bars */
 .menu-toggle::after {
     content: 'MENU';
     font-size: 10px;
@@ -95,7 +93,6 @@ html, body {
     transition: 0.3s;
 }
 
-/* When menu is open, change to X and show CLOSE */
 .menu-toggle.is-active .bar:nth-child(1) {
     transform: rotate(-45deg) translate(-7px, 7px);
     background-color: #333;
@@ -224,7 +221,6 @@ html, body {
         text-align: center;
     }
     
-    /* Slightly smaller menu on mobile but still prominent */
     .menu-toggle {
         padding: 12px;
     }
@@ -267,4 +263,371 @@ html, body {
 .nav-dropdown summary:hover {
     color: #F7931A;
     background-color: #fcfcfc;
+}
+
+
+/* ==============================================
+   9. PAGE LAYOUT — shared across inner pages
+   ============================================== */
+
+/* The main content wrapper for all inner pages */
+.page-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 885px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Page title — the big H1 at the top of each page */
+.page-title {
+    color: #333;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+/* Orange subtitle line beneath the page title */
+.page-subtitle {
+    color: #F7931A;
+    font-weight: bold;
+    margin-bottom: 40px;
+    font-size: 19px;
+}
+
+/* Standard body text */
+.page-body {
+    line-height: 1.8;
+    color: #444;
+    font-size: 16px;
+}
+
+
+/* ==============================================
+   10. SECTION HEADINGS
+   ============================================== */
+
+/* Orange section heading with underline — used in Pioneers, Meetups */
+.section-heading-orange {
+    color: #F7931A;
+    font-size: 18px;
+    border-bottom: 2px solid #F7931A;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Grey section heading with underline — used in recommended-reading, resources */
+.section-heading-grey {
+    color: #333;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Article/content H2 — inline with content, no full-width underline */
+.content-heading {
+    color: #F7931A;
+    font-size: 18px;
+    margin: 30px 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ==============================================
+   11. DIRECTORY ENTRIES — Pioneers, 40HPW, Reading
+   ============================================== */
+
+/* Wrapper for each entry row */
+.entry {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    width: 100%;
+}
+
+/* Entry title */
+.entry-title {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Entry description */
+.entry-desc {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Entry link — orange arrow style */
+.entry-link {
+    color: #F7931A;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.entry-link:hover {
+    text-decoration: underline;
+}
+
+/* Entry group wrapper — adds bottom margin to a section of entries */
+.entry-group {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+
+/* ==============================================
+   12. CALLOUT / INFO BOXES
+   ============================================== */
+
+/* Orange left-border info box — used in 40HPW, block-bits */
+.callout-box {
+    background: #fff8f0;
+    border-left: 4px solid #F7931A;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 0 5px 5px 0;
+}
+
+.callout-box p {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Light grey info box — used in 40HPW for Fountain app */
+.info-box {
+    width: 100%;
+    margin-bottom: 30px;
+    background: #fafafa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #F7931A;
+}
+
+.info-box h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.info-box a {
+    color: #F7931A;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ==============================================
+   13. BUTTONS
+   ============================================== */
+
+/* Solid orange button */
+.btn-primary {
+    display: inline-block;
+    background: #F7931A;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btn-primary:hover {
+    background: #e07f0f;
+}
+
+/* Outlined dark button */
+.btn-secondary {
+    display: inline-block;
+    border: 2px solid #333;
+    color: #333;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #333;
+    color: #fff;
+}
+
+
+/* ==============================================
+   14. RECOMMENDED READING — book entries
+   ============================================== */
+
+.book-entry {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.book-title {
+    margin: 0;
+    font-size: 18px;
+    color: #F7931A;
+}
+
+.book-title span {
+    color: #333;
+}
+
+.book-desc {
+    font-size: 15px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.book-link {
+    color: #F7931A;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.book-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ==============================================
+   15. BLOCK BITS — blog post styles
+   ============================================== */
+
+.post-header {
+    margin-bottom: 25px;
+}
+
+.post-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.post-meta {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.post-content {
+    line-height: 1.8;
+    color: #444;
+    font-size: 16px;
+}
+
+.post-content p {
+    margin-bottom: 20px;
+}
+
+.post-blockquote {
+    background: #fff8f0;
+    border-left: 4px solid #F7931A;
+    padding: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #555;
+}
+
+.post-tags {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.post-tags p {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+.tag {
+    background: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 13px;
+}
+
+
+/* ==============================================
+   16. CONTACT PAGE
+   ============================================== */
+
+.contact-section {
+    width: 100%;
+    line-height: 1.8;
+    color: #444;
+    font-size: 17px;
+}
+
+.contact-block {
+    margin-bottom: 40px;
+}
+
+.contact-box {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #fafafa;
+    border-left: 4px solid #F7931A;
+    border-radius: 4px;
+}
+
+.contact-box h3 {
+    margin-top: 0;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.contact-email {
+    color: #F7931A;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.contact-note {
+    font-size: 14px;
+    color: #888;
+    margin-top: 15px;
+}
+
+.contact-heading {
+    color: #333;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
