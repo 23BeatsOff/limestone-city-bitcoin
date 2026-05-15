@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Long View Series — Article 3: Who Taught You How to Think? On education, frameworks, and intellectual freedom.">
+    <meta name="keywords" content="Bitcoin, education, critical thinking, Long View, Kingston, Block Bits, monetary system">
+    <meta property="og:title" content="Who Taught You How to Think? | Block Bits">
+    <meta property="og:description" content="The Long View Series, Article 3 of 6. On education, frameworks, and intellectual freedom.">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/png" href="./assets/images/logo.png">
+    <title>Who Taught You How to Think? | Block Bits</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header class="header-status">
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+        <div class="header-center">
+            <div class="label">Current Block Height</div>
+            <p id="block-height" class="height">-------</p>
+        </div>
+        <nav class="nav-menu" id="nav-menu">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="what-is-bitcoin.html" class="nav-item">What is Bitcoin</a>
+            <a href="40hpw.html" class="nav-item">#40HPW</a>
+            <a href="pioneers.html" class="nav-item">Pioneers</a>
+            <details class="nav-dropdown">
+                <summary>Resources</summary>
+                <div class="dropdown-content">
+                    <details class="nav-dropdown">
+                        <summary>Block Bits</summary>
+                        <div class="nested-dropdown-content">
+                            <a href="long-view-index.html">The Long View Series</a>
+                            <a href="block-bits-owen.html">Owen's First Year</a>
+                        </div>
+                    </details>
+                    <a href="recommended-reading.html">Money Education</a>
+                    <a href="resources.html">Technical Resources</a>
+                </div>
+            </details>
+            <a href="meetups.html" class="nav-item">Meetups</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+        </nav>
+    </header>
+
+    <main class="main-content page-wrapper">
+
+        <div style="color: #F7931A; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">The Long View Series — Article 3 of 6</div>
+
+        <article style="width: 100%;">
+
+            <header class="post-header">
+                <h1 class="post-title">Who Taught You How to Think?</h1>
+                <div class="post-meta">
+                    <span>By Long View</span> | <span>May 2026</span> | <span>~4 min read</span>
+                </div>
+            </header>
+
+            <div class="post-content">
+
+                <p>Education shapes more than what we know. It shapes how we reason.</p>
+
+                <p>There's a question that rarely gets asked in school: why are we learning this, and who decided it was worth knowing?</p>
+
+                <p>Not in a cynical way — but genuinely. Educational systems don't just transmit knowledge. They transmit frameworks for making sense of the world. And those frameworks, once internalized, can be remarkably difficult to examine from the outside.</p>
+
+                <h2 class="content-heading">The Curriculum Isn't Neutral</h2>
+
+                <p>Every educational system involves choices: what to include, what to leave out, which questions to treat as settled, and which to treat as open. These choices reflect values, assumptions, and priorities — often those of the institutions or societies that design the curriculum.</p>
+
+                <p>This doesn't make education harmful. It makes it human. Any attempt to teach anything involves selection and framing. The question is whether students are taught to notice the frame — or just to operate within it.</p>
+
+                <p>In most systems, it's the latter.</p>
+
+                <blockquote class="post-blockquote">
+                    "Thinking doesn't happen in isolation. It happens within systems. And if that's true — how often do we actually question the structure that shaped the way we think?"
+                </blockquote>
+
+                <h2 class="content-heading">What Gets Left Out</h2>
+
+                <p>Consider what most people are never formally taught: how monetary systems work. How money is created. What inflation actually is and who controls it. The history of financial crises and their structural causes.</p>
+
+                <p>These aren't obscure topics. They affect every person who earns, saves, or spends. But they're largely absent from standard education. And their absence isn't neutral — it shapes what questions people think to ask.</p>
+
+                <p>Someone who has never been taught to examine monetary systems is less likely to question them. Not because they're incapable of critical thought, but because they've never been handed the tools for this particular inquiry.</p>
+
+                <h2 class="content-heading">The Value of Unlearning</h2>
+
+                <p>Some of the most interesting intellectual work involves not just learning new things, but noticing assumptions you didn't know you had.</p>
+
+                <p>This is harder than it sounds. Assumptions that feel like common sense are precisely the ones that are most difficult to see. They're invisible because they feel like reality, not like a perspective.</p>
+
+                <p>But the ability to examine inherited frameworks — rather than just operate within them — is one of the most practically useful capacities a person can develop. It's the difference between thinking within a system and thinking about it.</p>
+
+                <p>There's a catch, though. Even if you develop that capacity individually, you don't think in isolation. You think inside a society — with its own currents, its own consensus, its own quiet pressure toward certain conclusions and away from others. Individual critical thinking and collective conformity are in tension. That tension is where we go next.</p>
+
+                <div class="callout-box" style="margin-top: 40px;">
+                    <p><strong>Key Takeaway</strong> — Education shapes not just what we know, but the questions we think to ask. Building genuine intellectual freedom means developing the habit of examining frameworks — not just operating within them.</p>
+                </div>
+
+            </div>
+
+        </article>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 50px; padding-top: 30px; border-top: 2px solid #F7931A; flex-wrap: wrap; gap: 15px;">
+            <a href="long-view-2.html" class="btn-secondary">← Previous: Why Your Money Is Working Against You</a>
+            <a href="long-view-4.html" class="btn-primary">Next: The Crowd and the Individual →</a>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-row">
+                <div class="footer-text">
+                    <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>
+                </div>
+                <div class="footer-icons">
+                    <a href="https://signal.group/#CjQKIN65dM3kLRkn1UcJwmxcDUcBEww4IGvL1FFIGee557yaEhAs_fvpE6t8Fa9Yn_PncDi8" target="_blank" aria-label="Signal Group">
+                        <img src="./assets/images/signal.svg" alt="Signal">
+                    </a>
+                    <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" target="_blank" aria-label="GitHub Repository">
+                        <img src="./assets/images/github.svg" alt="GitHub">
+                    </a>
+                    <a href="https://njump.me/npub17exm4s7zmaxuyeljm0w22gfuhqlf82zedqjf3eaxk55m7tv3ug9see3cl4" target="_blank" aria-label="Nostr Profile">
+                        <img src="./assets/images/nostr.svg" alt="Nostr">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
