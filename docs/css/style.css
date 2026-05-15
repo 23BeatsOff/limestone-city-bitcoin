@@ -126,6 +126,7 @@ html, body {
     padding-top: 80px;
     transition: 0.3s ease-in-out;
     z-index: 999;
+    overflow-y: auto;
 }
 
 .nav-menu.active {
@@ -238,7 +239,7 @@ html, body {
     }
 }
 
-/* 8. Dropdown specific styling */
+/* 8. DROPDOWN SPECIFIC STYLING */
 .nav-dropdown summary {
     list-style: none;
     outline: none;
@@ -258,7 +259,8 @@ html, body {
     background-color: #fdfdfd;
 }
 
-.dropdown-content a {
+/* Level 1 dropdown links — Resources children */
+.dropdown-content > a {
     padding: 15.7px 63px !important;
     font-size: 14.7px !important;
     text-transform: none !important;
@@ -272,9 +274,48 @@ html, body {
     background-color: #fcfcfc;
 }
 
+/* 9. NESTED DROPDOWN — Block Bits submenu */
+
+/* The nested <details> inside .dropdown-content */
+.dropdown-content .nav-dropdown summary {
+    padding: 15.7px 63px !important;
+    font-size: 14.7px !important;
+    text-transform: none !important;
+    border-bottom: 1px solid #eee !important;
+    color: #666 !important;
+    font-weight: 500;
+    background-color: #fdfdfd;
+}
+
+.dropdown-content .nav-dropdown summary:hover {
+    color: #F7931A;
+    background-color: #fcfcfc;
+}
+
+/* Level 2 dropdown links — Block Bits children */
+.nested-dropdown-content {
+    background-color: #f7f7f7;
+}
+
+.nested-dropdown-content a {
+    padding: 13px 80px !important;
+    font-size: 13.5px !important;
+    text-transform: none !important;
+    border-bottom: 1px solid #eee !important;
+    color: #888 !important;
+    display: block;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.nested-dropdown-content a:hover {
+    color: #F7931A !important;
+    background-color: #fcfcfc;
+}
+
 
 /* ==============================================
-   9. PAGE LAYOUT — shared across inner pages
+   10. PAGE LAYOUT — shared across inner pages
    ============================================== */
 
 .page-wrapper {
@@ -308,7 +349,7 @@ html, body {
 
 
 /* ==============================================
-   10. SECTION HEADINGS
+   11. SECTION HEADINGS
    ============================================== */
 
 .section-heading-orange {
@@ -341,7 +382,7 @@ html, body {
 
 
 /* ==============================================
-   11. DIRECTORY ENTRIES — Pioneers, 40HPW, Reading
+   12. DIRECTORY ENTRIES — Pioneers, 40HPW, Reading
    ============================================== */
 
 .entry {
@@ -382,7 +423,7 @@ html, body {
 
 
 /* ==============================================
-   12. CALLOUT / INFO BOXES
+   13. CALLOUT / INFO BOXES
    ============================================== */
 
 .callout-box {
@@ -430,7 +471,7 @@ html, body {
 
 
 /* ==============================================
-   13. BUTTONS
+   14. BUTTONS
    ============================================== */
 
 .btn-primary {
@@ -470,7 +511,7 @@ html, body {
 
 
 /* ==============================================
-   14. RECOMMENDED READING — book entries
+   15. RECOMMENDED READING — book entries
    ============================================== */
 
 .book-entry {
@@ -510,7 +551,7 @@ html, body {
 
 
 /* ==============================================
-   15. BLOCK BITS — blog post styles
+   16. BLOCK BITS — blog post styles
    ============================================== */
 
 .post-header {
@@ -571,7 +612,7 @@ html, body {
 
 
 /* ==============================================
-   16. CONTACT PAGE
+   17. CONTACT PAGE
    ============================================== */
 
 .contact-section {
