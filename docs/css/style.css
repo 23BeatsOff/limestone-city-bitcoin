@@ -612,7 +612,120 @@ html, body {
 
 
 /* ==============================================
-   17. CONTACT PAGE
+   17. EYEBROW LABEL — small orange kicker
+   ============================================== */
+
+.eyebrow {
+    color: #F7931A;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+
+/* ==============================================
+   18. POST NAVIGATION — prev / next row
+   ============================================== */
+
+.post-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 2px solid #F7931A;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+/* ==============================================
+   19. HOME PAGE — hero + featured series box
+   ============================================== */
+
+.home-main {
+    flex-direction: column;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.home-logo {
+    margin: 0 auto 40px auto;
+    display: block;
+    max-width: 550px;
+    width: 90%;
+}
+
+.home-logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.home-welcome {
+    margin-bottom: 50px;
+}
+
+.home-title {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.home-lead {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Larger CTA buttons used in the home hero */
+.btn-lg {
+    padding: 12px 30px;
+    font-size: 14px;
+}
+
+.featured-box {
+    background: #fcfcfc;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: left;
+    width: 100%;
+}
+
+.featured-title {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.featured-desc {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+/* ==============================================
+   20. CONTACT PAGE
    ============================================== */
 
 .contact-section {
