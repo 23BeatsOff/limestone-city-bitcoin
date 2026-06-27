@@ -1,0 +1,71 @@
+---
+layout: default
+title: "Using Bitcoin as Money | Limestone City Bitcoin"
+description: "How to send and receive Bitcoin — addresses, fees, confirmations, and the Lightning Network — plus why circulating Bitcoin and supporting Value-for-Value matters."
+keywords: "sending Bitcoin, receiving Bitcoin, Bitcoin transaction fees, sats per vbyte, confirmations, Lightning Network, Value for Value, V4V, Bitcoin as money, Kingston Bitcoin"
+og_description: "How to send and receive Bitcoin, and why using it as money matters."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Using Bitcoin as Money</h1>
+        <p class="page-subtitle">Sending, receiving, and Value-for-Value</p>
+
+        <article class="post-content">
+
+            <h2 class="section-heading-grey">Bitcoin Is Money — So Use It</h2>
+            <p>It's easy to think of Bitcoin as something you just buy and hold. Saving in sound money is powerful — but money has a second job: it has to <strong>move</strong>. A currency nobody can spend or earn isn't really money; it's a collectible.</p>
+            <p>Bitcoin was designed as <em>peer-to-peer electronic cash</em> — money you can send to anyone, anywhere, without asking a bank's permission. It only reaches its potential when we actually use it that way: paying a local vendor, tipping a creator, settling up with a friend. The more we circulate Bitcoin, the stronger and more useful the network we're all building becomes.</p>
+
+            <h2 class="section-heading-grey">Value-for-Value: Money With Meaning</h2>
+            <p>One of the most natural ways to start using Bitcoin as money is <strong>Value-for-Value</strong> (V4V). Instead of ads, paywalls, or middlemen, V4V lets you support the people and projects you appreciate by sending them Bitcoin directly — streaming a few sats per minute to a podcaster as you listen, or sending a "boost" when something really lands.</p>
+            <p>It's a quiet revolution: real money flowing straight from listener to creator, with no platform skimming the middle. Our <a href="40hpw.html" class="entry-link" style="text-transform: none; font-size: inherit;">#40HPW</a> page is full of Value-for-Value podcasts you can support this way. But to take part — and to use Bitcoin as money at all — you need to be comfortable <strong>sending and receiving</strong>. Here's how it works.</p>
+
+            <h2 class="section-heading-grey">Two Layers: The Base Chain and Lightning</h2>
+            <p>Bitcoin has two layers, and it helps to know which one you're using:</p>
+            <ul>
+                <li><strong>The base chain</strong> is the bedrock — every transaction is recorded on the blockchain, settled and final. It's ideal for larger amounts and savings, costs a small fee, and takes a confirmation or two. It's what most of this guide describes.</li>
+                <li><strong>The Lightning Network</strong> sits on top of Bitcoin and is built for the small, everyday stuff: payments that are near-instant and cost a fraction of a cent. This is what makes <strong>Value-for-Value</strong> practical — streaming sats and sending boosts without paying a base-chain fee each time.</li>
+            </ul>
+            <p>Most people use both: Lightning for spending and V4V, the base chain for bigger payments and moving savings into cold storage.</p>
+
+            <h2 class="section-heading-grey">Receiving Bitcoin</h2>
+            <p>To get paid, you share a Bitcoin <strong>address</strong> — a string of letters and numbers that acts as a destination. Your wallet can show it as text or as a <strong>QR code</strong> for someone to scan, which avoids typos.</p>
+            <ul>
+                <li><strong>A fresh address each time.</strong> Good wallets create a new address for every payment. That's for privacy — it makes it harder for anyone to link your payments together. Reusing an old address works, but a new one is better.</li>
+                <li><strong>Built-in error checking.</strong> Every address carries a checksum, so your wallet will reject one with a typo. You only need to eyeball the first and last few characters.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Sending Bitcoin</h2>
+            <p>Sending takes three things: the recipient's <strong>address</strong>, an <strong>amount</strong> (in bitcoin or sats), and a <strong>fee</strong>. Your wallet then builds the transaction and broadcasts it to the network.</p>
+            <div class="callout-box">
+                <p><strong>⚠️ Bitcoin transactions are final.</strong> There's no "undo" and no support line to call. If you send to the wrong address, the coins are gone. Always double-check the address (the first and last few characters), and for a large payment, <strong>send a small test amount first</strong>.</p>
+            </div>
+
+            <h2 class="section-heading-grey">Fees: Paying for Block Space</h2>
+            <p>Every transaction competes for limited space in the next block. Unconfirmed transactions wait in the <strong>mempool</strong> (a kind of waiting room), and miners include the ones offering the most. Fees are priced in <strong>sats per vByte</strong> — satoshis per unit of transaction size — not as a percentage of the amount you send.</p>
+            <ul>
+                <li><strong>In a hurry?</strong> Pay a higher feerate to land in the next block or two.</li>
+                <li><strong>Not in a hurry?</strong> Pay a lower feerate and let it confirm when the network is quieter. When things are calm, even 1 sat/vByte gets there.</li>
+                <li><strong>Stuck?</strong> If a low-fee transaction stalls, most wallets let you <strong>bump the fee</strong> to speed it up. Unconfirmed transactions are eventually dropped after about two weeks, so bump it rather than wait forever.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Confirmations</h2>
+            <p>Your transaction is <strong>confirmed</strong> once it's included in a mined block. Each new block stacked on top adds another confirmation, making it ever harder to reverse.</p>
+            <ul>
+                <li><strong>1 confirmation</strong> is plenty for everyday payments.</li>
+                <li><strong>2 confirmations</strong> guard against rare, natural chain reorganizations.</li>
+                <li><strong>6 confirmations</strong> is old-school caution — really only needed for very large amounts.</li>
+            </ul>
+            <p>Every transaction has a <strong>TXID</strong> (a unique ID). Paste it into a block explorer like <a href="https://mempool.space/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">mempool.space</a> to watch it confirm in real time.</p>
+
+            <h2 class="section-heading-grey">One More Thing: Change</h2>
+            <p>Bitcoin works a bit like cash. If you pay 0.3 from a 1.0 "bill," your wallet sends the 0.7 remainder back to a <strong>change address</strong> that you control. It's automatic — but it's why the total leaving your wallet can look bigger than what you sent. Nothing is lost; the change comes right back to you.</p>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Ready to start?</strong> Pick a wallet on our <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a> page, get some sats, and support a creator from the <a href="40hpw.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">#40HPW</a> list — there's no better way to learn than to actually use it. Bring your questions to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
