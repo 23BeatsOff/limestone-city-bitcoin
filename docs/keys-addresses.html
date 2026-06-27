@@ -1,0 +1,65 @@
+---
+layout: default
+title: "Keys & Addresses | Limestone City Bitcoin"
+description: "How Bitcoin keys and addresses work — private keys, elliptic-curve public keys, hashing to an address, address types, signatures, and HD wallets (seed, derivation paths, xpub)."
+keywords: "Bitcoin private key, public key, address, secp256k1, elliptic curve, HASH160, Base58Check, Bech32, Taproot, HD wallet, BIP32, BIP39, derivation path, xpub, watch-only, Kingston Bitcoin"
+og_description: "Private keys, public keys, addresses, and HD wallets — the cryptography behind owning Bitcoin."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Keys &amp; Addresses</h1>
+        <p class="page-subtitle">The cryptography behind owning Bitcoin</p>
+
+        <article class="post-content">
+
+            <p>We keep saying <em>"not your keys, not your coins."</em> This guide is about what those keys actually are. Owning Bitcoin really means knowing a secret number — and everything else (your public key, your addresses, your signatures) flows from it in one direction. Once you see that chain, a lot of Bitcoin clicks into place.</p>
+
+            <h2 class="section-heading-grey">Your Private Key: One Enormous Number</h2>
+            <img src="./assets/images/doodles/key-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>A <strong>private key</strong> is, at heart, just a <strong>randomly generated 256-bit number</strong> — any whole number from 1 up to about <em>1.16 × 10<sup>77</sup></em>. That's a number with 77 digits, comparable to the number of atoms in the observable universe. The space is so unimaginably vast that two people generating keys will never collide, and no one can guess yours.</p>
+            <p>Whoever knows the private key controls the coins — full stop. That's why it must stay secret, and why you never type it anywhere. In practice you'll rarely see it: your wallet generates and stores it for you, derived from your recovery phrase (more on that below).</p>
+
+            <h2 class="section-heading-grey">Your Public Key: Derived, Not Chosen</h2>
+            <p>From your private key, your wallet computes a matching <strong>public key</strong> using <strong>elliptic-curve cryptography</strong> on a specific curve called <strong>secp256k1</strong>. The magic is that this is a <strong>one-way function</strong>: it's trivial to go from private key to public key, but — even with all the computers on Earth — effectively impossible to work backwards.</p>
+            <p>That asymmetry is the whole trick. You can hand out your public key freely; it reveals nothing about the private key that produced it. (Public keys come in a <strong>compressed</strong> form of ~66 hex characters, which modern wallets use, and an older <strong>uncompressed</strong> ~130-character form — same security, just shorter.)</p>
+
+            <h2 class="section-heading-grey">From Public Key to Address</h2>
+            <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>An <strong>address</strong> is one more step removed. Your wallet takes the public key and <strong>hashes</strong> it — runs it through <strong>SHA-256 and then RIPEMD-160</strong> (together called <strong>HASH160</strong>) — and then <strong>encodes</strong> the result into the friendly string you share, complete with a built-in <strong>checksum</strong> so typos get caught.</p>
+            <p>Why add hashing? Three reasons: the address is shorter and easier to handle, the checksum protects against errors, and it adds another one-way layer — your public key isn't even revealed on-chain until you actually spend. It's defense in depth, for free.</p>
+
+            <h2 class="section-heading-grey">The Flavours of Address</h2>
+            <p>The encoding step is why addresses come in different shapes:</p>
+            <ul>
+                <li><strong>P2PKH</strong> — legacy, Base58Check, starts with <code>1</code>.</li>
+                <li><strong>P2SH</strong> — script addresses, Base58Check, starts with <code>3</code>.</li>
+                <li><strong>Native SegWit (P2WPKH)</strong> — Bech32, starts with <code>bc1q</code>. Cheaper to spend.</li>
+                <li><strong>Taproot (P2TR)</strong> — Bech32m, starts with <code>bc1p</code>. The newest, best for privacy.</li>
+            </ul>
+            <p>When a wallet offers the choice, prefer a <code>bc1</code> address — they have lower fees and better error detection. (We touch on this in <a href="using-bitcoin-as-money.html" class="entry-link" style="text-transform: none; font-size: inherit;">Using Bitcoin as Money</a>.)</p>
+
+            <h2 class="section-heading-grey">A One-Way Street</h2>
+            <img src="./assets/images/doodles/signing-pen.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>So the whole chain runs in a single direction:</p>
+            <p style="text-align: center; font-weight: 500; color: #333;">private key → public key → address</p>
+            <p>You can never run it backwards — not from an address to a public key, nor from a public key to a private key. This is what makes self-custody both powerful and unforgiving: share your address all day long, but <strong>if you lose the private key (your seed), the coins are gone</strong> — there's no reset.</p>
+            <p>It's also how spending works without ever exposing your secret. To send coins, your wallet uses the private key to produce a <strong>signature</strong> over the transaction. Anyone can verify that signature against your public key — proving the coins are yours to move — yet the key itself never leaves your device.</p>
+
+            <h2 class="section-heading-grey">HD Wallets: One Seed, Endless Keys</h2>
+            <img src="./assets/images/doodles/seed-words-paper.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Managing one private key per coin would be a nightmare. So modern wallets are <strong>hierarchical deterministic (HD)</strong>: your <strong>recovery phrase</strong> (a 12- or 24-word <em>seed</em>) is the master from which <em>all</em> of your keys and addresses are generated, in a predictable tree.</p>
+            <p>That tree is navigated by a <strong>derivation path</strong> — something like <code>m/84'/0'/0'/0/0</code> — where standardized levels (BIP32 for the tree, BIP39 for the words, BIP44/84/86 for the layout) decide which key you get. The upshot for you: a wallet can hand out a <strong>fresh address for every payment</strong>, and yet every one of them can be recovered from that single seed.</p>
+            <p>One more useful trick: an <strong>extended public key</strong> (<strong>xpub</strong>) lets a wallet generate all your <em>addresses</em> without any ability to spend. That's how a <strong>watch-only</strong> wallet works — your phone can track the balance of your cold-storage wallet while the private keys stay safely offline.</p>
+
+            <h2 class="section-heading-grey">Why the Seed Is Everything</h2>
+            <img src="./assets/images/doodles/vault-safe.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Now you can see why every guide hammers the same point. Your recovery phrase isn't <em>a</em> backup — it's the root of the entire tree, the one secret that can regenerate every key and every address you'll ever use. Protect it like it <em>is</em> your Bitcoin, because it is: written on paper then metal, never a photo or a cloud file, never shared with anyone.</p>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Put it to work.</strong> See how keys move coins in <a href="using-bitcoin-as-money.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Using Bitcoin as Money</a>, how the network checks those signatures in <a href="bitcoin-network.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">The Bitcoin Network</a>, and how to keep your seed safe on <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a>.</p>
+            </div>
+
+        </article>
+    </main>
