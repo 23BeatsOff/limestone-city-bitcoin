@@ -1,0 +1,8 @@
+# Jekyll configuration for Limestone City Bitcoin.
+# The site source lives in /docs and is built & served by GitHub Pages.
+#
+# Pages share the `default` layout in _layouts/. Per-page <head> values
+# (title, description, keywords, og:description) come from each page's
+# YAML front matter.
+title: Limestone City Bitcoin
+description: A community-led Bitcoin education and adoption initiative in Kingston, Ontario.
