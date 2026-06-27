@@ -1,0 +1,97 @@
+---
+layout: default
+title: "Build It Yourself: A Guide to SeedSigner | Limestone City Bitcoin"
+description: "A Canadian guide to SeedSigner — the open-source, air-gapped, stateless Bitcoin signing device you build yourself from inexpensive parts. Pairs with Sparrow by QR code."
+keywords: "SeedSigner, DIY hardware wallet, air-gapped, stateless, Bitcoin cold storage, multisig, open source, Raspberry Pi, Sparrow, Bitcoin only, Kingston Bitcoin"
+og_description: "The open-source, air-gapped, stateless Bitcoin signer you build yourself. A guide to SeedSigner."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Build It Yourself</h1>
+        <p class="page-subtitle">A Guide to SeedSigner</p>
+
+        <article class="post-content">
+
+            <p>In <a href="choosing-a-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Choosing a Wallet</a>, we mentioned SeedSigner as a hardware option for cold storage. It deserves its own guide, because it takes a genuinely different approach: you <strong>build it yourself</strong>, it <strong>stores nothing</strong>, and it's <strong>air-gapped by design</strong>.</p>
+
+            <h2 class="section-heading-grey">1. What SeedSigner Is</h2>
+            <p>SeedSigner is a free, open-source (MIT-licensed), <strong>Bitcoin-only</strong> signing device that you assemble from inexpensive, off-the-shelf parts — a Raspberry Pi Zero, a small screen, and a camera — for <strong>under $50</strong>. The project's goal is to lower the cost and complexity of secure Bitcoin self-custody, and especially of multisig.</p>
+            <p>The software is free; you supply the hardware. And like the other devices we cover, SeedSigner is a <strong>signer</strong>: it holds and signs with your keys, while a coordinator wallet (such as <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>) watches your balance and builds transactions.</p>
+
+            <h2 class="section-heading-grey">2. Two Big Ideas: Stateless and Air-Gapped</h2>
+            <p>Two design choices set SeedSigner apart:</p>
+            <ul>
+                <li><strong>Stateless.</strong> It never stores your keys. You load (or generate) your recovery phrase at the start of a session; it lives only in memory, and the moment you remove power, it's wiped. There is nothing on the device to steal — a powered-down SeedSigner is just a Raspberry Pi.</li>
+                <li><strong>Air-gapped.</strong> The recommended Pi Zero has <strong>no WiFi and no Bluetooth</strong>, and the device never connects to a computer for data. It reads your unsigned transaction by <strong>scanning a QR code</strong> with its camera, and shows the signed transaction as a <strong>QR code</strong> on its screen. It draws power from a simple power bank — power only, never a data cable to a computer.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">3. Why Build It Yourself?</h2>
+            <p>Assembling your own signer sounds intimidating, but it's a real security advantage:</p>
+            <ul>
+                <li><strong>No supply-chain trust.</strong> A device you build from generic, non-descript parts can't be tampered with in transit the way a sealed retail unit theoretically could.</li>
+                <li><strong>Verifiable software.</strong> The code is fully open-source with reproducible builds, so you can confirm exactly what's running on the device.</li>
+                <li><strong>Low cost, no excuses.</strong> At under $50, proper cold storage — and multisig — is within reach for everyone.</li>
+            </ul>
+            <p>Assembly needs <strong>no soldering</strong>: the parts simply connect together, and you flash the software onto a microSD card.</p>
+
+            <h2 class="section-heading-grey">4. Security and Features</h2>
+            <ul>
+                <li><strong>Your own randomness.</strong> Generate a seed from <strong>dice rolls</strong> or camera entropy — you don't have to trust the device's randomness.</li>
+                <li><strong>BIP39 passphrases</strong> for hidden wallets.</li>
+                <li><strong>SeedQR</strong> backups: store your recovery phrase as a compact QR code you can scan back in.</li>
+                <li><strong>Single-sig and multisig</strong>, with support for modern script types including Taproot.</li>
+                <li><strong>PSBT</strong> review and signing — you confirm every detail on the device's own screen.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">5. Bitcoin-Only and Open</h2>
+            <p>SeedSigner does one thing: secure your Bitcoin. It's MIT-licensed free software with reproducible builds, developed in the open by a community of contributors — so you never have to take a company's word for what it does.</p>
+
+            <h2 class="section-heading-grey">6. It Works With Your Software</h2>
+            <p>SeedSigner pairs with any coordinator that speaks QR — including <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> on the desktop. Transactions move back and forth as scannable QR codes (standard <strong>PSBT</strong>), and the device handles both single-sig and multisig. See <a href="choosing-a-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Choosing a Wallet</a> for coordinator options.</p>
+
+            <h2 class="section-heading-grey">7. Is SeedSigner Right for You?</h2>
+            <p>SeedSigner is the most <strong>hands-on</strong> option we cover. You assemble it yourself and there's a learning curve — but it's the cheapest path into serious cold storage, and a long-time favourite for multisig. Because it's stateless, your <strong>seed backup is everything</strong>: there's no device to fall back on, so that metal backup matters more than ever. If you'd rather have a polished, ready-made device, see our <a href="coldcard-q.html" class="entry-link" style="text-transform: none; font-size: inherit;">Coldcard guide</a>. If you want maximum DIY, low cost, and verifiability, SeedSigner is hard to beat.</p>
+
+            <h2 class="section-heading-grey">8. What You'll Need</h2>
+            <ul>
+                <li>A <strong>Raspberry Pi Zero 1.3</strong> — the version with no WiFi or Bluetooth.</li>
+                <li>A <strong>Waveshare 1.3-inch LCD</strong> (240&times;240) and a compatible <strong>Pi camera</strong>.</li>
+                <li>An <strong>enclosure</strong> — 3D-print the open-source design or buy one.</li>
+                <li>A <strong>microSD card</strong> to flash the software, and a <strong>power bank</strong> for power.</li>
+                <li>A coordinator wallet (such as <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>) and a <strong>metal backup plate</strong>.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">9. Building and Setting It Up (The High-Level Path)</h2>
+            <p>This is the shape of the process. For the exact parts list and click-by-click, follow SeedSigner's own documentation — linked at the bottom.</p>
+            <ul>
+                <li><strong>Source the parts</strong> and 3D-print or buy the case.</li>
+                <li><strong>Download the software from the official source only</strong> — the <a href="https://github.com/SeedSigner/seedsigner/releases" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner releases page</a> — and verify it before flashing it to the microSD card.</li>
+                <li><strong>Assemble the device</strong> (no soldering required) and power it from a power bank.</li>
+                <li><strong>Generate your seed</strong> with dice or camera entropy (or load an existing one). Write the recovery words on paper, then metal — never as a digital file, screenshot, or photo.</li>
+                <li><strong>Optionally add a passphrase</strong>, and create a SeedQR backup if you want one.</li>
+                <li><strong>Pair it with your coordinator</strong> (Sparrow) by scanning QR codes back and forth — no cables involved.</li>
+                <li><strong>Receive a small test amount first,</strong> verify the address on the SeedSigner screen, and do a recovery dry run before trusting it with serious money.</li>
+            </ul>
+            <div class="callout-box">
+                <p><strong>⚠️ Stateless means your backup is everything.</strong> Because SeedSigner stores nothing, there's no device backup to recover from — your written-then-metal recovery phrase (and any passphrase) is the only way back to your funds. Guard it carefully.</p>
+            </div>
+
+            <h2 class="section-heading-grey">10. The Golden Rules of Self-Custody</h2>
+            <ul>
+                <li><strong>Your recovery words are the keys.</strong> Never type them into a website, app, or "support agent" chat. No legitimate person or wallet will ever ask.</li>
+                <li><strong>Keep them offline.</strong> No photos, no cloud, no password managers, no email. Metal backup, stored privately.</li>
+                <li><strong>Verify addresses on the device.</strong> Always confirm a receive address on the SeedSigner's own screen.</li>
+                <li><strong>Source parts and software from official places,</strong> and start with a small test amount before moving real savings.</li>
+                <li><strong>Beware impersonators.</strong> Scammers pose as wallet "support" on Telegram, X, and Discord. <strong>Limestone City Bitcoin will never DM you first or ask for your recovery phrase.</strong></li>
+            </ul>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Want a hand building one?</strong> Bring your parts to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> and we'll help you assemble and set up your SeedSigner, and pair it with <a href="sparrow-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Sparrow</a>. For the official build guide and software, see <a href="https://seedsigner.com/" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">seedsigner.com</a> and the <a href="https://github.com/SeedSigner/seedsigner" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">SeedSigner GitHub</a>.</p>
+            </div>
+
+            <p style="font-size: 14px; color: #888; margin-top: 30px;">Limestone City Bitcoin is not affiliated with the SeedSigner project. This guide is educational and is not financial advice.</p>
+
+        </article>
+    </main>
