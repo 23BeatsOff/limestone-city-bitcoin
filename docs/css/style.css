@@ -806,3 +806,41 @@ html, body {
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
+
+
+/* ==============================================
+   21. PAGE DOODLES — hand-drawn section accents
+   ============================================== */
+
+.doodle {
+    display: block;
+    width: 104px;
+    height: auto;
+}
+
+.doodle-right {
+    float: right;
+    margin: 2px 0 10px 22px;
+}
+
+.doodle-left {
+    float: left;
+    margin: 2px 22px 10px 0;
+}
+
+/* Keep each section's floated doodle from bleeding into the next section */
+.section-heading-grey {
+    clear: both;
+}
+
+@media (max-width: 640px) {
+    .doodle {
+        width: 76px;
+    }
+    .doodle-right {
+        margin: 0 0 6px 14px;
+    }
+    .doodle-left {
+        margin: 0 14px 6px 0;
+    }
+}
