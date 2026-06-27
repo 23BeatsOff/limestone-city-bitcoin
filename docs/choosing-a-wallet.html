@@ -77,7 +77,18 @@ og_type: "website"
 
             <p>The strongest setup pairs a software wallet with a hardware device: the software (Sparrow, Electrum, or Cove) is the interface that watches your balance and builds transactions, while the hardware (SeedSigner or Coldcard) holds your keys and signs <strong>air-gapped</strong> — by QR code or microSD, never over a cable to your computer.</p>
 
-            <h2 class="section-heading-grey">5. A Sensible Path</h2>
+            <h2 id="why-bitcoin-only" class="section-heading-grey">5. Why Bitcoin-Only?</h2>
+            <p>You'll notice every wallet above is <strong>Bitcoin-only</strong>. That's deliberate. Many popular wallets — including hardware devices like <strong>Trezor</strong> and <strong>Ledger</strong> — also support hundreds or thousands of other coins and tokens. That sounds like a feature, but for your security it's a liability.</p>
+            <p><strong>More coins means a bigger attack surface.</strong> Supporting every altcoin and "Web3" network takes far more code and complexity, and that creates more ways for things to go wrong:</p>
+            <ul>
+                <li><strong>Blind signing.</strong> Spending on smart-contract networks often means approving transactions your device can't fully show you — one of the most common ways people get drained. Bitcoin's simpler design lets your device show you exactly what you're approving.</li>
+                <li><strong>More code, more bugs.</strong> A Bitcoin-only wallet does one job, so its software is smaller and easier to audit. Every extra coin is extra code that can hide a flaw.</li>
+                <li><strong>No nudging into altcoins.</strong> Multi-coin wallets are built to upsell speculative tokens and "earn" schemes. A Bitcoin-only wallet keeps you focused on sound money.</li>
+            </ul>
+            <p>The track record matters too. Ledger suffered a major customer-data breach in 2020 that exposed hundreds of thousands of customers to phishing and worse; in 2023 its "Recover" service revealed that the device's firmware could extract and split up your seed — undercutting the promise that keys never leave the device — and a compromise of Ledger's own software library drained funds from people using it. Trezor supports thousands of tokens, and security researchers have demonstrated physical seed-extraction on models built without a dedicated secure element.</p>
+            <p>The point isn't that those companies are evil — it's that a general-purpose, do-everything wallet is the wrong tool for protecting serious savings. Bitcoin-only devices like <a href="coldcard-q.html" class="entry-link" style="text-transform: none; font-size: inherit;">Coldcard</a> and <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> do less on purpose, and that focus is exactly what makes them safer. If a wallet is trying to be a casino for a thousand coins, it isn't built to be a vault for your Bitcoin.</p>
+
+            <h2 class="section-heading-grey">6. A Sensible Path</h2>
             <p>You don't have to do everything at once. A good path for most people:</p>
             <ul>
                 <li><strong>Start small.</strong> Put a little bitcoin in a phone wallet and learn the ropes — receiving, sending, and backing up your recovery phrase.</li>

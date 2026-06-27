@@ -16,6 +16,10 @@ og_type: "website"
 
             <p>In <a href="choosing-a-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Choosing a Wallet</a>, we mentioned SeedSigner as a hardware option for cold storage. It deserves its own guide, because it takes a genuinely different approach: you <strong>build it yourself</strong>, it <strong>stores nothing</strong>, and it's <strong>air-gapped by design</strong>.</p>
 
+            <div class="callout-box">
+                <p><strong>Why Bitcoin-only?</strong> SeedSigner is a Bitcoin-only signer — by design. Wallets that also support hundreds of altcoins (like Trezor and Ledger) carry far more code and far more ways to lose funds, from blind-signing smart-contract transactions to supply-chain hacks. Doing one thing well is what keeps your Bitcoin safe. <a href="choosing-a-wallet.html#why-bitcoin-only" style="color: #F7931A; text-decoration: none; font-weight: bold;">Why this matters →</a></p>
+            </div>
+
             <h2 class="section-heading-grey">1. What SeedSigner Is</h2>
             <p>SeedSigner is a free, open-source (MIT-licensed), <strong>Bitcoin-only</strong> signing device that you assemble from inexpensive, off-the-shelf parts — a Raspberry Pi Zero, a small screen, and a camera — for <strong>under $50</strong>. The project's goal is to lower the cost and complexity of secure Bitcoin self-custody, and especially of multisig.</p>
             <p>The software is free; you supply the hardware. And like the other devices we cover, SeedSigner is a <strong>signer</strong>: it holds and signs with your keys, while a coordinator wallet (such as <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>) watches your balance and builds transactions.</p>
