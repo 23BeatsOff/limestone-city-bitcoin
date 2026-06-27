@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "Using Bitcoin as Money | Limestone City Bitcoin"
-description: "How to send and receive Bitcoin — addresses, fees, confirmations, and the Lightning Network — plus why circulating Bitcoin and supporting Value-for-Value matters."
-keywords: "sending Bitcoin, receiving Bitcoin, Bitcoin transaction fees, sats per vbyte, confirmations, Lightning Network, Value for Value, V4V, Bitcoin as money, Kingston Bitcoin"
+description: "How to send and receive Bitcoin — addresses, the UTXO model, fees, confirmations, and the Lightning Network — plus why circulating Bitcoin and supporting Value-for-Value matters."
+keywords: "sending Bitcoin, receiving Bitcoin, UTXO, Bitcoin transaction fees, sats per vbyte, RBF, CPFP, confirmations, Lightning Network, Value for Value, V4V, Bitcoin as money, Kingston Bitcoin"
 og_description: "How to send and receive Bitcoin, and why using it as money matters."
 og_type: "website"
 ---
@@ -39,16 +39,23 @@ og_type: "website"
 
             <h2 class="section-heading-grey">Sending Bitcoin</h2>
             <p>Sending takes three things: the recipient's <strong>address</strong>, an <strong>amount</strong> (in bitcoin or sats), and a <strong>fee</strong>. Your wallet then builds the transaction and broadcasts it to the network.</p>
+            <p>Under the hood, your wallet uses your <strong>private key</strong> to produce a <strong>signature</strong> that unlocks the coins you're spending. That signature is proof to every node on the network that the coins are yours to move — without ever revealing the key itself.</p>
             <div class="callout-box">
                 <p><strong>⚠️ Bitcoin transactions are final.</strong> There's no "undo" and no support line to call. If you send to the wrong address, the coins are gone. Always double-check the address (the first and last few characters), and for a large payment, <strong>send a small test amount first</strong>.</p>
             </div>
 
+            <h2 class="section-heading-grey">Coins Are Chunks: The UTXO Model</h2>
+            <p>Here's a detail that explains a lot. Your balance isn't a single number in an account — it's a collection of discrete <strong>chunks</strong> of bitcoin called <strong>UTXOs</strong> (unspent transaction outputs). Picture the individual coins and bills in a physical wallet: you might be holding a 0.5, a 0.2, and a 0.05.</p>
+            <p>When you spend, your wallet selects enough chunks to cover the amount — these become the transaction's <strong>inputs</strong> — and creates new chunks as <strong>outputs</strong>: one to the recipient, and usually one back to you as <strong>change</strong>, exactly like getting change from a $20 bill. Those new outputs become fresh UTXOs in each wallet.</p>
+            <p>This is why the total leaving your wallet can look bigger than what you sent: you spent a whole chunk and the remainder came back as change. Nothing is lost, and modern wallets manage all of it for you automatically.</p>
+
             <h2 class="section-heading-grey">Fees: Paying for Block Space</h2>
-            <p>Every transaction competes for limited space in the next block. Unconfirmed transactions wait in the <strong>mempool</strong> (a kind of waiting room), and miners include the ones offering the most. Fees are priced in <strong>sats per vByte</strong> — satoshis per unit of transaction size — not as a percentage of the amount you send.</p>
+            <p>Every transaction competes for limited space in the next block. Unconfirmed transactions wait in the <strong>mempool</strong> (a kind of waiting room), and miners include the ones offering the most. The fee itself is simply the leftover — your <strong>inputs minus your outputs</strong> — which the miner collects for including you.</p>
+            <p>Fees are priced in <strong>sats per vByte</strong>: satoshis per unit of transaction <em>size</em>, not as a percentage of the amount you send. A payment cobbled together from many small chunks is physically larger, so it costs more — which means sending $10 and sending $10,000 can cost the same if the transactions are the same size.</p>
             <ul>
                 <li><strong>In a hurry?</strong> Pay a higher feerate to land in the next block or two.</li>
                 <li><strong>Not in a hurry?</strong> Pay a lower feerate and let it confirm when the network is quieter. When things are calm, even 1 sat/vByte gets there.</li>
-                <li><strong>Stuck?</strong> If a low-fee transaction stalls, most wallets let you <strong>bump the fee</strong> to speed it up. Unconfirmed transactions are eventually dropped after about two weeks, so bump it rather than wait forever.</li>
+                <li><strong>Stuck?</strong> If a low-fee transaction stalls, most wallets can rescue it — either by raising its fee directly (<strong>RBF</strong>, replace-by-fee) or by spending its change with a high fee to drag it along (<strong>CPFP</strong>, child-pays-for-parent). Unconfirmed transactions are eventually dropped after about two weeks, so bump rather than wait forever.</li>
             </ul>
 
             <h2 class="section-heading-grey">Confirmations</h2>
@@ -58,10 +65,7 @@ og_type: "website"
                 <li><strong>2 confirmations</strong> guard against rare, natural chain reorganizations.</li>
                 <li><strong>6 confirmations</strong> is old-school caution — really only needed for very large amounts.</li>
             </ul>
-            <p>Every transaction has a <strong>TXID</strong> (a unique ID). Paste it into a block explorer like <a href="https://mempool.space/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">mempool.space</a> to watch it confirm in real time.</p>
-
-            <h2 class="section-heading-grey">One More Thing: Change</h2>
-            <p>Bitcoin works a bit like cash. If you pay 0.3 from a 1.0 "bill," your wallet sends the 0.7 remainder back to a <strong>change address</strong> that you control. It's automatic — but it's why the total leaving your wallet can look bigger than what you sent. Nothing is lost; the change comes right back to you.</p>
+            <p>Every transaction has a <strong>TXID</strong> (a unique ID). Paste it into a block explorer like <a href="https://mempool.space/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">mempool.space</a> to watch it confirm in real time. Curious how blocks actually get mined, and why a reorganization can briefly undo the newest one? See <a href="bitcoin-network.html" class="entry-link" style="text-transform: none; font-size: inherit;">The Bitcoin Network</a>.</p>
 
             <div class="callout-box" style="margin-top: 40px;">
                 <p><strong>Ready to start?</strong> Pick a wallet on our <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a> page, get some sats, and support a creator from the <a href="40hpw.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">#40HPW</a> list — there's no better way to learn than to actually use it. Bring your questions to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
