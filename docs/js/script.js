@@ -45,7 +45,62 @@ async function updateBlock() {
     }
 }
 
-/* 2. HAMBURGER MENU LOGIC */
+/* 2. MOSCOW TIME LOGIC (satoshis per US dollar) */
+
+// Tried in order; each provider returns BTC/USD in a different shape.
+const PRICE_APIS = [
+    { url: 'https://mempool.space/api/v1/prices', extract: d => d.USD },
+    { url: 'https://api.coinbase.com/v2/prices/BTC-USD/spot', extract: d => d.data && d.data.amount }
+];
+
+// Returns the BTC/USD spot price as a number, or null if every provider failed.
+async function fetchBtcUsd() {
+    for (const api of PRICE_APIS) {
+        try {
+            const response = await fetch(api.url, { mode: 'cors' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const data = await response.json();
+            const price = Number(api.extract(data));
+
+            if (Number.isFinite(price) && price > 0) {
+                return price;
+            }
+            throw new Error('Unexpected price payload');
+        } catch (err) {
+            console.error(`BTC price fetch failed (${api.url}):`, err);
+            // Fall through and try the next provider.
+        }
+    }
+    return null;
+}
+
+// "Moscow Time" reads sats-per-dollar like a clock: a colon two digits from
+// the right. It is intentionally not a real clock — minutes can exceed 59.
+function formatMoscowTime(satsPerDollar) {
+    const hours = Math.floor(satsPerDollar / 100);
+    const minutes = satsPerDollar % 100;
+    return `${hours}:${String(minutes).padStart(2, '0')}`;
+}
+
+async function updateMoscowTime() {
+    const el = document.getElementById('moscow-time');
+    if (!el) return;
+
+    const price = await fetchBtcUsd();
+
+    if (price !== null) {
+        // Floor: the whole satoshis you can actually buy for $1 (the
+        // canonical Moscow Time reading, e.g. $69,420 -> 14:40).
+        const satsPerDollar = Math.floor(100000000 / price);
+        el.innerText = formatMoscowTime(satsPerDollar);
+    } else if (el.innerText === "--:--") {
+        // Only show "Offline" if we never managed an initial load.
+        el.innerText = "Offline";
+    }
+}
+
+/* 3. HAMBURGER MENU LOGIC */
 function setupMenu() {
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('#nav-menu');
@@ -77,14 +132,16 @@ function setupMenu() {
     }
 }
 
-/* 3. INITIALIZE EVERYTHING */
+/* 4. INITIALIZE EVERYTHING */
 document.addEventListener('DOMContentLoaded', () => {
-    // Run block height update immediately
+    // Run the live stats immediately
     updateBlock();
-    
+    updateMoscowTime();
+
     // Set up the hamburger menu
     setupMenu();
 
-    // Refresh block height every 60 seconds
+    // Refresh the live stats every 60 seconds
     setInterval(updateBlock, 60000);
+    setInterval(updateMoscowTime, 60000);
 });

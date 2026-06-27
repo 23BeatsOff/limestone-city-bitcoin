@@ -31,11 +31,27 @@ html, body {
 
 .header-center {
     display: flex;
-    flex-direction: column;
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 0 auto; 
+    margin: 0 auto;
+    gap: 26px;
+}
+
+/* Each live stat (Block Height, Moscow Time) stacks its label over value */
+.header-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-divider {
+    align-self: stretch;
+    width: 1px;
+    min-height: 42px;
+    background-color: #eeeeee;
 }
 
 .label { 
@@ -236,6 +252,20 @@ html, body {
     .bar {
         width: 28px;
         height: 3.5px;
+    }
+
+    /* Tighten the two header stats so they fit comfortably on phones */
+    .header-center {
+        gap: 16px;
+    }
+
+    .height {
+        font-size: 23px;
+    }
+
+    .label {
+        font-size: 10.5px;
+        letter-spacing: 1.8px;
     }
 }
 
