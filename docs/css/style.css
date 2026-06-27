@@ -814,18 +814,18 @@ html, body {
 
 .doodle {
     display: block;
-    width: 104px;
+    width: 150px;
     height: auto;
 }
 
 .doodle-right {
     float: right;
-    margin: 2px 0 10px 22px;
+    margin: 4px 0 14px 28px;
 }
 
 .doodle-left {
     float: left;
-    margin: 2px 22px 10px 0;
+    margin: 4px 28px 14px 0;
 }
 
 /* Keep each section's floated doodle from bleeding into the next section */
@@ -835,12 +835,12 @@ html, body {
 
 @media (max-width: 640px) {
     .doodle {
-        width: 76px;
+        width: 104px;
     }
     .doodle-right {
-        margin: 0 0 6px 14px;
+        margin: 2px 0 8px 16px;
     }
     .doodle-left {
-        margin: 0 14px 6px 0;
+        margin: 2px 16px 8px 0;
     }
 }
