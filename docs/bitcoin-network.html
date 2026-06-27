@@ -1,0 +1,64 @@
+---
+layout: default
+title: "The Bitcoin Network | Limestone City Bitcoin"
+description: "How the Bitcoin network actually works — nodes, the peer-to-peer gossip network, the mempool, proof-of-work mining, block validation, consensus, reorgs, and why running your own node matters."
+keywords: "Bitcoin network, nodes, full node, proof of work, mining, mempool, consensus, longest chain, difficulty, reorg, decentralization, run your own node, Kingston Bitcoin"
+og_description: "Nodes, miners, mempool, proof-of-work, and consensus — how the Bitcoin network runs without a boss."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">The Bitcoin Network</h1>
+        <p class="page-subtitle">Nodes, miners, and how the network agrees — without a boss</p>
+
+        <article class="post-content">
+
+            <p><a href="what-is-bitcoin.html" class="entry-link" style="text-transform: none; font-size: inherit;">Bitcoin 101</a> explained <em>why</em> Bitcoin matters. This guide is about <em>how</em> it actually runs. There's no Bitcoin company, no head office, and no master server — just thousands of independent computers around the world, following the same rules and agreeing on the same ledger. Here's how that works.</p>
+
+            <h2 class="section-heading-grey">Nodes: The Backbone</h2>
+            <p>A <strong>node</strong> is simply a computer running Bitcoin software. A <strong>full node</strong> does three jobs that make the whole system tick:</p>
+            <ul>
+                <li><strong>Stores the blockchain</strong> — its own complete copy of every transaction ever made.</li>
+                <li><strong>Validates everything</strong> — it checks every transaction and every block against Bitcoin's <strong>consensus rules</strong> (valid signatures, no double-spends, the right block reward, the 21-million cap, and more).</li>
+                <li><strong>Relays</strong> — it passes valid data on to other nodes.</li>
+            </ul>
+            <p>Crucially, every node is equal, and each one verifies for itself. Nobody is in charge. This is where the phrase <em>rules without rulers</em> becomes concrete: the rules are enforced by everyone, not by anyone.</p>
+
+            <h2 class="section-heading-grey">A Peer-to-Peer Gossip Network</h2>
+            <p>Nodes don't connect to a central hub. Each one connects to a handful of <strong>peers</strong>, and information spreads by <strong>gossip</strong>: you tell your peers, they tell their peers, and within a few seconds a message has flooded across the entire planet. There's no broadcaster to shut down and no switchboard to tap — the network has no centre.</p>
+
+            <h2 class="section-heading-grey">The Life of a Transaction</h2>
+            <p>When you send bitcoin, your wallet broadcasts the transaction to a few nodes. Each node that receives it <strong>validates</strong> it — are the signatures valid? are the coins real and unspent? — and, if it checks out, holds it in its <strong>mempool</strong> (the pool of pending transactions) and relays it onward. If a transaction is invalid, honest nodes simply drop it and refuse to pass it on. The network polices itself at every hop.</p>
+
+            <h2 class="section-heading-grey">Mining: Turning Energy Into Order</h2>
+            <p>Pending transactions need to be put in a permanent order that everyone agrees on. That's the job of <strong>miners</strong>. A miner gathers transactions from the mempool into a candidate <strong>block</strong>, then competes to find a valid <strong>proof-of-work</strong>:</p>
+            <ul>
+                <li>It repeatedly runs the block's header through a hash function, changing a number called the <strong>nonce</strong> each time, searching for a result below a network-wide <strong>target</strong>.</li>
+                <li>There's no shortcut — it's pure trial and error, trillions upon trillions of guesses per second. The lower the target (the higher the <strong>difficulty</strong>), the harder the puzzle.</li>
+                <li>On average, somewhere in the world a miner wins this lottery about every <strong>10 minutes</strong>. Every <strong>2,016 blocks</strong> (roughly two weeks) the difficulty automatically re-tunes to keep that 10-minute pace as mining power comes and goes.</li>
+            </ul>
+            <p>Why would anyone spend all that electricity? The winner earns newly created bitcoin (the <strong>block subsidy</strong>) plus the fees of the transactions they included. And that very real energy cost is the point: it's what makes rewriting history prohibitively expensive.</p>
+
+            <h2 class="section-heading-grey">Blocks and Validation</h2>
+            <p>When a miner finds a valid block, it gossips out across the network just like a transaction. Then every node <strong>independently checks it</strong>: is the proof-of-work valid? are all the transactions legitimate? is the reward correct? does it build on the previous block? Only if everything passes does a node add the block to its chain and start building on top.</p>
+            <p>This is the part people miss: <strong>miners propose, but nodes decide.</strong> A miner who tries to sneak in a fake transaction or print extra coins simply has their block rejected by every honest node — and forfeits all that electricity for nothing.</p>
+
+            <h2 class="section-heading-grey">Consensus: The Most-Work Chain</h2>
+            <p>With thousands of independent nodes, how does everyone agree on one history? They all follow a single tie-breaking rule: <strong>the valid chain with the most cumulative proof-of-work wins.</strong> Each block cryptographically points back to the one before it, forming a chain; the "heaviest" chain — the one the most energy was spent building — is the truth. To rewrite it, you'd have to out-mine the entire honest network.</p>
+
+            <h2 class="section-heading-grey">When Two Blocks Collide: Reorgs</h2>
+            <p>Occasionally two miners find a block at almost the same moment, and the network briefly splits — some nodes see one, some see the other. The tie breaks at the <strong>next</strong> block: nodes switch to whichever branch now has more work, and the transactions from the abandoned (<strong>orphan</strong>) block return to the mempool to be mined again. This is called a <strong>reorganization</strong>, and it's exactly why waiting a confirmation or two adds safety — see <a href="using-bitcoin-as-money.html" class="entry-link" style="text-transform: none; font-size: inherit;">Using Bitcoin as Money</a>.</p>
+
+            <h2 class="section-heading-grey">Why It Matters: No Gatekeepers</h2>
+            <p>Anyone with a computer and an internet connection can join — no application, no permission. That means no one can stop your transaction from spreading, and no one can quietly change the rules. To censor or rewrite Bitcoin, an attacker would need to out-compute the whole honest network at once, which is astronomically expensive. The result is <strong>censorship resistance</strong>: money that works the same for everyone, everywhere.</p>
+
+            <h2 class="section-heading-grey">Run Your Own Node</h2>
+            <p>You don't have to take anyone's word for any of this. Running your own full node is the purest form of <em>don't trust, verify</em>: it enforces every rule for you, checks every payment you receive against the real consensus rules, frees you from relying on third parties, and adds one more independent guardian to the network. It's also more accessible than it sounds — modest hardware and a download is all it takes, and you can point a wallet like <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> straight at it.</p>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Keep going.</strong> Put it into practice with <a href="using-bitcoin-as-money.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Using Bitcoin as Money</a>, pick a wallet on <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a>, or bring your questions to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
