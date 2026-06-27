@@ -1,0 +1,94 @@
+---
+layout: default
+title: "Taking Control: A Guide to Sparrow Wallet | Limestone City Bitcoin"
+description: "A Canadian guide to Sparrow Wallet — the open-source, Bitcoin-only desktop wallet built for privacy and full self-custody. Pair it with a hardware wallet and connect to your own node."
+keywords: "Sparrow Wallet, Bitcoin desktop wallet, Bitcoin privacy, coin control, UTXO management, run your own node, Coldcard, SeedSigner, Bitcoin only, Kingston Bitcoin"
+og_description: "The open-source, Bitcoin-only desktop wallet for privacy and full control. A guide to Sparrow Wallet."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Taking Control</h1>
+        <p class="page-subtitle">A Guide to Sparrow Wallet</p>
+
+        <article class="post-content">
+
+            <p>Once you understand Bitcoin (<a href="what-is-bitcoin.html" class="entry-link" style="text-transform: none; font-size: inherit;">Bitcoin 101</a>) and you're ready to <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">own your keys</a>, the next question is: what do you actually <em>use</em> to hold, send, and watch your Bitcoin — privately, and on your own terms?</p>
+            <p style="margin-bottom: 40px;">For the desktop, our answer is <strong>Sparrow</strong> — a free, open-source, <strong>Bitcoin-only</strong> wallet built for people who want total transparency and control. It's the closest thing to a personal Bitcoin command centre.</p>
+
+            <h2 class="section-heading-grey">1. What Sparrow Is</h2>
+            <p>Sparrow is an open-source (Apache 2.0) desktop wallet led by developer Craig Raw, running on Windows, macOS, and Linux. It is <strong>Bitcoin-only</strong> — no altcoins, no distractions, no clutter — and it's built, in its own words, "for those who value financial self-sovereignty."</p>
+            <p>Importantly, Sparrow is best used as the <strong>interface</strong> to your Bitcoin, while your actual keys live offline on a hardware wallet. Sparrow coordinates and watches; your device signs. That separation is what makes it both powerful and safe.</p>
+
+            <h2 class="section-heading-grey">2. Why Sparrow: Privacy and Control</h2>
+            <p>Most wallets hide the machinery from you. Sparrow does the opposite — it puts every detail in your hands:</p>
+            <ul>
+                <li><strong>Connect to your own node.</strong> Sparrow can talk to your own Bitcoin Core node or a private server, so you verify your own transactions and never leak your addresses and balances to a stranger's server. It also offers public servers with <strong>built-in Tor</strong>.</li>
+                <li><strong>Total transparency.</strong> A full transaction editor that doubles as a blockchain explorer lets you inspect every input and output. You can <strong>label</strong> every transaction, coin, and address.</li>
+                <li><strong>Coin control.</strong> Choose exactly which coins (UTXOs) you spend, with comprehensive coin and fee selection — so you manage your privacy and your fees deliberately, not by accident.</li>
+                <li><strong>Bitcoin-only focus.</strong> Single-sig and multisig support on the common script types, full PSBT support, and testnet/signet for practice — all aimed at one asset, done well.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">3. Pair It With a Hardware Wallet</h2>
+            <p>Sparrow shines when paired with a hardware wallet. In this setup Sparrow holds <em>no</em> keys — it builds the transactions, and your offline device signs them. Sparrow supports common hardware wallets in both <strong>USB and air-gapped</strong> modes (signing via QR codes or microSD, so the keys never touch your computer). Two Bitcoin-only devices that pair beautifully with it:</p>
+            <div class="info-box">
+                <h3>Coldcard (Mk4 / Q)</h3>
+                <p>Open-source, Bitcoin-only, and fully air-gapped — sign over microSD or QR without ever plugging in. Battle-tested, and a long-standing favourite in the Sparrow community.</p>
+            </div>
+            <div class="info-box">
+                <h3>SeedSigner</h3>
+                <p>An open-source, air-gapped, build-it-yourself signer made from inexpensive, off-the-shelf parts. It signs entirely by QR code and works smoothly with Sparrow — a great choice for the DIY and sovereignty-minded.</p>
+            </div>
+            <p>Sparrow supports other Bitcoin-only signing devices too, in both USB and air-gapped modes. See Sparrow's <a href="https://sparrowwallet.com/docs/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">documentation →</a> for the full list and setup guides.</p>
+
+            <h2 class="section-heading-grey">4. Run Your Own Node</h2>
+            <p>Self-custody answers "who holds my keys?" Running your own node answers "who do I trust to tell me the truth about the blockchain?" When Sparrow connects to <strong>your own Bitcoin Core node</strong>, you check the rules yourself and keep your wallet activity private. If you're not ready to run a node yet, Sparrow's public servers over Tor are a solid privacy-respecting starting point — and you can switch to your own node later.</p>
+            <div class="callout-box">
+                <p><strong>Don't trust, verify.</strong> Connecting Sparrow to your own node is the most private way to use it, and it puts the spirit of Bitcoin 101 into practice: you no longer rely on anyone else's word for what's true on the network.</p>
+            </div>
+
+            <h2 class="section-heading-grey">5. Is Sparrow Right for You?</h2>
+            <p>Sparrow is a <strong>desktop power-user wallet</strong>. It has more features — and more buttons — than a simple phone wallet, and that's the point: it's for people who want to hold serious savings with privacy and full control, paired with cold storage. If you're brand new, get comfortable with <a href="what-is-bitcoin.html" class="entry-link" style="text-transform: none; font-size: inherit;">Bitcoin 101</a> first, then grow into it. For an everyday phone wallet you'd choose something simpler; for your long-term Bitcoin, Sparrow is hard to beat.</p>
+
+            <h2 class="section-heading-grey">6. What You'll Need</h2>
+            <ul>
+                <li>A <strong>desktop computer</strong> (Windows, macOS, or Linux) to run Sparrow.</li>
+                <li>A <strong>Bitcoin-only hardware wallet</strong> — Coldcard or SeedSigner are both excellent matches.</li>
+                <li>A <strong>metal backup plate</strong> for your recovery words (paper survives neither fire nor flood).</li>
+                <li><em>Optional but recommended:</em> your own <strong>Bitcoin node</strong> for maximum privacy.</li>
+                <li>Pen, paper, and a little patience.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">7. Setting Up Sparrow (The High-Level Path)</h2>
+            <p>This is the shape of the process. For the exact click-by-click, follow Sparrow's own up-to-date documentation — linked at the bottom.</p>
+            <ul>
+                <li><strong>Download from the official source only</strong> — the <a href="https://sparrowwallet.com/download/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow download page</a>.</li>
+                <li><strong>Verify the download.</strong> Sparrow's releases are PGP-signed with a published manifest. Check the signature before you install (more below).</li>
+                <li><strong>Choose how you connect:</strong> your own Bitcoin Core node or private server for full privacy, or a public server over Tor to start.</li>
+                <li><strong>Import your hardware wallet</strong> into Sparrow as your wallet. Your recovery words are generated and stored on the device — write them on paper, then metal, never as a digital file, screenshot, or photo.</li>
+                <li><strong>Back up your wallet.</strong> Keep your recovery words safe — and for a multisig wallet, also back up the <strong>wallet output descriptor</strong> (the map of your keys), which you'll need to restore it.</li>
+                <li><strong>Receive a small test amount first,</strong> and verify the receive address on your hardware device's own screen before sending anything real.</li>
+                <li><strong>Label as you go</strong> — naming your coins and transactions keeps your privacy and bookkeeping clean from day one.</li>
+            </ul>
+            <div class="callout-box">
+                <p><strong>⚠️ Verify before you install.</strong> Always confirm the PGP signature on your Sparrow download. It's the step that stops you from running a tampered copy that could swap addresses and steal your funds. Sparrow's site explains exactly how.</p>
+            </div>
+
+            <h2 class="section-heading-grey">8. The Golden Rules of Self-Custody</h2>
+            <ul>
+                <li><strong>Your recovery words are the keys.</strong> Never type them into a website, app, or "support agent" chat. No legitimate person or wallet will ever ask.</li>
+                <li><strong>Keep them offline.</strong> No photos, no cloud, no password managers, no email. Metal backup, stored privately.</li>
+                <li><strong>Verify addresses on the device.</strong> Always confirm a receive address on your hardware wallet's own screen — malware can change what your computer shows.</li>
+                <li><strong>Start small.</strong> Move meaningful funds only after a test send and a recovery dry run.</li>
+                <li><strong>Beware impersonators.</strong> Scammers pose as wallet "support" on Telegram, X, and Discord. <strong>Limestone City Bitcoin will never DM you first or ask for your recovery phrase.</strong></li>
+            </ul>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Want recovery and inheritance built in?</strong> Sparrow is the command centre for using your Bitcoin; if you also want protection against a lost key and a plan for passing Bitcoin on, read our <a href="owning-your-keys.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">guide to Liana</a>. And whichever you choose, bring your questions to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> — we'll help you set it up safely. For the official walkthrough, see the <a href="https://sparrowwallet.com/docs/" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">Sparrow documentation</a>.</p>
+            </div>
+
+            <p style="font-size: 14px; color: #888; margin-top: 30px;">Limestone City Bitcoin is not affiliated with Sparrow Wallet. This guide is educational and is not financial or legal advice.</p>
+
+        </article>
+    </main>
