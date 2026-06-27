@@ -1,0 +1,113 @@
+---
+layout: default
+title: "Going Cold: A Guide to the Coldcard Q | Limestone City Bitcoin"
+description: "A Canadian guide to the Coldcard Q and Mk5 — the Bitcoin-only, fully air-gapped hardware wallets from Coinkite. Keep your keys offline and pair them with Sparrow or Liana."
+keywords: "Coldcard Q, Coldcard Mk5, Coinkite, hardware wallet, Bitcoin cold storage, air-gapped, self-custody, signing device, Bitcoin only, Sparrow, Liana, Kingston Bitcoin"
+og_description: "The Bitcoin-only, fully air-gapped hardware wallet. A guide to keeping your keys offline with the Coldcard Q."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Going Cold</h1>
+        <p class="page-subtitle">A Guide to the Coldcard Q</p>
+
+        <article class="post-content">
+
+            <p>Our guides to <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> and <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana</a> both lean on the same thing: a <strong>hardware wallet</strong> to hold your keys offline. This guide covers our pick for that job — the <strong>Coldcard Q</strong>.</p>
+            <p style="margin-bottom: 40px;">Your software wallet is the interface. The hardware wallet is the vault. The Coldcard Q is where your keys actually live — kept off any internet-connected computer, behind serious security.</p>
+
+            <h2 class="section-heading-grey">1. Why Your Keys Belong Offline</h2>
+            <p>A key kept on an internet-connected phone or computer is a key exposed to malware, remote attackers, and accidents. A <strong>hardware wallet</strong> (also called a signing device) solves this: your secret keys are generated and stored on a dedicated offline device and <em>never leave it</em>. When you want to send Bitcoin, your software wallet builds the transaction, the Coldcard signs it in isolation, and only the finished signature comes back. The keys themselves stay locked away.</p>
+
+            <h2 class="section-heading-grey">2. Meet the Coldcard Q</h2>
+            <p>The Coldcard Q is a <strong>Bitcoin-only</strong> hardware wallet from <strong>Coinkite</strong>, and the most capable model in the Coldcard line. Physically, it's built for real use:</p>
+            <ul>
+                <li>A <strong>full QWERTY keyboard</strong> and a large 3.2-inch screen — far friendlier than the keypad-only devices of old.</li>
+                <li>A built-in <strong>QR scanner</strong> and screen, plus <strong>dual microSD slots</strong> and NFC — several ways to move data without ever plugging in.</li>
+                <li>Runs on <strong>AAA batteries</strong> or USB-C, so it can operate completely on its own.</li>
+            </ul>
+            <p>Coinkite currently makes two Coldcards. They share the same Bitcoin-only focus, the same dual secure elements, and the same security features — they differ mainly in form factor:</p>
+            <div class="info-box">
+                <h3><a href="https://coldcard.com/q" target="_blank">Coldcard Q</a></h3>
+                <p>The larger, more capable model: a full keyboard, a 3.2-inch screen, a built-in QR scanner, dual microSD slots, and the option to run on AAA batteries for a complete air gap. The most approachable Coldcard, and the focus of this guide.</p>
+            </div>
+            <div class="info-box">
+                <h3><a href="https://coldcard.com/mk5" target="_blank">Coldcard Mk5</a></h3>
+                <p>The compact, lower-cost classic: a numeric keypad and a Gorilla-Glass screen in a clear, tamper-evident case. It air-gaps by microSD and NFC (tap-to-sign), and connects by USB-C. Same secure elements and security model as the Q — just smaller and simpler.</p>
+            </div>
+            <p>Everything that follows — the security model, the setup steps, and the golden rules — applies to both models.</p>
+
+            <h2 class="section-heading-grey">3. Fully Air-Gapped</h2>
+            <p>Here's the Coldcard's signature trick: it <strong>never has to touch a computer at all.</strong> The Q can run on batteries and move transactions by <strong>QR code or microSD</strong>; the Mk5 air-gaps by <strong>microSD and NFC</strong>. Either way, your keys never share a cable — or a moment — with an internet-connected machine. For serious savings, that air gap is one of the strongest defences you can have.</p>
+
+            <h2 class="section-heading-grey">4. Security Built Deep</h2>
+            <p>The Coldcard Q is built by a security-first team, and it shows:</p>
+            <ul>
+                <li><strong>Dual secure elements</strong> store your keys in dedicated tamper-resistant chips, so the seed can't simply be read off the device.</li>
+                <li><strong>Anti-phishing words</strong>: as you enter your PIN, the device shows you two secret words only it could know — so a fake or tampered Coldcard can't trick you into revealing your PIN.</li>
+                <li><strong>Passphrases</strong> (a "25th word") let you create hidden wallets, and a <strong>Duress PIN</strong> opens a decoy wallet if you're ever coerced.</li>
+                <li><strong>Brick Me / Countdown to Brick PINs</strong> can destroy the device's secrets as a last resort, and <strong>Genuine vs. Caution</strong> lights flag tampering.</li>
+                <li><strong>Dice-roll seed generation</strong> lets you add your own randomness, and a <strong>Seed Vault</strong> holds multiple seeds.</li>
+            </ul>
+            <p>You don't need to use every feature to be safe — but it's reassuring to know the depth is there.</p>
+
+            <h2 class="section-heading-grey">5. Bitcoin-Only, and Open</h2>
+            <p>The Coldcard does one thing: secure your Bitcoin. No altcoins means a smaller attack surface and firmware focused entirely on getting Bitcoin right. And that firmware is <strong>open-source and reproducible</strong> — anyone can inspect it and confirm the code running on the device matches the public source. You don't have to take the company's word for it.</p>
+
+            <h2 class="section-heading-grey">6. It Works With Your Software</h2>
+            <p>The Coldcard isn't a wallet you browse on its own — it's the <strong>signer</strong>, paired with coordinator software that watches your balance and builds transactions. It works beautifully with both wallets we recommend:</p>
+            <div class="info-box">
+                <h3>Coldcard + Sparrow</h3>
+                <p>Pair it with <a href="sparrow-wallet.html">Sparrow</a> for a private, full-control desktop setup — connect Sparrow to your own node and sign with the Coldcard by QR or microSD.</p>
+            </div>
+            <div class="info-box">
+                <h3>Coldcard + Liana</h3>
+                <p>Use it with <a href="owning-your-keys.html">Liana</a> to add time-locked recovery paths and an inheritance plan on top of cold storage.</p>
+            </div>
+            <p>In both cases, transactions move as standard <strong>PSBT</strong> files, and the Coldcard supports single-sig and multisig.</p>
+
+            <h2 class="section-heading-grey">7. Is the Coldcard Q Right for You?</h2>
+            <p>The Coldcard Q is a <strong>premium, security-first device</strong> for people holding meaningful, long-term savings who want their keys in proper cold storage. There's a learning curve — but the Q's keyboard and big screen make it the most approachable Coldcard yet. For tiny day-to-day spending money, a simple phone wallet is fine; for the Bitcoin you intend to <em>keep</em>, this is the kind of device it belongs on.</p>
+
+            <h2 class="section-heading-grey">8. What You'll Need</h2>
+            <ul>
+                <li>A <strong>Coldcard Q</strong> — bought <strong>directly from Coinkite</strong> (see the warning below).</li>
+                <li>A <strong>USB-C cable</strong> — plus AAA batteries if you have the Q and want to run it cordless.</li>
+                <li>One or two <strong>microSD cards</strong> for backups and transaction files.</li>
+                <li>A <strong>metal backup plate</strong> for your recovery words.</li>
+                <li>A coordinator: <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> or <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana</a>.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">9. Setting It Up (The High-Level Path)</h2>
+            <p>This is the shape of the process. For the exact click-by-click, follow Coldcard's own documentation — linked at the bottom.</p>
+            <ul>
+                <li><strong>Check it arrived untampered.</strong> Inspect the sealed bag and confirm the device shows the <strong>Genuine</strong> light on first boot.</li>
+                <li><strong>Set your PIN</strong> and learn your <strong>anti-phishing words</strong> — you'll look for them every time you log in.</li>
+                <li><strong>Generate your seed on the device</strong> (optionally add your own dice rolls). Write the recovery words on paper, then metal — never as a digital file, screenshot, or photo.</li>
+                <li><strong>Optionally add a passphrase</strong> for a hidden wallet, and save an <strong>encrypted backup</strong> to a microSD card.</li>
+                <li><strong>Pair it with your software</strong> by importing the Coldcard into Sparrow or Liana as a watch-only wallet (via QR or microSD).</li>
+                <li><strong>Receive a small test amount first,</strong> and verify the receive address on the Coldcard's own screen before sending anything real.</li>
+                <li><strong>Do a recovery dry run</strong> before trusting it with serious money.</li>
+            </ul>
+            <div class="callout-box">
+                <p><strong>⚠️ Buy direct.</strong> Only buy a Coldcard from <a href="https://coldcard.com/" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">Coinkite directly</a> — never a third-party marketplace or a used unit. A tampered device can quietly steal your funds. The anti-tamper bag and the Genuine light are there to protect you; use them.</p>
+            </div>
+
+            <h2 class="section-heading-grey">10. The Golden Rules of Self-Custody</h2>
+            <ul>
+                <li><strong>Your recovery words are the keys.</strong> Never type them into a website, app, or "support agent" chat. Your Coldcard will never ask you to type them into a computer.</li>
+                <li><strong>Keep them offline.</strong> No photos, no cloud, no password managers, no email. Metal backup, stored privately.</li>
+                <li><strong>Verify addresses on the device.</strong> Always confirm a receive address on the Coldcard's own screen — malware can change what your computer shows.</li>
+                <li><strong>Start small.</strong> Move meaningful funds only after a test send and a recovery dry run.</li>
+                <li><strong>Beware impersonators.</strong> Scammers pose as wallet "support" on Telegram, X, and Discord. <strong>Limestone City Bitcoin will never DM you first or ask for your recovery phrase.</strong></li>
+            </ul>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>New to cold storage?</strong> You don't have to figure it out alone. Bring your Coldcard to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> and we'll help you set it up and pair it with <a href="sparrow-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Sparrow</a> or <a href="owning-your-keys.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Liana</a> safely. For the official walkthrough, see the <a href="https://coldcard.com/docs/" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">Coldcard documentation</a>.</p>
+            </div>
+
+            <p style="font-size: 14px; color: #888; margin-top: 30px;">Limestone City Bitcoin is not affiliated with Coinkite or Coldcard. This guide is educational and is not financial or legal advice.</p>
+
+        </article>
+    </main>
