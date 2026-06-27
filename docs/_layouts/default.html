@@ -8,6 +8,17 @@
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.og_description }}">
     <meta property="og:type" content="{{ page.og_type }}">
+    <meta property="og:site_name" content="Limestone City Bitcoin">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ page.og_image | default: '/assets/images/og-image.jpg' | absolute_url }}">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <meta property="og:image:alt" content="Limestone City Bitcoin">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.og_description }}">
+    <meta name="twitter:image" content="{{ page.og_image | default: '/assets/images/og-image.jpg' | absolute_url }}">
     <link rel="icon" type="image/png" href="./assets/images/logo.png">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="./css/style.css">

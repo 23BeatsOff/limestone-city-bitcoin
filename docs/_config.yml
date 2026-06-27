@@ -6,3 +6,7 @@
 # YAML front matter.
 title: Limestone City Bitcoin
 description: A community-led Bitcoin education and adoption initiative in Kingston, Ontario.
+
+# Production base URL — used by the `absolute_url` filter to build the
+# absolute og:image / og:url values that social scrapers require.
+url: "https://limestonecitybitcoin.com"
