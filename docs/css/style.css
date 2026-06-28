@@ -829,7 +829,8 @@ html, body {
 }
 
 /* Keep each section's floated doodle from bleeding into the next section */
-.section-heading-grey {
+.section-heading-grey,
+.section-heading-orange {
     clear: both;
 }
 
