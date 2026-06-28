@@ -828,6 +828,13 @@ html, body {
     margin: 4px 28px 14px 0;
 }
 
+/* A single centered accent under a page title (for card/short pages) */
+.doodle-center {
+    align-self: center;
+    float: none;
+    margin: 4px 0 22px;
+}
+
 /* Keep each section's floated doodle from bleeding into the next section */
 .section-heading-grey,
 .section-heading-orange {
