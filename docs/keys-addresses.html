@@ -23,7 +23,7 @@ og_type: "website"
 
             <h2 class="section-heading-grey">Your Public Key: Derived, Not Chosen</h2>
             <p>From your private key, your wallet computes a matching <strong>public key</strong> using <strong>elliptic-curve cryptography</strong> on a specific curve called <strong>secp256k1</strong>. The magic is that this is a <strong>one-way function</strong>: it's trivial to go from private key to public key, but — even with all the computers on Earth — effectively impossible to work backwards.</p>
-            <p>That asymmetry is the whole trick. You can hand out your public key freely; it reveals nothing about the private key that produced it. (Public keys come in a <strong>compressed</strong> form of ~66 hex characters, which modern wallets use, and an older <strong>uncompressed</strong> ~130-character form — same security, just shorter.)</p>
+            <p>That asymmetry is the whole trick. You can hand out your public key freely; it reveals nothing about the private key that produced it. (Public keys come in a <strong>compressed</strong> form of ~66 hex characters, which modern wallets use, and an older <strong>uncompressed</strong> ~130-character form — same security, just shorter.) For the math behind it, see <a href="public-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Public Keys</a>.</p>
 
             <h2 class="section-heading-grey">From Public Key to Address</h2>
             <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-left">
