@@ -37,6 +37,8 @@ html, body {
     text-align: center;
     margin: 0 auto;
     gap: 26px;
+    flex-wrap: wrap;
+    row-gap: 8px;
 }
 
 /* Each live stat (Block Height, Moscow Time) stacks its label over value */
@@ -45,6 +47,17 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+/* Header stat that links out (Canadian Debt Clock) */
+.header-stat-link {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s;
+}
+
+.header-stat-link:hover .height {
+    color: #e07f0f;
 }
 
 .header-divider {
@@ -254,9 +267,14 @@ html, body {
         height: 3.5px;
     }
 
-    /* Tighten the two header stats so they fit comfortably on phones */
+    /* Tighten the header stats so they fit comfortably on phones */
     .header-center {
-        gap: 16px;
+        gap: 14px;
+    }
+
+    /* Cleaner than vertical bars once the stats wrap */
+    .header-divider {
+        display: none;
     }
 
     .height {
