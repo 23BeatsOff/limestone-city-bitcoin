@@ -50,8 +50,13 @@ html, body {
 }
 
 /* Header stat that links out (Canadian Debt Clock) */
-.header-stat-link {
+.header-stat-link,
+.header-stat-link .label,
+.header-stat-link .height {
     text-decoration: none;
+}
+
+.header-stat-link {
     color: inherit;
     transition: 0.2s;
 }
