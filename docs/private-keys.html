@@ -1,9 +1,9 @@
 ---
 layout: default
 title: "Private Keys | Limestone City Bitcoin"
-description: "A closer look at Bitcoin private keys — what the 256-bit number is, how entropy generates it, why you should never make your own, key formats (hex, WIF), and how one seed produces them all."
+description: "A closer look at Bitcoin private keys: what the 256-bit number is, how entropy generates it, why you should never make your own, key formats (hex, WIF), and how one seed produces them all."
 keywords: "Bitcoin private key, 256-bit, entropy, randomness, secp256k1 curve order, WIF, Wallet Import Format, hexadecimal, brain wallet, seed phrase, HD wallet, Kingston Bitcoin"
-og_description: "The one secret number that is your Bitcoin — entropy, formats, and why your seed is the master key."
+og_description: "The one secret number that is your Bitcoin: entropy, formats, and why your seed is the master key."
 og_type: "website"
 ---
 
@@ -14,38 +14,38 @@ og_type: "website"
 
         <article class="post-content">
 
-            <p>In <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a> we met the private key in passing — the secret that unlocks your coins. It's worth a closer look, because everything else (your public key, your addresses, your signatures, your whole wallet) is built on top of this one number.</p>
+            <p>In <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a> we met the private key in passing: the secret that unlocks your coins. It's worth a closer look, because everything else (your public key, your addresses, your signatures, your whole wallet) is built on top of this one number.</p>
 
             <h2 class="section-heading-grey">Just a (Very Big) Number</h2>
             <img src="./assets/images/doodles/key-3.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>A private key is, very literally, a <strong>number</strong> — a randomly chosen <strong>256-bit</strong> value. Valid keys run from 1 up to just below the order of the <strong>secp256k1</strong> curve, about <strong>1.158 × 10<sup>77</sup></strong> — roughly the number of atoms in the observable universe. You can write that same number in binary, decimal, or (most commonly) <strong>hexadecimal</strong> — 64 hex characters — but underneath it's all the same value.</p>
+            <p>A private key is, very literally, a <strong>number</strong>: a randomly chosen <strong>256-bit</strong> value. Valid keys run from 1 up to just below the order of the <strong>secp256k1</strong> curve, about <strong>1.158 × 10<sup>77</sup></strong>, roughly the number of atoms in the observable universe. You can write that same number in binary, decimal, or (most commonly) <strong>hexadecimal</strong> (64 hex characters), but underneath it's all the same value.</p>
             <p>Why so enormous? Because that staggering range is exactly what makes your key un-guessable. Even with every computer on Earth grinding away, randomly landing on a key that already holds coins is, for all practical purposes, impossible.</p>
 
             <h2 class="section-heading-grey">Where It Comes From: Entropy</h2>
             <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>A private key is only as safe as the randomness used to create it. That randomness is called <strong>entropy</strong>, and it has to come from a strong, unpredictable source — a cryptographically secure random number generator, hashing genuinely random data, or even flipping a coin 256 times (one flip per bit). Good wallets do this for you, correctly.</p>
-            <p>The cardinal sin is <strong>inventing your own</strong>. "Brain wallets" — keys made from a passphrase, a song lyric, or a favourite quote — feel clever, but humans are hopeless at randomness, and attackers have pre-computed millions of the obvious ones. Brain wallets get emptied in seconds. Let your wallet generate the key; never make one up.</p>
+            <p>A private key is only as safe as the randomness used to create it. That randomness is called <strong>entropy</strong>, and it has to come from a strong, unpredictable source: a cryptographically secure random number generator, hashing genuinely random data, or even flipping a coin 256 times (one flip per bit). Good wallets do this for you, correctly.</p>
+            <p>The cardinal sin is <strong>inventing your own</strong>. "Brain wallets" (keys made from a passphrase, a song lyric, or a favourite quote) feel clever, but humans are hopeless at randomness, and attackers have pre-computed millions of the obvious ones. Brain wallets get emptied in seconds. Let your wallet generate the key; never make one up.</p>
 
             <h2 class="section-heading-grey">The Same Key, Many Outfits</h2>
             <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <p>Because a private key is just a number, it can be dressed up in a few different formats:</p>
             <ul>
-                <li><strong>Raw hexadecimal</strong> — the bare 64-character form.</li>
-                <li><strong>Decimal</strong> — the same value written as one (enormous) ordinary number.</li>
-                <li><strong>WIF (Wallet Import Format)</strong> — the one you're most likely to bump into: a Base58Check encoding that adds a <strong>checksum</strong> (so a typo gets caught) and a flag noting whether the matching public key is compressed.</li>
+                <li><strong>Raw hexadecimal</strong>: the bare 64-character form.</li>
+                <li><strong>Decimal</strong>: the same value written as one (enormous) ordinary number.</li>
+                <li><strong>WIF (Wallet Import Format)</strong>: the one you're most likely to bump into: a Base58Check encoding that adds a <strong>checksum</strong> (so a typo gets caught) and a flag noting whether the matching public key is compressed.</li>
             </ul>
-            <p>You'll rarely handle any of these directly — your wallet imports and exports them — but it's worth knowing they're all the same secret wearing different clothes.</p>
+            <p>You'll rarely handle any of these directly, since your wallet imports and exports them, but it's worth knowing they're all the same secret wearing different clothes.</p>
 
             <h2 class="section-heading-grey">From Key to Signature</h2>
-            <p>Your private key never travels, and it never needs to. From it, your wallet derives the matching <a href="public-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">public key</a> with one-way elliptic-curve math; and to spend, it produces a <strong>signature</strong> over the transaction. Anyone can check that signature against your public key — proving the coins are yours — but no one can run the process backward to recover the key. For the full <em>private key → public key → address</em> chain, see <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a>.</p>
+            <p>Your private key never travels, and it never needs to. From it, your wallet derives the matching <a href="public-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">public key</a> with one-way elliptic-curve math; and to spend, it produces a <strong>signature</strong> over the transaction. Anyone can check that signature against your public key, proving the coins are yours, but no one can run the process backward to recover the key. For the full <em>private key → public key → address</em> chain, see <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a>.</p>
 
             <h2 class="section-heading-grey">One Seed, Every Key</h2>
             <img src="./assets/images/doodles/seed-plate.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>Here's what makes private keys manageable: you almost never deal with them one at a time. Your <strong>recovery phrase</strong> (a BIP39 <em>seed</em>) feeds a <strong>hierarchical deterministic (HD)</strong> wallet, which generates every private key you'll ever use, in a repeatable order. Back up the seed once, and every key — past and future — is recoverable. That's why we call the seed the <strong>master key</strong>.</p>
+            <p>Here's what makes private keys manageable: you almost never deal with them one at a time. Your <strong>recovery phrase</strong> (a BIP39 <em>seed</em>) feeds a <strong>hierarchical deterministic (HD)</strong> wallet, which generates every private key you'll ever use, in a repeatable order. Back up the seed once, and every key, past and future, is recoverable. That's why we call the seed the <strong>master key</strong>.</p>
 
             <h2 class="section-heading-grey">Whoever Holds It, Owns It</h2>
             <img src="./assets/images/doodles/padlock-1.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>All of which leads to the unforgiving rule of self-custody: <strong>whoever knows the private key controls the coins</strong>, completely and irreversibly. So the key — and the seed it comes from — is never typed into a website, never stored as a photo or a cloud file, and never shared with a "support agent." Guard it like cash that can't be cancelled, because that's exactly what it is.</p>
+            <p>All of which leads to the unforgiving rule of self-custody: <strong>whoever knows the private key controls the coins</strong>, completely and irreversibly. So the key, and the seed it comes from, is never typed into a website, never stored as a photo or a cloud file, and never shared with a "support agent." Guard it like cash that can't be cancelled, because that's exactly what it is.</p>
 
             <div class="callout-box" style="margin-top: 40px;">
                 <p><strong>Keep going.</strong> See the full key-to-address chain in <a href="keys-addresses.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Keys &amp; Addresses</a>, how the network checks your signatures in <a href="bitcoin-network.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">The Bitcoin Network</a>, and how to keep your seed safe on <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a>.</p>

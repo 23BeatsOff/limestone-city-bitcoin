@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Public Keys | Limestone City Bitcoin"
-description: "A closer look at Bitcoin public keys — how they're derived from the private key via elliptic-curve multiplication on secp256k1, the public key formats (compressed, uncompressed, x-only/Taproot), the one-way trapdoor, and signature verification."
+description: "A closer look at Bitcoin public keys: how they're derived from the private key via elliptic-curve multiplication on secp256k1, the public key formats (compressed, uncompressed, x-only/Taproot), the one-way trapdoor, and signature verification."
 keywords: "Bitcoin public key, secp256k1, elliptic curve multiplication, generator point, compressed public key, uncompressed, x-only, Taproot, discrete logarithm, signature verification, Kingston Bitcoin"
 og_description: "How your public key is derived, what it looks like, and how it proves ownership without revealing your private key."
 og_type: "website"
@@ -14,34 +14,34 @@ og_type: "website"
 
         <article class="post-content">
 
-            <p>Every private key has a partner: a <strong>public key</strong>. It's the half you can hand out freely — it proves the coins are yours without ever exposing the secret. If you've read <a href="private-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Private Keys</a>, this is the natural next step in the chain.</p>
+            <p>Every private key has a partner: a <strong>public key</strong>. It's the half you can hand out freely. It proves the coins are yours without ever exposing the secret. If you've read <a href="private-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Private Keys</a>, this is the natural next step in the chain.</p>
 
             <h2 class="section-heading-grey">Derived From the Private Key</h2>
             <img src="./assets/images/doodles/fingerprint.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>Your public key isn't chosen — it's computed from your private key with a single operation:</p>
+            <p>Your public key isn't chosen. It's computed from your private key with a single operation:</p>
             <p style="text-align: center; font-weight: 500; color: #333;">public key = private key × G</p>
-            <p>Here <strong>G</strong> is the <strong>generator point</strong>, a fixed starting spot on Bitcoin's elliptic curve (<strong>secp256k1</strong>). The "×" isn't ordinary multiplication, though — it's a special <strong>elliptic-curve operation</strong> that "bounces" around the curve a number of times set by your private key, landing on a new point. That point <em>is</em> your public key.</p>
+            <p>Here <strong>G</strong> is the <strong>generator point</strong>, a fixed starting spot on Bitcoin's elliptic curve (<strong>secp256k1</strong>). The "×" isn't ordinary multiplication, though. It's a special <strong>elliptic-curve operation</strong> that "bounces" around the curve a number of times set by your private key, landing on a new point. That point <em>is</em> your public key.</p>
 
             <h2 class="section-heading-grey">A Point on the Curve</h2>
             <img src="./assets/images/doodles/compass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>So a public key is literally a <strong>point</strong> — an (x, y) coordinate on the curve. There are a few ways to write it down:</p>
+            <p>So a public key is literally a <strong>point</strong>, an (x, y) coordinate on the curve. There are a few ways to write it down:</p>
             <ul>
-                <li><strong>Uncompressed</strong> — <code>04</code> followed by both coordinates (x then y). 130 hex characters (65 bytes). The old way.</li>
-                <li><strong>Compressed</strong> — a <code>02</code> or <code>03</code> prefix followed by just the x coordinate. 66 hex characters (33 bytes), and the modern standard. Since the curve is <code>y² = x³ + 7</code>, knowing x gives you two possible y values; the prefix just says which one (<code>02</code> = even, <code>03</code> = odd). Half the size, same key.</li>
-                <li><strong>X-only</strong> — just the x coordinate, used by <strong>Taproot</strong>. Smaller still.</li>
+                <li><strong>Uncompressed</strong>: <code>04</code> followed by both coordinates (x then y). 130 hex characters (65 bytes). The old way.</li>
+                <li><strong>Compressed</strong>: a <code>02</code> or <code>03</code> prefix followed by just the x coordinate. 66 hex characters (33 bytes), and the modern standard. Since the curve is <code>y² = x³ + 7</code>, knowing x gives you two possible y values; the prefix just says which one (<code>02</code> = even, <code>03</code> = odd). Half the size, same key.</li>
+                <li><strong>X-only</strong>: just the x coordinate, used by <strong>Taproot</strong>. Smaller still.</li>
             </ul>
 
             <h2 class="section-heading-grey">The One-Way Wall</h2>
             <img src="./assets/images/doodles/padlock-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>Going forward — private key to public key — is fast and easy. Going <em>backward</em> is the catch. Recovering the private key from the public key would mean solving the <strong>elliptic-curve discrete logarithm problem</strong>, which is computationally infeasible even with all the world's computers. This is what cryptographers call a <strong>trapdoor function</strong>: easy one way, effectively impossible the other. It's the wall that lets you publish your public key without putting your coins at risk.</p>
+            <p>Going forward, from private key to public key, is fast and easy. Going <em>backward</em> is the catch. Recovering the private key from the public key would mean solving the <strong>elliptic-curve discrete logarithm problem</strong>, which is computationally infeasible even with all the world's computers. This is what cryptographers call a <strong>trapdoor function</strong>: easy one way, effectively impossible the other. It's the wall that lets you publish your public key without putting your coins at risk.</p>
 
             <h2 class="section-heading-grey">What Your Public Key Does</h2>
             <img src="./assets/images/doodles/shield-check.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>The public key has one core job: <strong>proving ownership</strong>. When you spend, your wallet uses the private key to produce a <strong>signature</strong> over the transaction. Anyone on the network can then check that signature against your public key — confirming the coins are yours to move — while the private key itself never appears. The public key is also the input that gets <strong>hashed into your address</strong> (see <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a>).</p>
+            <p>The public key has one core job: <strong>proving ownership</strong>. When you spend, your wallet uses the private key to produce a <strong>signature</strong> over the transaction. Anyone on the network can then check that signature against your public key, confirming the coins are yours to move, while the private key itself never appears. The public key is also the input that gets <strong>hashed into your address</strong> (see <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a>).</p>
 
             <h2 class="section-heading-grey">Public, But Not Always Visible</h2>
             <img src="./assets/images/doodles/eye.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>Here's a subtle privacy point. An <strong>address</strong> is a <em>hash</em> of your public key, so when you receive coins, your public key isn't actually revealed on-chain — only the address is. The public key only becomes visible when you <strong>spend</strong>. That's one more reason wallets use a <strong>fresh address for every payment</strong>: it keeps your public keys (and the links between your coins) private for as long as possible.</p>
+            <p>Here's a subtle privacy point. An <strong>address</strong> is a <em>hash</em> of your public key, so when you receive coins, your public key isn't actually revealed on-chain. Only the address is. The public key only becomes visible when you <strong>spend</strong>. That's one more reason wallets use a <strong>fresh address for every payment</strong>: it keeps your public keys (and the links between your coins) private for as long as possible.</p>
 
             <div class="callout-box" style="margin-top: 40px;">
                 <p><strong>Keep going.</strong> Start from the secret in <a href="private-keys.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Private Keys</a>, see the whole chain to an address in <a href="keys-addresses.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Keys &amp; Addresses</a>, and watch the network verify your signatures in <a href="bitcoin-network.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">The Bitcoin Network</a>.</p>
