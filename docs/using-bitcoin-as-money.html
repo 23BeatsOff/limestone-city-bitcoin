@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Using Bitcoin as Money | Limestone City Bitcoin"
-description: "How to send and receive Bitcoin — address types, the UTXO model, signatures, fees and weight units, confirmations, and the Lightning Network — plus why circulating Bitcoin and supporting Value-for-Value matters."
+description: "How to send and receive Bitcoin: address types, the UTXO model, signatures, fees, confirmations, and the Lightning Network. Plus why circulating Bitcoin and supporting Value-for-Value matters."
 keywords: "sending Bitcoin, receiving Bitcoin, UTXO, address types, SegWit, Taproot, Schnorr, Bitcoin transaction fees, sats per vbyte, weight units, RBF, CPFP, confirmations, Lightning Network, payment channels, Value for Value, V4V, Kingston Bitcoin"
 og_description: "How to send and receive Bitcoin, and why using it as money matters."
 og_type: "website"
@@ -14,70 +14,70 @@ og_type: "website"
 
         <article class="post-content">
 
-            <h2 class="section-heading-grey">Bitcoin Is Money — So Use It</h2>
+            <h2 class="section-heading-grey">Bitcoin Is Money, So Use It</h2>
             <img src="./assets/images/doodles/coin-stack.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>It's easy to think of Bitcoin as something you just buy and hold. Saving in sound money is powerful — but money has a second job: it has to <strong>move</strong>. A currency nobody can spend or earn isn't really money; it's a collectible.</p>
-            <p>Bitcoin was designed as <em>peer-to-peer electronic cash</em> — money you can send to anyone, anywhere, without asking a bank's permission. It only reaches its potential when we actually use it that way: paying a local vendor, tipping a creator, settling up with a friend. The more we circulate Bitcoin, the stronger and more useful the network we're all building becomes.</p>
+            <p>It's easy to think of Bitcoin as something you just buy and hold. Saving in sound money is powerful, but money has a second job: it has to <strong>move</strong>. A currency nobody can spend or earn isn't really money; it's a collectible.</p>
+            <p>Bitcoin was designed as <em>peer-to-peer electronic cash</em>: money you can send to anyone, anywhere, without asking a bank's permission. It only reaches its potential when we actually use it that way: paying a local vendor, tipping a creator, settling up with a friend. The more we circulate Bitcoin, the stronger and more useful the network we're all building becomes.</p>
 
             <h2 class="section-heading-grey">Value-for-Value: Money With Meaning</h2>
             <img src="./assets/images/doodles/microphone.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>One of the most natural ways to start using Bitcoin as money is <strong>Value-for-Value</strong> (V4V). Instead of ads, paywalls, or middlemen, V4V lets you support the people and projects you appreciate by sending them Bitcoin directly — streaming a few sats per minute to a podcaster as you listen, or sending a "boost" when something really lands.</p>
-            <p>It's a quiet revolution: real money flowing straight from listener to creator, with no platform skimming the middle. Our <a href="40hpw.html" class="entry-link" style="text-transform: none; font-size: inherit;">#40HPW</a> page is full of Value-for-Value podcasts you can support this way. But to take part — and to use Bitcoin as money at all — you need to be comfortable <strong>sending and receiving</strong>. Here's how it works.</p>
+            <p>One of the most natural ways to start using Bitcoin as money is <strong>Value-for-Value</strong> (V4V). Instead of ads, paywalls, or middlemen, V4V lets you support the people and projects you appreciate by sending them Bitcoin directly: streaming a few sats per minute to a podcaster as you listen, or sending a "boost" when something really lands.</p>
+            <p>That's real money flowing straight from listener to creator, with no platform skimming the middle. Our <a href="40hpw.html" class="entry-link" style="text-transform: none; font-size: inherit;">#40HPW</a> page is full of Value-for-Value podcasts you can support this way. But to take part, and to use Bitcoin as money at all, you need to be comfortable <strong>sending and receiving</strong>. Here's how it works.</p>
 
             <h2 class="section-heading-grey">Two Layers: The Base Chain and Lightning</h2>
             <p>Bitcoin has two layers, and it helps to know which one you're using:</p>
             <ul>
-                <li><strong>The base chain</strong> is the bedrock — every transaction is recorded on the blockchain, settled and final. It's ideal for larger amounts and savings, costs a small fee, and takes a confirmation or two. It's what most of this guide describes.</li>
-                <li><strong>The Lightning Network</strong> sits on top of Bitcoin and is built for the small, everyday stuff: payments that are near-instant and cost a fraction of a cent. This is what makes <strong>Value-for-Value</strong> practical — streaming sats and sending boosts without paying a base-chain fee each time.</li>
+                <li><strong>The base chain</strong> is the bedrock. Every transaction is recorded on the blockchain, settled and final. It's ideal for larger amounts and savings, costs a small fee, and takes a confirmation or two. It's what most of this guide describes.</li>
+                <li><strong>The Lightning Network</strong> sits on top of Bitcoin and is built for the small, everyday stuff: payments that are near-instant and cost a fraction of a cent. This is what makes <strong>Value-for-Value</strong> practical: streaming sats and sending boosts without paying a base-chain fee each time.</li>
             </ul>
             <p>Most people use both: Lightning for spending and V4V, the base chain for bigger payments and moving savings into cold storage.</p>
 
             <h2 class="section-heading-grey">Receiving Bitcoin</h2>
             <img src="./assets/images/doodles/qr-code.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>To get paid, you share a Bitcoin <strong>address</strong> — a string of letters and numbers that's really an encoded <em>lock</em>: a little script that only your key can open. Your wallet can show it as text or as a <strong>QR code</strong> for someone to scan, which avoids typos.</p>
+            <p>To get paid, you share a Bitcoin <strong>address</strong>, a string of letters and numbers that's really an encoded <em>lock</em>: a little script that only your key can open. Your wallet can show it as text or as a <strong>QR code</strong> for someone to scan, which avoids typos.</p>
             <ul>
-                <li><strong>A fresh address each time.</strong> Good wallets create a new address for every payment. That's for privacy — it makes it harder for anyone to link your payments together. Reusing an old address works, but a new one is better.</li>
+                <li><strong>A fresh address each time.</strong> Good wallets create a new address for every payment. That's for privacy: it makes it harder for anyone to link your payments together. Reusing an old address works, but a new one is better.</li>
                 <li><strong>Built-in error checking.</strong> Every address carries a checksum, so your wallet will reject one with a typo. You only need to eyeball the first and last few characters.</li>
                 <li><strong>Different flavours.</strong> Older addresses start with <code>1</code> or <code>3</code>; modern <strong>SegWit</strong> and <strong>Taproot</strong> addresses start with <code>bc1</code> and are a little cheaper to spend and better for privacy. When given the choice, prefer a <code>bc1</code> address.</li>
             </ul>
 
             <h2 class="section-heading-grey">Sending Bitcoin</h2>
             <p>Sending takes three things: the recipient's <strong>address</strong>, an <strong>amount</strong> (in bitcoin or sats), and a <strong>fee</strong>. Your wallet then builds the transaction and broadcasts it to the network.</p>
-            <p>Under the hood, your wallet uses your <strong>private key</strong> to produce a <strong>signature</strong> that unlocks the coins you're spending. The signature mathematically commits to that exact transaction — change a single detail and it's invalid — and it proves the coins are yours without ever revealing the key. (Older wallets sign with <em>ECDSA</em>; Taproot upgraded this to <em>Schnorr</em> signatures, which are smaller and more private.)</p>
+            <p>Under the hood, your wallet uses your <strong>private key</strong> to produce a <strong>signature</strong> that unlocks the coins you're spending. The signature mathematically commits to that exact transaction (change a single detail and it's invalid) and proves the coins are yours without ever revealing the key. (Older wallets sign with <em>ECDSA</em>; Taproot upgraded this to <em>Schnorr</em> signatures, which are smaller and more private.)</p>
             <div class="callout-box">
                 <p><strong>⚠️ Bitcoin transactions are final.</strong> There's no "undo" and no support line to call. If you send to the wrong address, the coins are gone. Always double-check the address (the first and last few characters), and for a large payment, <strong>send a small test amount first</strong>.</p>
             </div>
 
             <h2 class="section-heading-grey">Coins Are Chunks: The UTXO Model</h2>
-            <p>Here's a detail that explains a lot. Your balance isn't a single number in an account — it's a collection of discrete <strong>chunks</strong> of bitcoin called <strong>UTXOs</strong> (unspent transaction outputs). Picture the individual coins and bills in a physical wallet: you might be holding a 0.5, a 0.2, and a 0.05.</p>
-            <p>When you spend, your wallet selects enough chunks to cover the amount — these become the transaction's <strong>inputs</strong> — and creates new chunks as <strong>outputs</strong>: one to the recipient, and usually one back to you as <strong>change</strong>, exactly like getting change from a $20 bill. Each output is locked by a script; to spend it later, your signature has to satisfy that lock. The new outputs become fresh UTXOs in each wallet.</p>
-            <p>This is why the total leaving your wallet can look bigger than what you sent: you spent a whole chunk and the remainder came back as change. Two practical notes: very tiny UTXOs (<strong>dust</strong>) can cost more in fees to spend than they're worth, and when fees are low it's smart to <strong>consolidate</strong> — combine many small chunks into one — so future payments are cheaper. Modern wallets manage most of this for you automatically.</p>
+            <p>Here's a detail that explains a lot. Your balance isn't a single number in an account. It's a collection of discrete <strong>chunks</strong> of bitcoin called <strong>UTXOs</strong> (unspent transaction outputs). Picture the individual coins and bills in a physical wallet: you might be holding a 0.5, a 0.2, and a 0.05.</p>
+            <p>When you spend, your wallet selects enough chunks to cover the amount (these become the transaction's <strong>inputs</strong>) and creates new chunks as <strong>outputs</strong>: one to the recipient, and usually one back to you as <strong>change</strong>, exactly like getting change from a $20 bill. Each output is locked by a script; to spend it later, your signature has to satisfy that lock. The new outputs become fresh UTXOs in each wallet.</p>
+            <p>This is why the total leaving your wallet can look bigger than what you sent: you spent a whole chunk and the remainder came back as change. Two practical notes: very tiny UTXOs (<strong>dust</strong>) can cost more in fees to spend than they're worth, and when fees are low it's smart to <strong>consolidate</strong>, combining many small chunks into one, so future payments are cheaper. Modern wallets manage most of this for you automatically.</p>
 
             <h2 class="section-heading-grey">Fees: Paying for Block Space</h2>
             <img src="./assets/images/doodles/fee-gauge.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>Every transaction competes for limited space in the next block. Unconfirmed transactions wait in the <strong>mempool</strong> (a kind of waiting room), and miners include the ones offering the most. The fee itself is simply the leftover — your <strong>inputs minus your outputs</strong> — which the miner collects for including you.</p>
-            <p>Fees are priced in <strong>sats per vByte</strong>: satoshis per unit of transaction <em>size</em>, not as a percentage of the amount you send. Size is measured in <strong>weight units</strong> (a vByte is four weight units), and SegWit gives signature data a discount — part of why <code>bc1</code> addresses are cheaper to spend. A transaction with many inputs is physically larger, so it costs more; that's why sending $10 and sending $10,000 can cost the same if the transactions are the same size.</p>
+            <p>Every transaction competes for limited space in the next block. Unconfirmed transactions wait in the <strong>mempool</strong> (a kind of waiting room), and miners include the ones offering the most. The fee itself is simply the leftover, your <strong>inputs minus your outputs</strong>, which the miner collects for including you.</p>
+            <p>Fees are priced in <strong>sats per vByte</strong>: satoshis per unit of transaction <em>size</em>, not as a percentage of the amount you send. Size is measured in <strong>weight units</strong> (a vByte is four weight units), and SegWit gives signature data a discount, which is part of why <code>bc1</code> addresses are cheaper to spend. A transaction with many inputs is physically larger, so it costs more; that's why sending $10 and sending $10,000 can cost the same if the transactions are the same size.</p>
             <ul>
                 <li><strong>In a hurry?</strong> Pay a higher feerate to land in the next block or two.</li>
                 <li><strong>Not in a hurry?</strong> Pay a lower feerate and let it confirm when the network is quieter. When things are calm, even 1 sat/vByte gets there.</li>
-                <li><strong>Stuck?</strong> If a low-fee transaction stalls, most wallets can rescue it — either by raising its fee directly (<strong>RBF</strong>, opt-in replace-by-fee) or by spending its change with a high fee to drag it along (<strong>CPFP</strong>, child-pays-for-parent). Unconfirmed transactions are eventually dropped after about two weeks, so bump rather than wait forever.</li>
+                <li><strong>Stuck?</strong> If a low-fee transaction stalls, most wallets can rescue it, either by raising its fee directly (<strong>RBF</strong>, opt-in replace-by-fee) or by spending its change with a high fee to drag it along (<strong>CPFP</strong>, child-pays-for-parent). Unconfirmed transactions are eventually dropped after about two weeks, so bump rather than wait forever.</li>
             </ul>
 
             <h2 class="section-heading-grey">Confirmations</h2>
-            <p>Your transaction is <strong>confirmed</strong> once it's included in a mined block. Each new block stacked on top adds another confirmation, making it ever harder to reverse — what's often called <em>probabilistic finality</em>: never quite 100%, but exponentially closer with every block.</p>
+            <p>Your transaction is <strong>confirmed</strong> once it's included in a mined block. Each new block stacked on top adds another confirmation, making it ever harder to reverse. This is what's often called <em>probabilistic finality</em>: never quite 100%, but exponentially closer with every block.</p>
             <ul>
                 <li><strong>1 confirmation</strong> is plenty for everyday payments.</li>
                 <li><strong>2 confirmations</strong> guard against rare, natural chain reorganizations.</li>
-                <li><strong>6 confirmations</strong> is old-school caution — really only needed for very large amounts.</li>
+                <li><strong>6 confirmations</strong> is old-school caution, really only needed for very large amounts.</li>
             </ul>
             <p>Every transaction has a <strong>TXID</strong> (a unique ID). Paste it into a block explorer like <a href="https://mempool.space/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">mempool.space</a> to watch it confirm in real time. Curious how blocks actually get mined, and why a reorganization can briefly undo the newest one? See <a href="bitcoin-network.html" class="entry-link" style="text-transform: none; font-size: inherit;">The Bitcoin Network</a>.</p>
 
             <h2 class="section-heading-grey">A Closer Look at Lightning</h2>
             <img src="./assets/images/doodles/lightning-1.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>So how does Lightning move money instantly without touching the blockchain each time? Two people open a <strong>payment channel</strong> — really a shared <strong>2-of-2 multisig</strong> address funded by an on-chain transaction. From then on they can pay each other back and forth instantly by re-signing who owns what, with nothing hitting the chain. And because these channels link up across the network, you can pay someone you have no direct channel with — the payment is <strong>routed</strong> through intermediaries, who can't steal it in transit. You only settle on-chain when you open or close a channel. A Lightning <strong>invoice</strong> (or a reusable <em>Lightning address</em>) is just the request you scan or paste to pay — which is exactly the plumbing behind V4V boosts and streaming sats.</p>
+            <p>So how does Lightning move money instantly without touching the blockchain each time? Two people open a <strong>payment channel</strong>, which is really a shared <strong>2-of-2 multisig</strong> address funded by an on-chain transaction. From then on they can pay each other back and forth instantly by re-signing who owns what, with nothing hitting the chain. And because these channels link up across the network, you can pay someone you have no direct channel with. The payment is <strong>routed</strong> through intermediaries, who can't steal it in transit. You only settle on-chain when you open or close a channel. A Lightning <strong>invoice</strong> (or a reusable <em>Lightning address</em>) is just the request you scan or paste to pay. That's the plumbing behind V4V boosts and streaming sats.</p>
 
             <div class="callout-box" style="margin-top: 40px;">
-                <p><strong>Ready to start?</strong> Pick a wallet on our <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a> page, get some sats, and support a creator from the <a href="40hpw.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">#40HPW</a> list — there's no better way to learn than to actually use it. Bring your questions to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+                <p><strong>Ready to start?</strong> Pick a wallet on our <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a> page, get some sats, and support a creator from the <a href="40hpw.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">#40HPW</a> list. There's no better way to learn than to actually use it. Bring your questions to our next <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
             </div>
 
         </article>
