@@ -1,0 +1,41 @@
+---
+layout: default
+title: "Nostr Signing Device | Limestone City Bitcoin"
+description: "A bonus project: build a $15 hardware signer for your Nostr identity. Why an nsec deserves cold storage (it can never be rotated), the ESP32 build, and how signing works without the key ever touching your computer."
+keywords: "Nostr signing device, nsec, ESP32, LILYGO T-Display, hardware signer, Nostr key security, Horse extension, Kingston Bitcoin"
+og_description: "Your Nostr key can never be rotated. Treat it like a seed: a $15 hardware signer for your identity."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Nostr Signing Device</h1>
+        <p class="page-subtitle">Cold storage for your identity</p>
+
+        <article class="post-content">
+
+            <p>Everything this site teaches about Bitcoin keys applies to another key you may already carry: your <strong>Nostr identity</strong>. Nostr (the open protocol behind the purple ostrich icons in our footer) identifies you by a keypair, and the private half, your <strong>nsec</strong>, signs every note you publish. This bonus project gives that key the same treatment we give a seed: a cheap, dedicated device it never leaves.</p>
+
+            <h2 class="section-heading-grey">Why Bother? An nsec Is Forever</h2>
+            <img src="./assets/images/doodles/speech-bubble-sat.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Here is the uncomfortable difference from a password: <strong>a Nostr key cannot be rotated</strong>. Your npub is your identity; followers, reputation, and zap history all hang off it. If malware or a keylogger ever grabs the nsec from a browser, the thief <em>is</em> you, permanently, and there is no reset flow. A key that can never be changed deserves to live somewhere no website can reach, which is exactly the logic that puts Bitcoin seeds on <a href="signing-device-setup.html" class="entry-link" style="text-transform: none; font-size: inherit;">signing devices</a>.</p>
+
+            <h2 class="section-heading-grey">The Build: $15 of Parts</h2>
+            <img src="./assets/images/doodles/sbc-mini.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>The device is a <strong>LILYGO T-Display</strong>, a tiny ESP32 board with a screen, sold for about $10 to $15. The build is a gentle introduction to the DIY spirit of <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a>: install the Arduino IDE, flash the open-source signing firmware onto the board over USB, and load your nsec onto the device. From then on the key lives in the board's memory, not on any computer.</p>
+
+            <h2 class="section-heading-grey">How Signing Works</h2>
+            <img src="./assets/images/doodles/signing-pen.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>The flow mirrors PSBT signing. Your Nostr client hands each unsigned event to a small browser extension (the bridge is called Horse, in a Chrome-based browser), the extension passes it to the device, the device signs it on its own chip, and only the signature comes back. The client never sees the key; the browser never sees the key; a compromised computer can at worst ask the device to sign things while it is plugged in, not steal the identity outright.</p>
+            <p>Honest limits: this is a young project, the browser-extension bridge is a convenience rather than an air gap, and a USB link is involved, so it does not meet the standard we hold for serious Bitcoin savings. For an identity key with no other hardware option, though, it is a huge upgrade over an nsec pasted into a browser.</p>
+
+            <div class="callout-box">
+                <p><strong>Back it up like a seed.</strong> The device can break or be lost, and the nsec still cannot be rotated. Keep the key written on paper or metal in a safe place, exactly as the <a href="backup-verification.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">backup rules</a> teach, and never store it digitally.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>A perfect meetup project.</strong> The parts cost less than lunch and the flashing takes an evening. Bring a board to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> and build it alongside someone who has done it, then zap them a thank-you.</p>
+            </div>
+
+        </article>
+    </main>

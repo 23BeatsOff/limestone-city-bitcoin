@@ -1,0 +1,58 @@
+---
+layout: default
+title: "Running a Bitcoin Node | Limestone City Bitcoin"
+description: "How to run your own Bitcoin node: the hardware you need, the three-part stack (Bitcoin Core, an Electrum server, your wallet), what the initial sync really takes, Tor, and connecting Sparrow so nobody watches your wallet but you."
+keywords: "Bitcoin node, run a node, Bitcoin Core, Electrum server, initial block download, SSD, Raspberry Pi, Tor, Sparrow, verify don't trust, Kingston Bitcoin"
+og_description: "Stop asking strangers about your money: run your own node and verify Bitcoin yourself."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Running a Bitcoin Node</h1>
+        <p class="page-subtitle">Verify it yourself</p>
+
+        <article class="post-content">
+
+            <p><a href="bitcoin-network.html" class="entry-link" style="text-transform: none; font-size: inherit;">The Bitcoin Network</a> guide made the case: a full node trusts no one, checks every rule, and answers your wallet's questions without telling a stranger what you own. This guide is the practical half: what it takes to actually run one, and how to point your wallet at it.</p>
+
+            <h2 class="section-heading-grey">Why Bother</h2>
+            <img src="./assets/images/doodles/node-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Without your own node, your wallet asks somebody else's server about your addresses, and that server learns your balance, your history, and your interest. With your own node, the queries stay inside your house, every payment you receive is verified against the real consensus rules by your own machine, and you become one more independent enforcer of the 21 million cap. Privacy, verification, and a vote for decentralization, all from one box in a closet.</p>
+
+            <h2 class="section-heading-grey">The Hardware</h2>
+            <img src="./assets/images/doodles/broadcast-antenna.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li><strong>Minimum:</strong> a dual-core machine, 4 GB RAM, and a <strong>1 TB SSD</strong>. The SSD is not optional: the blockchain is around 600 GB and growing, and syncing it on a spinning hard drive turns days into weeks.</li>
+                <li><strong>Comfortable:</strong> quad-core, 8 GB RAM, 2 TB SSD, and an internet plan that will not flinch at a few hundred gigabytes.</li>
+                <li><strong>The box itself:</strong> a Raspberry Pi 4 or 5 sipping power around the clock, an old laptop, or the <a href="bitcoin-computer.html" class="entry-link" style="text-transform: none; font-size: inherit;">dedicated Bitcoin computer</a> you may already have. A node works best running 24/7, so low idle power is a virtue.</li>
+            </ul>
+            <p>Short on disk? A <strong>pruned node</strong> still verifies everything and runs in a few gigabytes, at the cost of not serving the full history to your wallet's server layer.</p>
+
+            <h2 class="section-heading-grey">The Stack: Three Pieces</h2>
+            <p>A working setup is three programs standing on each other's shoulders:</p>
+            <ul>
+                <li><strong>Bitcoin Core</strong> downloads and verifies the entire blockchain, block by block, from the genesis block forward.</li>
+                <li><strong>An Electrum server</strong> indexes that data so a wallet can ask "what does this address hold?" and get an instant answer.</li>
+                <li><strong>Your wallet</strong>, <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> in our case, points at your server instead of a public one.</li>
+            </ul>
+            <p>You can assemble the pieces by hand, or let a helper do the wiring: terminal wizards like Parmanode walk through the install and even configure the wallet connection for you. Either way you end up in the same place, and the helper route turns a weekend project into an evening.</p>
+
+            <h2 class="section-heading-grey">The Wait: Initial Block Download</h2>
+            <img src="./assets/images/doodles/hourglass.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>First sync is the rite of passage. Your node re-verifies seventeen years of history, which takes <strong>one to seven days</strong> depending on hardware, then the Electrum index takes another day or two. This is not wasted time; it is the whole point. When the progress bar finally fills, your machine has independently confirmed every transaction ever made, and from then on it keeps up in real time. Start the sync, close the lid on your expectations, and check back tomorrow.</p>
+
+            <h2 class="section-heading-grey">Tor and the Finish Line</h2>
+            <img src="./assets/images/doodles/tor-onion.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Running your node's connections over <strong>Tor</strong> hides your node from your internet provider and lets your wallet reach home securely from anywhere, no port forwarding required. Most helper installs offer it as a checkbox. Then the payoff: open Sparrow, replace the public server with your own, and watch the toolbar dot turn to your node. From that moment, nobody watches your wallet but you.</p>
+
+            <div class="callout-box">
+                <p><strong>Maintenance reality check:</strong> a node mostly runs itself. Keep the disk from filling, apply updates from official sources on your schedule, and let it work. If it ever falls behind after downtime, it simply catches up where it left off.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep going.</strong> Understand what the node enforces in <a href="bitcoin-network.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">The Bitcoin Network</a>, point <a href="sparrow-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Sparrow</a> at it, and give it a clean home with the <a href="bitcoin-computer.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Bitcoin Computer</a> guide. Node-runners compare notes at every <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
