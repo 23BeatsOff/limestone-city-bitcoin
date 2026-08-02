@@ -1,0 +1,55 @@
+---
+layout: default
+title: "CoinJoin | Limestone City Bitcoin"
+description: "How CoinJoin works: collaborative transactions with equal outputs, anonymity sets, what it can and cannot do for your privacy, the post-mix hygiene rules that actually preserve it, and the state of the tools."
+keywords: "CoinJoin, Bitcoin privacy, anonymity set, chain analysis, common input ownership heuristic, mixing, post-mix hygiene, JoinMarket, coin control, Kingston Bitcoin"
+og_description: "Break the link between your coins and their history: how CoinJoin works, and the discipline that makes it stick."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">CoinJoin</h1>
+        <p class="page-subtitle">Breaking the link between your coins and their history</p>
+
+        <article class="post-content">
+
+            <p>Bitcoin is pseudonymous, not anonymous. Every payment you ever make is on a public ledger forever, and the moment one address gets tied to your name (an exchange withdrawal, a payment to a friend, a merchant receipt), chain-analysis firms can start walking the graph. <strong>CoinJoin</strong> is the classic countermeasure: a collaborative transaction that makes your coins indistinguishable from everyone else's.</p>
+
+            <h2 class="section-heading-grey">How It Works</h2>
+            <img src="./assets/images/doodles/people-1.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>A CoinJoin is one big transaction built by many participants together. Each person contributes an input, and the transaction pays out <strong>equal-value outputs</strong> to fresh addresses. If a hundred people each receive an identical 0.01 BTC output, an outside observer cannot say which output belongs to which input. Every coin that comes out has a hundred possible owners.</p>
+            <p>That count is the <strong>anonymity set</strong>, and it is the whole game: one round in a hundred-person mix leaves a 1 percent guess, and repeated rounds compound it further. Crucially, the coordinator that assembles the transaction never controls funds. You sign only your own input, and only after checking the transaction pays you back correctly. A dishonest coordinator can refuse to cooperate, but it cannot steal.</p>
+
+            <h2 class="section-heading-grey">What It Defeats</h2>
+            <img src="./assets/images/doodles/eye-crossed.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Chain analysis leans on assumptions, and the biggest is <strong>common input ownership</strong>: all inputs to a transaction belong to one entity. CoinJoin breaks that assumption on purpose, and the ambiguity spreads through every later transaction that touches the mixed coins. What it does not do is hide that a CoinJoin happened. The transaction shape is recognizable on-chain, which is why some exchanges flag freshly mixed deposits. Mixing is legal in most places (privacy is not a crime), but know your counterparty's attitude before sending mixed coins to one.</p>
+
+            <h2 class="section-heading-grey">Post-Mix Hygiene: Where Privacy Is Actually Won</h2>
+            <img src="./assets/images/doodles/utxo-chunks.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Most people who lose their CoinJoin privacy lose it afterward, with one careless spend. The rules:</p>
+            <ul>
+                <li><strong>Never merge mixed and unmixed coins.</strong> Combining a mixed UTXO with a KYC exchange coin in one transaction re-links the mix to your identity and undoes everything. This is the number one error.</li>
+                <li><strong>Do not consolidate mixed outputs.</strong> Spending several mixed coins together announces they share an owner. Spend them one at a time.</li>
+                <li><strong>Watch the change.</strong> Change from spending a mixed coin is linked to you. Label it, remix it, or treat it as non-private. Never blend it back into the clean pool.</li>
+                <li><strong>Let coins age.</strong> Spending minutes after mixing invites timing analysis. Wait days when you can.</li>
+            </ul>
+            <p>All of this is <a href="utxo-management.html" class="entry-link" style="text-transform: none; font-size: inherit;">UTXO management</a> in action, and it is why coin control and labeling matter so much.</p>
+
+            <h2 class="section-heading-grey">Your Node, Your Privacy</h2>
+            <img src="./assets/images/doodles/node-3.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Mixing while your wallet asks a stranger's server about your addresses is bailing water with the tap on. A public server learns exactly which addresses are yours, mixed or not. Run <a href="bitcoin-network.html" class="entry-link" style="text-transform: none; font-size: inherit;">your own node</a> and point <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> at it, so the only party watching your wallet is you.</p>
+
+            <h2 class="section-heading-grey">The State of the Tools</h2>
+            <p>An honest note: the tooling here shifts. In 2024 the two big centralized coordinators (Whirlpool and Wasabi's) shut down under legal pressure on their operators, which is exactly the failure mode centralization invites. <strong>JoinMarket</strong>, a decentralized maker-and-taker marketplace with no coordinator to shut down, kept working, at the cost of a steeper learning curve. Check what is current before you rely on any implementation, and favour designs with no central operator. The concepts in this guide outlive any particular tool.</p>
+
+            <div class="callout-box">
+                <p><strong>Before spending mixed coins, ask:</strong> am I on my own node, am I using coin control, are all inputs mixed coins only, and has enough time passed since the mix? Four yeses or do not send.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Related guides.</strong> Master <a href="utxo-management.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">UTXO management</a> first, and see <a href="payjoin.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">PayJoin</a> for privacy that hides in plain sight. Privacy is a favourite <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> topic.</p>
+            </div>
+
+        </article>
+    </main>
