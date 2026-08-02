@@ -1,0 +1,54 @@
+---
+layout: default
+title: "Setting Up a Signing Device | Limestone City Bitcoin"
+description: "How to put a new Bitcoin signing device into service safely: sourcing and tamper checks, verifying the software, loading or generating your seed, pairing air-gapped with Sparrow, verifying addresses on the device, and testing before you trust it."
+keywords: "signing device setup, hardware wallet setup, air-gapped, SeedSigner, verify firmware, tamper check, watch-only, PSBT, Sparrow, test transaction, Kingston Bitcoin"
+og_description: "From sealed box (or bag of parts) to trusted signer: the safe way to bring a signing device into service."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Setting Up a Signing Device</h1>
+        <p class="page-subtitle">From parts to trusted signer</p>
+
+        <article class="post-content">
+
+            <p>A signing device is only as trustworthy as its setup. The hardware matters less than the habits: verify what you run, keep it air-gapped, prove every backup, and test with pocket change before real money. This guide walks that path with <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> as the reference device, but the steps apply to any Bitcoin-only, air-gapped signer.</p>
+
+            <h2 class="section-heading-grey">1. Source It Safely</h2>
+            <img src="./assets/images/doodles/hardware-wallet.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Supply chains are an attack surface. If you build a SeedSigner, buy generic parts (a Pi Zero, screen, and camera) from ordinary electronics sellers; their anonymity is the security feature, since nobody can target parts that were never labelled "bitcoin wallet." If you buy any ready-made signer, order directly from the maker, never a marketplace or a used unit, and inspect packaging and tamper seals before first boot. Give the whole process a private room: no cameras, no phones, no observers.</p>
+
+            <h2 class="section-heading-grey">2. Verify the Software</h2>
+            <img src="./assets/images/doodles/shield-check.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Download the device's software only from the project's official releases page, and <strong>verify the signature or checksum</strong> before flashing or installing. This is the step people skip, and it is the one that catches a tampered download. Open-source projects with reproducible builds (SeedSigner among them) publish exactly what you need to check that the code you flash is the code the community reviewed.</p>
+
+            <h2 class="section-heading-grey">3. Load Your Seed</h2>
+            <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Two good options, one rule. The options: generate the seed on the device using your own entropy (SeedSigner takes dice rolls or a camera snapshot), or generate it entirely yourself first with the <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">DIY dice method</a> and enter the words. The rule: the seed is born offline and stays offline. Write the words on paper, then metal, and never photograph or type them into anything with a network connection.</p>
+            <p>Add a <a href="seed-passphrase.html" class="entry-link" style="text-transform: none; font-size: inherit;">passphrase</a> now if you plan to use one, so every later step tests the real configuration. On a stateless device like SeedSigner there is nothing stored to protect with a PIN; the seed lives on your backup and, during a session, in your hands. A SeedQR backup is worth making too, so you can reload the seed by camera in seconds.</p>
+
+            <h2 class="section-heading-grey">4. Pair It With Your Wallet, Air-Gapped</h2>
+            <img src="./assets/images/doodles/qr-camera-scan.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Connect the signer to <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> as a <strong>watch-only wallet</strong>: the device shows its public key information as a QR code, Sparrow scans it, and from then on Sparrow tracks your balance and builds transactions while holding no keys at all. Spending is a QR conversation: Sparrow displays the unsigned transaction (a PSBT), the signer reads it, signs it, and shows the signed result back. No cable ever links your keys to a computer, which is exactly how we like it.</p>
+
+            <h2 class="section-heading-grey">5. Test Before You Trust</h2>
+            <img src="./assets/images/doodles/confirmation-checks.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <ul>
+                <li><strong>Verify the receive address on the device screen</strong>, not just in Sparrow. Malware can repaint a computer screen; it cannot repaint your signer.</li>
+                <li><strong>Receive a small test amount</strong> and watch it confirm.</li>
+                <li><strong>Send it back out</strong>, reviewing amount, address, and fee on the device before approving.</li>
+                <li><strong>Run a full <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup verification</a></strong>: prove the written seed regenerates the same wallet before serious funds arrive.</li>
+            </ul>
+
+            <div class="callout-box">
+                <p><strong>⚠️ The order matters.</strong> Verify software before flashing, verify addresses on the device before receiving, verify the backup before funding. Every major loss story skips one of those three checks. Skip none, and a mistake costs you a test amount instead of your savings.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Next steps.</strong> Read the full <a href="seedsigner.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">SeedSigner guide</a>, prove your backup with <a href="backup-verification.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">backup verification</a>, or level up to <a href="multisig.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">multisig</a>. We set devices up together at <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetups</a>, too.</p>
+            </div>
+
+        </article>
+    </main>

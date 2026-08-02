@@ -1,0 +1,56 @@
+---
+layout: default
+title: "Seed Passphrases | Limestone City Bitcoin"
+description: "The BIP39 passphrase explained: how a 25th word derives a completely different wallet, decoy wallets for coercion resistance, diceware passphrase generation with the EFF word list, storage rules, and the risks."
+keywords: "BIP39 passphrase, 25th word, hidden wallet, decoy wallet, diceware, EFF word list, entropy, seed phrase security, Kingston Bitcoin"
+og_description: "The 25th word: a passphrase that turns one seed into a hidden wallet an attacker cannot find."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Seed Passphrases</h1>
+        <p class="page-subtitle">The 25th word</p>
+
+        <article class="post-content">
+
+            <p>A seed phrase is a single secret, and a single secret is a single point of failure. Anyone who finds those 24 words owns your coins. A <strong>BIP39 passphrase</strong>, often called the 25th word, fixes that: it is an extra secret of your choosing that combines with the seed, so the words alone are no longer enough.</p>
+
+            <h2 class="section-heading-grey">How It Works</h2>
+            <img src="./assets/images/doodles/padlock-1.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>The passphrase is not a login password. It feeds directly into key derivation (see <a href="keys-addresses.html" class="entry-link" style="text-transform: none; font-size: inherit;">Keys &amp; Addresses</a>), which means the same seed produces a <strong>completely different wallet</strong> for every passphrase:</p>
+            <ul>
+                <li>Seed alone: wallet A.</li>
+                <li>Seed plus "Martha": wallet B, with entirely different addresses.</li>
+                <li>Seed plus "martha": wallet C. Capitalization counts, and so does every space.</li>
+            </ul>
+            <p>Unlike the seed words, a passphrase can be any characters at all. And because derivation is one-way, an attacker holding your seed learns nothing about which passphrase unlocks the real funds.</p>
+
+            <h2 class="section-heading-grey">The Decoy Wallet</h2>
+            <img src="./assets/images/doodles/eye-crossed.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>This structure enables a useful defence. Keep a modest amount in the bare-seed wallet, and your real savings behind the passphrase. If you are ever forced to open your wallet, the seed alone reveals the decoy, and nothing about it suggests a second wallet exists. Pair that with the older rule that does most of the work: never tell anyone how much bitcoin you hold.</p>
+
+            <h2 class="section-heading-grey">Make It With Dice, Not Your Brain</h2>
+            <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Humans are terrible at inventing randomness. Song lyrics, quotes, and clever schemes all live in attacker wordlists already. Use <strong>diceware</strong> instead: roll five dice, read the five digits, and look the number up in the <strong>EFF long word list</strong> (7,776 words). Each word adds about 12.9 bits of entropy:</p>
+            <ul>
+                <li><strong>4 words</strong>: roughly 51 bits. Adequate for small amounts.</li>
+                <li><strong>5 words</strong>: roughly 64 bits. Good.</li>
+                <li><strong>6 words</strong>: roughly 77 bits. Our recommendation for serious savings.</li>
+            </ul>
+            <p>Six random words like "running cope snowfield yippee darling diaphragm" are far stronger than any phrase you would compose, and easier to remember than line noise. The same dice-first thinking behind <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">DIY seed generation</a> applies here: randomness you rolled is randomness you can trust.</p>
+
+            <h2 class="section-heading-grey">Storing It</h2>
+            <img src="./assets/images/doodles/vault-safe.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>One rule above all: <strong>never store the passphrase with the seed</strong>. Together they are the whole wallet; whoever finds the pair takes everything. Keep them in separate physical locations, each on a durable medium (metal beats paper). Memorizing the passphrase is fine as a convenience, but never as the only copy. Memory fails, and estates need a path too.</p>
+
+            <div class="callout-box">
+                <p><strong>⚠️ A passphrase is unforgiving.</strong> There is no reset. Forget it, or mistype one character forever, and the funds behind it are gone even though you hold the seed. Write it down, store it apart from the seed, and prove the whole setup works with a <a href="backup-verification.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">backup verification</a> before moving real money behind it. Also check your wallet supports passphrases before you rely on one; most good Bitcoin wallets do, but not all.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep building.</strong> Generate the seed itself with <a href="diy-seed-generation.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">your own dice</a>, set up your <a href="signing-device-setup.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">signing device</a>, and consider <a href="multisig.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">multisig</a> when the stakes grow. Or bring your questions to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>

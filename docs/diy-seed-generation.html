@@ -1,0 +1,61 @@
+---
+layout: default
+title: "DIY Seed Generation | Limestone City Bitcoin"
+description: "How to generate your own Bitcoin seed with dice: why device-generated seeds require trust, the 256-roll method, converting rolls to BIP39 words, the checksum, and how to verify the result on an air-gapped machine."
+keywords: "DIY seed generation, dice seed, Bitcoin entropy, BIP39, 256 bits, air-gapped, SeedSigner dice, seed phrase, checksum, Kingston Bitcoin"
+og_description: "Roll your own randomness. Generate a Bitcoin seed with dice and verify it yourself, no trust required."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">DIY Seed Generation</h1>
+        <p class="page-subtitle">Roll your own randomness</p>
+
+        <article class="post-content">
+
+            <p>Your entire wallet grows from one random number (see <a href="private-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Private Keys</a>). Normally you trust a device to pick that number for you. This guide shows you how to pick it yourself, with dice, so the randomness provably comes from your own hands. After the Coldcard firmware flaw silently weakened device-generated seeds for five years, this stopped being a paranoid hobby and became plain good practice.</p>
+
+            <h2 class="section-heading-grey">Why Not Trust the Device?</h2>
+            <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>When a wallet generates a seed for you, you are trusting three things: that its random number generator is strong, that its code has no bugs or backdoors, and that the device was not tampered with before it reached you. Any one failure can produce a seed an attacker can guess. Dice remove all three trust assumptions at once. You can see the rolls, you can do the math, and nobody can weaken physics.</p>
+
+            <h2 class="section-heading-grey">What You Need</h2>
+            <ul>
+                <li><strong>Dice.</strong> Casino-grade if you can get them; five or ten at a time speeds things up.</li>
+                <li><strong>An air-gapped machine</strong> that has never touched the internet. A Raspberry Pi Zero 1.3 is ideal since it has no WiFi or Bluetooth at all. A <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> also works, and does most of the math for you.</li>
+                <li><strong>Pen and paper</strong> for working notes. You will destroy these afterward.</li>
+                <li><strong>A metal backup plate</strong> for the final seed. Paper burns and fades; metal does not.</li>
+                <li><strong>Privacy.</strong> No cameras, no phones, no smartwatches, no observers. Treat the session like handling the money itself, because you are.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">The Method: 256 Rolls to 24 Words</h2>
+            <img src="./assets/images/doodles/seed-words-paper.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>A 24-word seed encodes 256 bits of entropy, and one die roll gives you one honest bit:</p>
+            <ul>
+                <li>Roll shows <strong>1, 2, or 3</strong>: write down <strong>0</strong>.</li>
+                <li>Roll shows <strong>4, 5, or 6</strong>: write down <strong>1</strong>.</li>
+            </ul>
+            <p>Do this <strong>256 times</strong>, recording the bits in 23 rows of 11 (a 4-4-3 grouping keeps them readable) plus 3 bits on row 24. Each 11-bit row is a number from 0 to 2047, and each of those numbers maps to one word on the <strong>BIP39 word list</strong> (2,048 words, in order). Convert each row from binary to decimal, look up the word, and rows 1 through 23 of your seed are done.</p>
+            <p>This half-and-half mapping is also why dice bias barely matters here: a worn die that favours one face still cannot push a "1, 2, 3 or not" split far from even, and any residual skew is spread across 256 independent rolls.</p>
+
+            <h2 class="section-heading-grey">The Last Word: The Checksum</h2>
+            <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Word 24 is special. Its 11 bits are your 3 remaining rolled bits plus an <strong>8-bit checksum</strong>, which is the first 8 bits of the <strong>SHA-256 hash of your 256 bits of entropy</strong>. The checksum is what lets any wallet detect a mistyped seed later.</p>
+            <p>Do not compute this step with improvised shell commands, because hashing the wrong representation of your bits produces the wrong checksum. Use a proper BIP39 tool on your air-gapped machine (the well-known open-source BIP39 page works offline), or let a <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> take your dice rolls and derive the words for you. The point of doing it yourself is that you can also <em>check</em> it yourself: run the tool, confirm word 24, and you have verified the whole chain.</p>
+
+            <h2 class="section-heading-grey">Verify Before You Trust</h2>
+            <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>On the air-gapped machine, enter your 24 words into a wallet like <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>. If the wallet accepts the phrase, your checksum and conversions are correct. If it rejects it, recheck row 24 first, then your binary-to-decimal conversions. Nothing is at risk during a rejection; there are no funds involved yet.</p>
+            <p>Then treat it like any new wallet: stamp the words into metal, burn the paper, and run a full <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup verification</a> before the seed ever holds serious money.</p>
+
+            <div class="callout-box">
+                <p><strong>⚠️ No recovery exists.</strong> There is no support line and no password reset. A seed generated sloppily, recorded with one wrong word, or photographed for convenience is a seed that will eventually lose money. Take the two to four hours this deserves, alone, offline, on paper then metal.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Go deeper.</strong> Add a <a href="seed-passphrase.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">passphrase</a> on top of your new seed, load it into a <a href="signing-device-setup.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">signing device</a>, and <a href="backup-verification.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">verify the backup</a> before funding it. Questions? Bring your dice to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
