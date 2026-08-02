@@ -39,6 +39,17 @@ og_type: "website"
             <p>Do this <strong>256 times</strong>, recording the bits in 23 rows of 11 (a 4-4-3 grouping keeps them readable) plus 3 bits on row 24. Each 11-bit row is a number from 0 to 2047, and each of those numbers maps to one word on the <strong>BIP39 word list</strong> (2,048 words, in order). Convert each row from binary to decimal, look up the word, and rows 1 through 23 of your seed are done.</p>
             <p>This half-and-half mapping is also why dice bias barely matters here: a worn die that favours one face still cannot push a "1, 2, 3 or not" split far from even, and any residual skew is spread across 256 independent rolls.</p>
 
+            <h2 class="section-heading-grey">Writing It Out: Paper and Pencil</h2>
+            <p>Rule a sheet into <strong>24 rows of 11 cells</strong>, with small gaps after the fourth and eighth cell so each row reads in a <strong>4-4-3</strong> rhythm that is hard to misread. Fill cells left to right as you roll. Row 24 gets only its first 3 cells; the rest arrive with the checksum.</p>
+            <p>To turn a finished row into its number (0 to 2047), you have two ways to do the multiplication:</p>
+            <ul>
+                <li><strong>On paper, with the eleven multipliers.</strong> Write the powers of two above the columns: <strong>1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1</strong>. Every cell showing a 1 is worth its column's multiplier; circle those and add them up.</li>
+                <li><strong>On the air-gapped machine.</strong> The shell does binary for free: <code>echo $((2#10111000101))</code> prints the same answer with no arithmetic.</li>
+            </ul>
+            <p>Here is a worked row. The bits 101 1100 0101 light up the 1024, 256, 128, 64, 4, and 1 columns, which sum to 1477, and word 1477 on the BIP39 list is "reward":</p>
+            <img src="./assets/images/doodles/dice-worksheet.svg" alt="A hand-drawn worksheet row: the eleven powers of two written above eleven dice-roll bits, with the columns showing a one circled in orange, summing to 1477 and pointing to the word reward" style="display: block; width: 100%; max-width: 480px; margin: 6px auto 22px;">
+            <p>One gotcha when you look words up: the BIP39 list counts from <strong>0</strong>, but most published copies number their lines from 1. Your number 1477 is line 1478 on a 1-numbered list. Off-by-one here means a valid-looking seed with the wrong words, which is exactly the kind of mistake the verification step below exists to catch.</p>
+
             <h2 class="section-heading-grey">The Last Word: The Checksum</h2>
             <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <p>Word 24 is special. Its 11 bits are your 3 remaining rolled bits plus an <strong>8-bit checksum</strong>, which is the first 8 bits of the <strong>SHA-256 hash of your 256 bits of entropy</strong>. The checksum is what lets any wallet detect a mistyped seed later.</p>
