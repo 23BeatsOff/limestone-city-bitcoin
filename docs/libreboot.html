@@ -1,0 +1,44 @@
+---
+layout: default
+title: "Libreboot | Limestone City Bitcoin"
+description: "Replacing proprietary BIOS with Libreboot: what boot firmware does, why the Intel Management Engine worries sovereignty-minded users, which machines are supported, what flashing involves, and whether it's worth it for a Bitcoin machine."
+keywords: "Libreboot, open source BIOS, Intel Management Engine, firmware, ThinkPad, SPI flashing, boot security, Bitcoin computer, Kingston Bitcoin"
+og_description: "Don't trust, verify, all the way down: open boot firmware for your Bitcoin machine."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Libreboot</h1>
+        <p class="page-subtitle">Verify all the way down</p>
+
+        <article class="post-content">
+
+            <p>Before your operating system runs a single line, the <strong>boot firmware</strong> has already run: it wakes the CPU, sets up the memory, and hands over control. On almost every computer that firmware is a proprietary black box, which means the very first code your Bitcoin machine executes is code nobody outside the vendor can read. <strong>Libreboot</strong> replaces it with free, auditable software.</p>
+
+            <h2 class="section-heading-grey">The Problem Underneath the OS</h2>
+            <img src="./assets/images/doodles/cpu.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Modern Intel platforms also ship the <strong>Management Engine</strong> (AMD has its equivalent, the PSP): a separate processor inside your computer, running its own hidden code, with access to memory and, on business machines, even the network, below anything your operating system can see. For most users it is a shrug. For someone whose laptop coordinates their savings, an unauditable computer-within-the-computer is exactly the kind of trust Bitcoin taught us to refuse. Libreboot's stance is simple: no proprietary code, no hidden processors it can neuter left running, nothing you cannot read.</p>
+
+            <h2 class="section-heading-grey">What You Get</h2>
+            <img src="./assets/images/doodles/padlock-open.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li><strong>An auditable boot path.</strong> Every step from power button to bootloader is open source.</li>
+                <li><strong>The Management Engine defanged</strong> on supported machines.</li>
+                <li><strong>Less firmware overall</strong>, which means less attack surface at the layer no antivirus can see.</li>
+            </ul>
+            <p>Support centres on machines that can be freed completely, which is why <strong>older ThinkPads</strong> are the classic targets and why they keep showing up in our <a href="air-gapped-computer.html" class="entry-link" style="text-transform: none; font-size: inherit;">air-gapped builds</a>. The supported list grows over time; check Libreboot's official hardware list before buying a donor machine.</p>
+
+            <h2 class="section-heading-grey">What Flashing Involves</h2>
+            <img src="./assets/images/doodles/warning-triangle.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Installing boot firmware means writing a chip on the motherboard. On some machines that can be done from software; the first install usually means <strong>external flashing</strong>: opening the laptop, clipping a small programmer (a Raspberry Pi Pico with a SOIC8 clip and jumper wires, $15 to $30 in parts) onto the firmware chip, backing up the original image, and writing the new one. Budget an afternoon, move slowly, and keep that backup: a bad flash can leave the machine unbootable until you reflash it. This is honest advanced-tier tinkering, and also a deeply satisfying afternoon for the right person.</p>
+
+            <h2 class="section-heading-grey">Is It Worth It for Bitcoin?</h2>
+            <p>Be honest about the threat model. Firmware attacks are rare and targeted; sloppy seed storage loses far more coins than the Management Engine ever has. Get the fundamentals right first: <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">your own seed</a>, <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">verified backups</a>, an air-gapped signer. But if you are building a dedicated <a href="bitcoin-computer.html" class="entry-link" style="text-transform: none; font-size: inherit;">Bitcoin machine</a> or an <a href="air-gapped-computer.html" class="entry-link" style="text-transform: none; font-size: inherit;">air-gapped computer</a> anyway, open firmware completes the picture: a stack you can verify from the power button to the signature. That is "don't trust, verify" taken all the way down.</p>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Related.</strong> <a href="coreboot.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Coreboot</a> is the bigger project Libreboot builds on, with wider hardware support and a more pragmatic policy. If your machine is not on Libreboot's list, start there. And firmware flashing is exactly the kind of thing best done alongside someone who has done it: ask at a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>

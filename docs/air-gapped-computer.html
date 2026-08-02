@@ -1,0 +1,49 @@
+---
+layout: default
+title: "The Air-Gapped Computer | Limestone City Bitcoin"
+description: "Build an offline machine that can never touch a network: pulling the radios, open firmware, an offline Linux install with LUKS encryption, moving transactions by QR or microSD, and how it compares to a SeedSigner."
+keywords: "air-gapped computer, offline signing, remove WiFi card, ThinkPad X230, Libreboot, LUKS, PSBT, QR signing, deep cold storage, Kingston Bitcoin"
+og_description: "A computer that cannot go online cannot be hacked from online. Deep cold storage for the sovereignty-minded."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">The Air-Gapped Computer</h1>
+        <p class="page-subtitle">A machine that cannot go online</p>
+
+        <article class="post-content">
+
+            <p>The <a href="bitcoin-computer.html" class="entry-link" style="text-transform: none; font-size: inherit;">Bitcoin Computer</a> is a clean machine that goes online carefully. This is the next rung: a computer that <strong>cannot go online at all</strong>, because the hardware to do so has been physically removed. Whatever is on it stays on it. That makes it the most capable tool in deep cold storage: a full keyboard and screen for <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">dice seed work</a>, offline signing, and encrypted records, with no radio to betray you.</p>
+
+            <h2 class="section-heading-grey">Kill the Radios First</h2>
+            <img src="./assets/images/doodles/wifi-router.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Air-gapped means <em>physically unable</em>, not "WiFi turned off." Open the machine and <strong>remove the WiFi, Bluetooth, and mobile-broadband cards</strong> outright, and disable or avoid Ethernet. Three good starting points:</p>
+            <ul>
+                <li><strong>An older ThinkPad</strong> (the X230 is the community classic): cheap used, easy to open, wireless modules unplug in minutes, and it is friendly to <a href="libreboot.html" class="entry-link" style="text-transform: none; font-size: inherit;">Libreboot</a> if you want open firmware underneath.</li>
+                <li><strong>A Raspberry Pi Zero 1.3</strong>: ships with no WiFi or Bluetooth at all, nothing to remove. Command-line comfort required.</li>
+                <li><strong>A desktop</strong> built without any network hardware in the first place.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Install Everything Offline</h2>
+            <img src="./assets/images/doodles/padlock-2.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Prepare on another machine, install on this one. Download and <strong>verify</strong> a Linux image (Mint is a comfortable pick), write it to USB, and install with <strong>LUKS full disk encryption</strong> from the start. Then bring over the tools the same way, verified first: <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> or Electrum for PSBT work, and an offline BIP39 tool for seed math. From the first boot onward, nothing goes onto the machine except through deliberate, verified transfers.</p>
+
+            <h2 class="section-heading-grey">How Transactions Cross the Gap</h2>
+            <img src="./assets/images/doodles/qr-camera-scan.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>The workflow is the same PSBT dance as any air-gapped signer. Your online coordinator builds the unsigned transaction; it crosses to the offline machine as a <strong>QR code or a microSD card</strong>; the offline wallet signs it; the signed result crosses back and gets broadcast. Prefer QR when you can, since a camera cannot carry malware the way removable media theoretically can, and treat any USB stick that has touched another computer with suspicion. Keys never cross in either direction.</p>
+
+            <h2 class="section-heading-grey">This or a SeedSigner?</h2>
+            <img src="./assets/images/doodles/sbc-mini.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Both are air-gapped; they serve different temperaments. A <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> is stateless, single-purpose, and simple: it signs, and it forgets. The air-gapped computer holds encrypted state and does more: it can store encrypted backups and inheritance notes, run seed tools with a real keyboard and screen, verify addresses at length, and look like an ordinary laptop on a shelf rather than recognizable Bitcoin gear. It also demands more discipline, which is the price of the versatility. Plenty of people run both: SeedSigner for routine signing, the air-gapped machine for ceremonies.</p>
+
+            <div class="callout-box">
+                <p><strong>⚠️ This is deep cold storage, not a daily wallet.</strong> The setup is slow on purpose, and the discipline is the security: the machine never touches a network, media crosses the gap only when verified, and the seed still rules everything. Anyone with your seed owns your coins, air gap or not, so the <a href="backup-verification.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">backup rules</a> apply in full.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Go deeper.</strong> Put open firmware under it with <a href="libreboot.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Libreboot</a> or <a href="coreboot.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Coreboot</a>, generate seeds with <a href="diy-seed-generation.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">your own dice</a>, or compare notes at a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
