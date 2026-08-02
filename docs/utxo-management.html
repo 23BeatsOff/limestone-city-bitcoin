@@ -1,0 +1,56 @@
+---
+layout: default
+title: "UTXO Management | Limestone City Bitcoin"
+description: "Coin control in practice: labeling every UTXO, keeping KYC and non-KYC coins separate, consolidating when fees are low, handling dust attacks, and the habits that protect both your privacy and your future fees."
+keywords: "UTXO management, coin control, labeling, KYC coins, consolidation, dust attack, freeze UTXO, Bitcoin fees, Sparrow coin control, Kingston Bitcoin"
+og_description: "Your wallet is a drawer of individual coins. Managing them well protects your privacy and your future fees."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">UTXO Management</h1>
+        <p class="page-subtitle">Coin control, labels, and knowing what you hold</p>
+
+        <article class="post-content">
+
+            <p>As <a href="using-bitcoin-as-money.html" class="entry-link" style="text-transform: none; font-size: inherit;">Using Bitcoin as Money</a> covered, your balance is not one number. It is a drawer of individual coins called <strong>UTXOs</strong>, each with its own amount, its own address, and its own permanent history. Most wallets hide the drawer and grab coins automatically when you spend. Managing it yourself is the single most underrated habit in self-custody, because it quietly decides two things: what you pay in fees, and what the world learns about you.</p>
+
+            <h2 class="section-heading-grey">Why It Matters</h2>
+            <img src="./assets/images/doodles/coin-stack.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <ul>
+                <li><strong>Fees follow size, not value.</strong> Every input adds bytes. A payment built from one input might cost 7,000 sats in a fee spike; the same payment built from a hundred small inputs could cost forty times that. Your UTXO shapes today are your fee bill tomorrow.</li>
+                <li><strong>Spending together links together.</strong> Chain analysis assumes all inputs in a transaction share an owner. Spend an exchange coin and a private coin in one payment, and you have permanently welded those histories to each other, and to you.</li>
+                <li><strong>Tiny coins die.</strong> A 5,000-sat UTXO is unspendable the moment fees exceed its value. Dust below roughly 0.0001 BTC is a liability, and anything under about 0.01 BTC deserves a plan.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Label Everything, Always</h2>
+            <img src="./assets/images/doodles/address-tag.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>The foundation is boring and priceless: when bitcoin arrives, <strong>label it</strong>. Record where it came from, whether the source knows your identity (KYC or not), the date, and what the coins are for. "Exchange withdrawal, Jan 2026" and "meetup reimbursement from Dave" are coins with very different privacy properties, and six months from now the label is the only way you will know which is which. <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> was built for this: its UTXOs tab shows every coin with amount, label, and history, and lets you pick exactly which ones a transaction spends.</p>
+
+            <h2 class="section-heading-grey">The Separation Rule</h2>
+            <p>One rule prevents most privacy damage: <strong>never spend coins from different source categories in the same transaction</strong>. KYC coins stay with KYC coins, private coins with private coins, and mixed coins (see <a href="coinjoin.html" class="entry-link" style="text-transform: none; font-size: inherit;">CoinJoin</a>) strictly with themselves. The blockchain never forgets a merge. If keeping them straight in one wallet feels fragile, use separate wallets per category; the seed handles as many accounts as you need.</p>
+
+            <h2 class="section-heading-grey">Consolidate When Fees Sleep</h2>
+            <img src="./assets/images/doodles/refresh-cycle.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Small UTXOs pile up, so periodically sweep them into larger ones. The craft is in the when and the what:</p>
+            <ul>
+                <li><strong>When:</strong> quiet fee weather, ideally single-digit sats per vByte. Consolidating ten inputs at 10 sat/vB costs a few thousand sats; being forced to spend them at 100 sat/vB costs ten times more. Check the mempool and be patient.</li>
+                <li><strong>What:</strong> only coins from the <strong>same source category</strong>, sent to a fresh address in your own wallet, then relabeled. Consolidation obeys the separation rule too.</li>
+                <li><strong>How big:</strong> keep spending coins around 0.01 to 0.1 BTC and savings chunks larger, but avoid fusing everything into one monolith. A single giant UTXO shows your whole balance to everyone you ever pay.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Dust Attacks: When Strangers Send You Sats</h2>
+            <img src="./assets/images/doodles/warning-triangle.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>If a few hundred unexplained sats ever appear in your wallet, that can be deliberate. Attackers sprinkle dust on thousands of addresses and watch which of them later get spent together, using your own consolidation habits to map your wallet. The defence is simple: <strong>label it, freeze it, and never spend it</strong>. Sparrow and other good wallets let you freeze a UTXO in two clicks so it can never sneak into a transaction.</p>
+
+            <div class="callout-box">
+                <p><strong>Before every send, three questions:</strong> did I choose the inputs myself, are they all from one source category, and is the change going somewhere labeled? That thirty-second habit is most of UTXO management.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep going.</strong> Coin control lives in <a href="sparrow-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Sparrow</a>, privacy compounds with <a href="coinjoin.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">CoinJoin</a> and <a href="payjoin.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">PayJoin</a>, and frequent small stacks are what the Lightning side of <a href="using-bitcoin-as-money.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Using Bitcoin as Money</a> is for. Bring your drawer of coins to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> and we will help you sort it.</p>
+            </div>
+
+        </article>
+    </main>

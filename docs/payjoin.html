@@ -1,0 +1,56 @@
+---
+layout: default
+title: "PayJoin | Limestone City Bitcoin"
+description: "How PayJoin (BIP78) works: sender and receiver both contribute inputs, the common-input-ownership heuristic breaks, and the transaction looks completely ordinary on-chain. Flow, wallet support, merchant benefits, and limits."
+keywords: "PayJoin, P2EP, BIP78, Bitcoin privacy, common input ownership heuristic, PSBT, BTCPay Server, Sparrow, stealth transaction, Kingston Bitcoin"
+og_description: "Privacy that hides in plain sight: PayJoin transactions look like any other payment."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">PayJoin</h1>
+        <p class="page-subtitle">Privacy that hides in plain sight</p>
+
+        <article class="post-content">
+
+            <p><a href="coinjoin.html" class="entry-link" style="text-transform: none; font-size: inherit;">CoinJoin</a> buys privacy loudly: everyone can see a mix happened. <strong>PayJoin</strong> (also called P2EP, specified in <strong>BIP78</strong>) takes the opposite approach. It folds privacy into an ordinary-looking payment, so there is nothing on-chain to flag, and nothing to even notice.</p>
+
+            <h2 class="section-heading-grey">The Trick: Two Parties, One Transaction</h2>
+            <img src="./assets/images/doodles/handshake.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>In a normal payment, only the sender contributes inputs. In a PayJoin, <strong>the receiver adds an input of their own</strong>, and gets it back inside the payment output. To the outside world the result is just a transaction with a couple of inputs and a couple of outputs, like millions of others.</p>
+            <p>But the bedrock assumption of chain analysis, that <strong>all inputs to a transaction belong to one entity</strong>, is now silently false. An analyst who applies it here concludes the sender and receiver are the same person, and every wallet-clustering conclusion built on that link inherits the error. Each PayJoin quietly poisons the well for surveillance across the whole graph, which is why even occasional use helps everyone.</p>
+
+            <h2 class="section-heading-grey">How a PayJoin Actually Flows</h2>
+            <img src="./assets/images/doodles/transaction-arrow.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li>The receiver shares a payment request with a <strong>PayJoin endpoint</strong> (a URL folded into the payment URI).</li>
+                <li>The sender's wallet builds a normal <strong>PSBT</strong> and sends it to that endpoint.</li>
+                <li>The receiver's wallet adds one of its own inputs, adjusts the outputs, and returns the updated PSBT.</li>
+                <li>The sender's wallet checks that it still pays exactly the right amount, signs, and broadcasts.</li>
+            </ul>
+            <p>Neither side ever controls the other's coins, and if anything looks wrong the sender's wallet simply falls back to a regular payment. The PSBT plumbing is the same machinery covered in <a href="using-bitcoin-as-money.html" class="entry-link" style="text-transform: none; font-size: inherit;">Using Bitcoin as Money</a>.</p>
+
+            <h2 class="section-heading-grey">A Bonus for Merchants</h2>
+            <img src="./assets/images/doodles/inbox-receive.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Receivers get a practical perk on top of the privacy: every PayJoin merges one of their existing UTXOs into the incoming payment, which means they <strong>consolidate coins while getting paid</strong>, with no separate consolidation transaction and no extra fee event. For a busy shop accumulating small UTXOs all week, that is real money saved (see <a href="utxo-management.html" class="entry-link" style="text-transform: none; font-size: inherit;">UTXO Management</a> for why). BTCPay Server, the self-hosted payment processor, can do this automatically for any customer whose wallet cooperates, and <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> supports sending to PayJoin endpoints out of the box.</p>
+
+            <h2 class="section-heading-grey">Honest Limits</h2>
+            <img src="./assets/images/doodles/eye.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li><strong>Amounts stay visible.</strong> PayJoin hides ownership relationships, not values.</li>
+                <li><strong>It breaks one heuristic.</strong> That is valuable, but it is not the deep anonymity set a good CoinJoin builds. The two are complements, not rivals.</li>
+                <li><strong>Both sides must play.</strong> The receiver has to be online with a compatible wallet, which is still the exception rather than the rule. Adoption is the bottleneck.</li>
+                <li><strong>History stays history.</strong> Like every privacy tool, it protects the transactions you make with it, not the ones already on-chain.</li>
+            </ul>
+
+            <div class="callout-box">
+                <p><strong>When to reach for which:</strong> use PayJoin whenever a merchant or peer supports it, since it costs nothing and looks like nothing. Use <a href="coinjoin.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">CoinJoin</a> when you need to break the link to your coins' past, not just obscure the present payment.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep going.</strong> Tight <a href="utxo-management.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">UTXO management</a> makes every privacy tool work better, and <a href="bitcoin-network.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">your own node</a> keeps your wallet from leaking what your transactions protect. Questions? Bring them to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
