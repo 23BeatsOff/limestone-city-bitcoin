@@ -72,10 +72,13 @@ og_type: "website"
 
             <h2 class="section-heading-grey">7. Choosing a Hardware Wallet</h2>
             <img src="./assets/images/doodles/keypad-hardware-wallet.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>A hardware wallet keeps your keys on a dedicated offline device, so they never touch your internet-connected computer. Liana supports any device that implements Miniscript. Our pick:</p>
+            <p>A hardware wallet keeps your keys on a dedicated offline device, so they never touch your internet-connected computer. Liana supports any device that implements Miniscript:</p>
             <div class="info-box">
                 <h3>Coldcard (Mk4 / Q)</h3>
-                <p>Open-source, Bitcoin-only, and fully air-gapped. It can sign over microSD or QR without ever plugging into your computer. Battle-tested and well-supported, with full Miniscript support for Liana. The Q model adds a full keyboard and larger screen if you want a friendlier experience. See our <a href="coldcard-q.html">Coldcard Q guide</a>.</p>
+                <p>Bitcoin-only and fully air-gapped. It can sign over microSD or QR without ever plugging into your computer, and it has full Miniscript support for Liana. The Q model adds a full keyboard and larger screen. Read the warning below before you set one up.</p>
+            </div>
+            <div class="callout-box">
+                <p><strong>⚠️ Before you trust a Coldcard.</strong> In July 2026 a firmware flaw came to light that had been quietly weakening seeds generated on Coldcards since 2021, and thieves used it to drain hundreds of wallets. Coinkite has shipped fixed firmware. If you choose a Coldcard for Liana, two rules are not optional. First, update to the latest firmware before setup (5.6.0 or newer for the Mk4 and Mk5, 1.5.0Q or newer for the Q). Second, never let the device generate your seed on its own: use the dice-roll option with your own rolls (99 or more, so any bias in your dice gets corrected) and the randomness comes from you, not the firmware. If you already hold funds on a seed a Coldcard generated for you, update the firmware, then move the funds to a fresh dice-generated seed.</p>
             </div>
             <p>Another Liana-supported option is <strong>Specter DIY</strong>, a build-it-yourself, air-gapped signer. See Liana's <a href="https://lianawallet.com/resources/guides/signing-devices/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">full list of supported devices →</a></p>
             <p style="font-size: 14px; color: #888;">A note for DIY fans: <strong>SeedSigner</strong> is a popular open-source, air-gapped signer, but it does not yet support Miniscript, so it can't be used with Liana's recovery setups for now.</p>
