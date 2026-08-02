@@ -1,0 +1,50 @@
+---
+layout: default
+title: "Firmware, Not Hardware: A Guide to Krux | Limestone City Bitcoin"
+description: "Krux turns cheap off-the-shelf devices into air-gapped Bitcoin signers: which boards it runs on, QR and SD card signing, dice-roll seeds, SeedQR and TinySeed backups, and Miniscript support that pairs it with Liana."
+keywords: "Krux, Bitcoin signing device, K210, Maix Amigo, M5StickV, air-gapped, QR signing, SeedQR, TinySeed, dice rolls, Miniscript, Liana, Sparrow, Kingston Bitcoin"
+og_description: "Open firmware that turns a $50 gadget into an air-gapped Bitcoin signer, Miniscript included."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <p class="crumb"><a href="learn.html#wallets">Learn &#9656; Wallet Guides</a></p>
+        <h1 class="page-title">Firmware, Not Hardware</h1>
+        <p class="page-subtitle">A Guide to Krux</p>
+
+        <article class="post-content">
+
+            <p><a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> proved you can build a serious signer from cheap parts. <strong>Krux</strong> pushes the same idea one step further: it is not a device at all, but <strong>open-source firmware</strong> you flash onto ordinary, off-the-shelf gadgets, turning a generic touchscreen toy into a Bitcoin-only, air-gapped signing device.</p>
+
+            <h2 class="section-heading-grey">Pick a Device, Any Device</h2>
+            <img src="./assets/images/doodles/qr-code.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Krux runs on a family of inexpensive K210-based boards sold for entirely unrelated purposes: the <strong>Maix Amigo</strong> (a full touchscreen unit, the most comfortable pick), the tiny <strong>M5StickV</strong>, and several others, mostly in the $30 to $80 range. That has the same supply-chain benefit we praised for SeedSigner: nobody tampers with a shipment of generic maker gadgets, because nobody knows they are destined to become wallets. No soldering, no assembly. Flash the firmware and the gadget changes careers.</p>
+
+            <h2 class="section-heading-grey">Air-Gapped, Three Ways</h2>
+            <img src="./assets/images/doodles/microsd-card.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Krux never connects to your computer for signing. Transactions move as PSBTs by <strong>QR code</strong> (camera in, screen out), by <strong>microSD card</strong> for wallets that prefer files, and, for the fun of it, backups and addresses can even go to a cheap <strong>thermal printer</strong>. It pairs with the coordinators we already use: <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> on the desktop, and <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana</a> as well, which we will get to, because that pairing is Krux's ace.</p>
+
+            <h2 class="section-heading-grey">Seeds on Your Terms</h2>
+            <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Krux is built for people who like doing things themselves. It generates seeds from <strong>your own dice rolls</strong> or camera entropy, exactly in the spirit of our <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">DIY seed guide</a>. By default a seed is loaded for the session and gone when the power is; if you want convenience, Krux can store your mnemonic <strong>encrypted</strong> on the device or an SD card, unlocked by a key you choose, a middle path between SeedSigner's strict statelessness and a conventional stored-key device. Backups are flexible too: classic words on metal, compact <strong>SeedQR</strong> codes, or punches on a <strong>TinySeed</strong> plate, with the usual rule unchanged: whatever the format, <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">verify the backup</a> before it guards real money.</p>
+
+            <h2 class="section-heading-grey">The Ace: Miniscript</h2>
+            <img src="./assets/images/doodles/seed-plate.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Since early 2025, Krux supports <strong>Miniscript</strong>, including Taproot Miniscript. In plain terms: Krux can read a wallet descriptor, show you the spending policy in a readable form, and sign for timelocked setups. That makes it one of the few DIY signers that works with <strong>Liana's recovery paths</strong>, over QR or fully by SD card. If you want Liana's lost-key insurance without buying from a hardware vendor, a Krux build is the DIY road there. It handles ordinary single-sig and <a href="multisig.html" class="entry-link" style="text-transform: none; font-size: inherit;">multisig</a> just as happily.</p>
+
+            <h2 class="section-heading-grey">Getting Started</h2>
+            <p>The path is the standard one from our <a href="signing-device-setup.html" class="entry-link" style="text-transform: none; font-size: inherit;">signing device guide</a>: buy a supported board from any electronics seller, download the firmware from the official project only, <strong>verify it</strong>, flash it over USB once, and from then on updates can arrive by SD card with signatures checked on the device itself. Load or create a seed, pair with your coordinator by QR, receive a test amount, verify the address on Krux's own screen, and do a recovery dry run before trusting it with savings.</p>
+
+            <div class="callout-box">
+                <p><strong>The usual rules hold.</strong> Verify the firmware before flashing, verify addresses on the device screen, and treat your seed backup as the wallet itself. A cheap signer with good habits beats an expensive one without them.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Compare your options.</strong> See <a href="seedsigner.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">SeedSigner</a> for the strictly stateless build, <a href="specter-diy.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Specter DIY</a> for the other DIY route, and <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a> for the full picture. Official docs and downloads: <a href="https://selfcustody.github.io/krux/" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">selfcustody.github.io/krux</a>. Builds welcome at any <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+            <p style="font-size: 14px; color: #888; margin-top: 30px;">Limestone City Bitcoin is not affiliated with the Krux project. This guide is educational and is not financial advice.</p>
+
+        </article>
+    </main>

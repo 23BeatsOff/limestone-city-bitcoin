@@ -1,0 +1,50 @@
+---
+layout: default
+title: "Build Your Own Vault: A Guide to Specter DIY | Limestone City Bitcoin"
+description: "Specter DIY explained: a Bitcoin-only, air-gapped signer you assemble from an STM32 developer board and a QR scanner, with no soldering needed, agnostic or stored key modes, multisig and Miniscript support, and Liana compatibility."
+keywords: "Specter DIY, DIY hardware wallet, STM32, QR signing, air-gapped, agnostic mode, multisig, Miniscript, Liana, Bitcoin only, Kingston Bitcoin"
+og_description: "An air-gapped Bitcoin signer you assemble yourself: developer board, QR scanner, no soldering."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <p class="crumb"><a href="learn.html#wallets">Learn &#9656; Wallet Guides</a></p>
+        <h1 class="page-title">Build Your Own Vault</h1>
+        <p class="page-subtitle">A Guide to Specter DIY</p>
+
+        <article class="post-content">
+
+            <p><strong>Specter DIY</strong> is the elder statesman of build-it-yourself signers: a Bitcoin-only, air-gapped signing device assembled from off-the-shelf electronics, with open-source firmware you can audit and reproduce. Where <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> is minimalist and <a href="krux.html" class="entry-link" style="text-transform: none; font-size: inherit;">Krux</a> is firmware for found hardware, Specter DIY is the full-featured build: a big touchscreen, a proper QR scanner, and room to grow.</p>
+
+            <h2 class="section-heading-grey">What You Build It From</h2>
+            <img src="./assets/images/doodles/cpu.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>The core is an <strong>STM32 Discovery board</strong>, a developer kit with a large touchscreen sold by ordinary electronics distributors, plus a small QR scanner module. The project's optional <strong>Shield</strong> extension board snaps everything into a tidy form factor with <strong>no soldering at all</strong>. Budget roughly $100 in parts. As with the other DIY builds, the components are generic and unremarkable, which is precisely the supply-chain point: nothing in the box says "Bitcoin" until you flash it.</p>
+
+            <h2 class="section-heading-grey">Air-Gapped by QR, One Direction at a Time</h2>
+            <img src="./assets/images/doodles/airgap-qr-signer.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Specter DIY communicates by <strong>QR codes</strong> as its default and never needs to touch your computer. The unsigned transaction comes in through the scanner, the details show on the touchscreen for you to verify, and the signed PSBT goes back out as a code on the display. Each hop is one-way and visible, which is the air gap working exactly as intended. It pairs with <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> and other PSBT coordinators.</p>
+
+            <h2 class="section-heading-grey">Your Keys, Your Storage Policy</h2>
+            <img src="./assets/images/doodles/padlock-open.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Specter DIY lets you choose how the device treats secrets. In <strong>agnostic mode</strong>, the default, it forgets everything at power-off, exactly like SeedSigner: you re-enter or scan your seed each session and there is nothing on the device to steal. The aptly named <strong>reckless mode</strong> stores the key in flash for convenience, with the name serving as its own warning. Whichever you choose, the seed's paper-then-metal backup remains the real wallet, and the <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">verification rules</a> apply in full.</p>
+
+            <h2 class="section-heading-grey">Multisig and Miniscript Ready</h2>
+            <img src="./assets/images/doodles/crossed-keys.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Specter DIY grew up alongside multisig tooling, and it shows: descriptors and PSBTs are first-class citizens, making it a natural quorum member in a <a href="multisig.html" class="entry-link" style="text-transform: none; font-size: inherit;">2-of-3</a> with different device types. It also supports <strong>Miniscript</strong>, which is why it appears on Liana's supported-device list: pair it with <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana</a> and its timelocked recovery paths work with a signer you assembled yourself.</p>
+
+            <h2 class="section-heading-grey">Getting Started</h2>
+            <p>The path follows our <a href="signing-device-setup.html" class="entry-link" style="text-transform: none; font-size: inherit;">signing device guide</a>: order the board, scanner, and Shield from regular distributors, download the firmware from the official project only and <strong>verify it</strong> (the builds are reproducible), flash the board, and assemble. Then the familiar drill: load a seed (ideally from <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">your own dice</a>), pair with your coordinator by QR, verify a receive address on the device's screen, run a small test in and out, and rehearse a recovery before real savings arrive.</p>
+
+            <div class="callout-box">
+                <p><strong>Choosing between the three DIY signers?</strong> SeedSigner is the cheapest and strictly stateless. Krux reuses found gadgets and shines with Liana over QR or SD card. Specter DIY offers the biggest screen, the scanner-first workflow, and the most room to tinker. Any of them, built and verified carefully, is a serious vault.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Go further.</strong> Official docs: <a href="https://docs.specter.solutions/diy/" target="_blank" style="color: #F7931A; text-decoration: none; font-weight: bold;">docs.specter.solutions/diy</a>. See the full picks on <a href="choosing-a-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Choosing a Wallet</a>, and bring your parts to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> to build together.</p>
+            </div>
+
+            <p style="font-size: 14px; color: #888; margin-top: 30px;">Limestone City Bitcoin is not affiliated with the Specter project. This guide is educational and is not financial advice.</p>
+
+        </article>
+    </main>
