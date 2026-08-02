@@ -1,0 +1,43 @@
+---
+layout: default
+title: "Coreboot | Limestone City Bitcoin"
+description: "Coreboot explained: the minimal open-source boot firmware behind Libreboot, how its staged boot works, payloads like SeaBIOS and GRUB, how it differs from Libreboot on blobs and hardware support, and when to choose it."
+keywords: "Coreboot, open firmware, BIOS replacement, payload, SeaBIOS, GRUB, bootblock, romstage, Libreboot comparison, Bitcoin computer, Kingston Bitcoin"
+og_description: "The minimal, auditable boot firmware that starts your machine with code you can read."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Coreboot</h1>
+        <p class="page-subtitle">A boot process you can read</p>
+
+        <article class="post-content">
+
+            <p>If <a href="libreboot.html" class="entry-link" style="text-transform: none; font-size: inherit;">Libreboot</a> is the purist distribution, <strong>Coreboot</strong> is the engine underneath it: a free, minimal replacement for the BIOS or UEFI that does only what a boot process must, in code anyone can audit. It is the pragmatic road to open firmware, and it runs on far more machines.</p>
+
+            <h2 class="section-heading-grey">How It Boots</h2>
+            <img src="./assets/images/doodles/energy-bolt.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Coreboot's philosophy is minimalism in stages. A tiny <strong>bootblock</strong> wakes the machine, the <strong>romstage</strong> brings up memory, the <strong>ramstage</strong> initializes hardware, and then Coreboot steps aside for a <strong>payload</strong>: SeaBIOS if you want a classic BIOS environment, GRUB to boot Linux directly, or even a Linux kernel itself. Compare that to a modern UEFI, which is practically an operating system of its own. Fewer moving parts means a faster boot, an easier audit, and less to go wrong at the layer you cannot patch from the OS.</p>
+
+            <h2 class="section-heading-grey">Coreboot vs. Libreboot</h2>
+            <img src="./assets/images/doodles/block-1.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Libreboot is built from Coreboot; the difference is policy. Some hardware needs vendor-supplied binary <strong>blobs</strong> (memory training, graphics bring-up) to work at all. Coreboot allows them where required, which buys <strong>much wider hardware support</strong>. Libreboot strips them out entirely, which limits it to machines that can run fully free. Same engine, different line in the sand:</p>
+            <ul>
+                <li><strong>Choose Libreboot</strong> when your machine is on its list and you want zero proprietary code.</li>
+                <li><strong>Choose Coreboot</strong> when your hardware is not, and you still want an open, minimal, auditable boot over a vendor black box.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Getting It Onto a Machine</h2>
+            <img src="./assets/images/doodles/mining-chip.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Expect a Linux build system, a supported board, and a few careful hours. Some machines can be flashed internally from software; a first-time install often means the same external route as Libreboot: a $15 to $30 programmer clipped to the firmware chip, with a backup of the original image taken before anything is written. Keep that backup forever. It is the difference between a recoverable mistake and a long evening.</p>
+
+            <h2 class="section-heading-grey">Why a Bitcoiner Cares</h2>
+            <p>The machine that runs your <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">wallet</a> and <a href="bitcoin-network.html" class="entry-link" style="text-transform: none; font-size: inherit;">node</a> starts executing code long before Linux loads, and on a stock machine that code is unreadable. Open firmware closes the gap: from power button to <a href="using-bitcoin-as-money.html" class="entry-link" style="text-transform: none; font-size: inherit;">signature</a>, every layer is something you or the community can inspect. As with <a href="libreboot.html" class="entry-link" style="text-transform: none; font-size: inherit;">Libreboot</a>, do the seed and backup fundamentals first; firmware is the finishing move, not the first one.</p>
+
+            <div class="callout-box" style="margin-top: 40px;">
+                <p><strong>Build it into something.</strong> Open firmware is the foundation layer of a <a href="bitcoin-computer.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">dedicated Bitcoin computer</a> or an <a href="air-gapped-computer.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">air-gapped machine</a>. Flashing questions welcome at any <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>

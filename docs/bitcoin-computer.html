@@ -1,0 +1,50 @@
+---
+layout: default
+title: "The Bitcoin Computer | Limestone City Bitcoin"
+description: "Why a dedicated Bitcoin machine beats your everyday computer: attack surface, clipboard malware, and prying eyes. Hardware for under $150, a minimal Linux setup, full disk encryption, and the usage rules that keep it clean."
+keywords: "dedicated Bitcoin computer, attack surface, clipboard malware, Linux, full disk encryption, ThinkPad, Sparrow, node, security hygiene, Kingston Bitcoin"
+og_description: "One cheap laptop that does only Bitcoin: the easiest big security upgrade most people never make."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">The Bitcoin Computer</h1>
+        <p class="page-subtitle">One machine, one job</p>
+
+        <article class="post-content">
+
+            <p>Think about what your everyday computer touches in a week: dozens of websites, browser extensions, downloads, email attachments, maybe a game or two. Every one of those is a path for malware, and malware has a favourite target. A <strong>dedicated Bitcoin computer</strong> is the blunt, effective answer: one cheap machine that does Bitcoin and nothing else, ever.</p>
+
+            <h2 class="section-heading-grey">Why a Whole Separate Machine?</h2>
+            <img src="./assets/images/doodles/laptop-node.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Because the everyday attacks are boring and effective. <strong>Clipboard malware</strong> quietly swaps the address you copied for the attacker's. Spyware watches your balance and flags you as a target worth robbing. A poisoned browser extension reads everything you see. None of these need to break Bitcoin's cryptography; they just need to share a computer with your wallet. A machine that never browses, never opens mail, and never installs anything unnecessary takes nearly all of that off the table at once.</p>
+            <p>To be clear about the division of labour: your keys should still live on an air-gapped signer like a <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a>. The Bitcoin computer is the <em>coordinator</em> side of the pair, the clean machine that runs your wallet software and talks to the network.</p>
+
+            <h2 class="section-heading-grey">The Hardware: Cheap Is Fine</h2>
+            <img src="./assets/images/doodles/desktop-wallet.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>This build costs less than a hardware wallet. A used business laptop (the older ThinkPads are the community favourite for repairability and firmware freedom) or any spare machine in a closet will do, typically $50 to $150. Bitcoin software is light; the node is the only piece that wants disk space. If you later want to go deeper, the same class of machine is what <a href="libreboot.html" class="entry-link" style="text-transform: none; font-size: inherit;">Libreboot</a> and <a href="coreboot.html" class="entry-link" style="text-transform: none; font-size: inherit;">Coreboot</a> like best.</p>
+
+            <h2 class="section-heading-grey">The Setup: Minimal by Design</h2>
+            <img src="./assets/images/doodles/shield.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <ul>
+                <li><strong>Fresh Linux install.</strong> Wipe the machine and install a mainstream distribution (Linux Mint is a friendly choice), verifying the download before you flash it.</li>
+                <li><strong>Full disk encryption.</strong> Turn on LUKS during install, so a stolen laptop is a brick instead of a wallet map.</li>
+                <li><strong>Only Bitcoin software.</strong> <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>, ideally your own <a href="bitcoin-network.html" class="entry-link" style="text-transform: none; font-size: inherit;">Bitcoin node</a>, and nothing else. No browser sessions, no email, no extras. Every package you skip is attack surface you never carry.</li>
+                <li><strong>Updates only from official sources</strong>, verified, on your schedule.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">The Rules That Keep It Clean</h2>
+            <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>The machine stays trustworthy only as long as the discipline holds: no browsing, no downloads, no borrowed USB sticks, no lending it out. Treat it like the tool it is. And keep the habit that survives every setup: <strong>verify receive addresses on your signing device's screen</strong>, not just on the computer, every time.</p>
+
+            <div class="callout-box">
+                <p><strong>Want to go further?</strong> This guide gets you a clean online coordinator. The next rung is a machine with no network hardware at all: see the <a href="air-gapped-computer.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Air-Gapped Computer</a> guide for deep cold storage work.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep building.</strong> Pair the machine with a <a href="signing-device-setup.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">properly set up signer</a>, run <a href="bitcoin-network.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">your own node</a> on it, and bring questions to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
