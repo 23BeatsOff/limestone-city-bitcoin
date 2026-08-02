@@ -1,0 +1,56 @@
+---
+layout: default
+title: "Backup Verification | Limestone City Bitcoin"
+description: "How to prove a Bitcoin seed backup actually works before trusting it: recovery tests on the same or a second device, passphrase checks, derivation paths, a re-check schedule, and what to do when addresses do not match."
+keywords: "seed backup verification, recovery test, restore seed, first receive address, passphrase check, derivation path, BIP84, metal backup, Kingston Bitcoin"
+og_description: "An untested backup is a hope, not a backup. Prove yours works before it holds real money."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Backup Verification</h1>
+        <p class="page-subtitle">An untested backup is just a hope</p>
+
+        <article class="post-content">
+
+            <p>Plenty of bitcoin has been lost by people who did everything else right. They bought the signer, wrote the words, stamped the metal, and never once tested whether that backup actually restores the wallet. One misspelled word, two swapped positions, or a smudged stamp, and the backup they trusted for years turns out to open nothing. The fix costs an hour and zero dollars: prove it now, while proving it is free.</p>
+
+            <h2 class="section-heading-grey">The Core Idea: Match the First Address</h2>
+            <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Every test below reduces to one comparison. Before testing, note your wallet's <strong>first receive address</strong>. Then restore the wallet <em>from the written backup alone</em> and check that the restored wallet produces the same first address. If it does, the backup is provably correct, because only the exact same seed (and passphrase) can produce that address. If it does not, something in the backup is wrong, and you just found out for free.</p>
+
+            <h2 class="section-heading-grey">Pick Your Test</h2>
+            <img src="./assets/images/doodles/refresh-cycle.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li><strong>Same device, new wallet (best before funding).</strong> With zero funds on the wallet, wipe the device, restore it using only your written words, and compare the first address. On a stateless SeedSigner this is painless: power off, reload from the written seed, compare.</li>
+                <li><strong>Second device (best when funds already exist).</strong> Restore the backup onto a different signer or an air-gapped machine, compare several addresses, then wipe the test device. Your live wallet is never touched.</li>
+                <li><strong>Sparrow's built-in check.</strong> <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> can test a backup directly: open your wallet's keystore settings and choose "Test Backup", then enter the words from your written copy.</li>
+            </ul>
+            <p>Whichever you use, the words you enter must come from the physical backup, not from memory. You are testing the artifact, not yourself.</p>
+
+            <h2 class="section-heading-grey">Testing a Passphrase Wallet</h2>
+            <img src="./assets/images/doodles/padlock-3.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>A <a href="seed-passphrase.html" class="entry-link" style="text-transform: none; font-size: inherit;">passphrase</a> makes the same seed open different wallets, so verify both layers: restore with the seed alone and note the first address (that is your decoy wallet), then add the passphrase and confirm the first address matches your real wallet. Passphrase failures are almost always small: capitalization, a stray space, a zero that was written as the letter O. Check those first.</p>
+
+            <h2 class="section-heading-grey">When Addresses Do Not Match</h2>
+            <p>Do not panic; your live wallet still works. Recheck word spelling and order against the BIP39 list, recheck the passphrase character by character, and confirm the <strong>derivation path</strong> matches your wallet's standard (modern wallets use BIP84, with addresses that start with <code>bc1q</code>; older paths produce different addresses from the same seed). If the backup itself is wrong, make a corrected copy from the still-working wallet and verify it immediately. If you cannot tell what is wrong, treat the setup as suspect: create a fresh wallet with a verified backup and move the funds to it.</p>
+
+            <h2 class="section-heading-grey">Re-Check on a Schedule</h2>
+            <img src="./assets/images/doodles/seed-plate.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li><strong>Before first funding</strong>: a full restore test, always.</li>
+                <li><strong>Every 6 to 12 months</strong>: pull the backup out and confirm it is legible and intact.</li>
+                <li><strong>After anything eventful</strong>: water, fire, a move, suspected access by someone else, or any change to the backup itself, run the full test again.</li>
+            </ul>
+
+            <div class="callout-box">
+                <p><strong>⚠️ Never type a live seed into anything online.</strong> Every test here happens on a signing device or an air-gapped machine. A seed that has touched an internet-connected browser or notes app should be treated as burned: make a new wallet and move the funds.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Related guides.</strong> Set the device up right in <a href="signing-device-setup.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Setting Up a Signing Device</a>, generate the seed yourself with <a href="diy-seed-generation.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">dice</a>, and remember that <a href="multisig.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">multisig</a> adds one more thing to back up: the wallet descriptor.</p>
+            </div>
+
+        </article>
+    </main>

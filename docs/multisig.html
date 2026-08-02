@@ -1,0 +1,66 @@
+---
+layout: default
+title: "Multisig | Limestone City Bitcoin"
+description: "Multisig explained: how 2-of-3 wallets remove the single point of failure, PSBT signing, why the wallet descriptor is as important as the seeds, geographic key distribution, quorum choices, and the mistakes that undo it all."
+keywords: "Bitcoin multisig, 2-of-3, m-of-n, wallet descriptor, PSBT, single point of failure, quorum, Sparrow multisig, SeedSigner multisig, Kingston Bitcoin"
+og_description: "One key can be lost or stolen. Multisig makes that survivable: how m-of-n custody actually works."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <h1 class="page-title">Multisig</h1>
+        <p class="page-subtitle">No single point of failure</p>
+
+        <article class="post-content">
+
+            <p>Everything in single-key custody hangs on one secret. Guard it well and you are sovereign; lose it once, or have it found once, and the funds are gone. <strong>Multisig</strong> changes the math: a wallet that needs <strong>m of n</strong> keys to spend can survive a lost key, a stolen key, or a house fire, because no single event touches enough keys to matter.</p>
+
+            <h2 class="section-heading-grey">How m-of-n Works</h2>
+            <img src="./assets/images/doodles/crossed-keys.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>The standard personal setup is <strong>2-of-3</strong>: three keys exist, any two can spend. Concretely:</p>
+            <ul>
+                <li>One key is <strong>stolen</strong>: the thief has one signature and needs two. Funds safe. You move them with your remaining pair.</li>
+                <li>One key is <strong>lost or destroyed</strong>: you still hold two. Funds recoverable.</li>
+                <li>Your coins live at multisig addresses whose spending script itself enforces the 2-of-3 rule. This is Bitcoin script doing the work, not a company policy.</li>
+            </ul>
+            <p>Spending uses <strong>PSBTs</strong> (partially signed transactions): your coordinator builds the transaction, the first device signs it, the second device signs the partly signed result, and the completed transaction broadcasts. With air-gapped signers the PSBT travels by QR code or microSD, as usual.</p>
+
+            <h2 class="section-heading-grey">Building One</h2>
+            <img src="./assets/images/doodles/people-3.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Each of the three keys should be its own seed on its own signer, ideally on <strong>different device types</strong> so one project's bug cannot touch two keys at once. In our air-gapped, Bitcoin-only world that might be a <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a>, a Specter DIY, and a Krux build. A coordinator like <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> collects the three <strong>xpubs</strong> (public keys only, nothing secret) and assembles the wallet. Generate each seed with <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">your own dice</a> if you want the full no-trust setup.</p>
+            <p>Then distribute: each seed backed up on metal, each stored in a <strong>different physical location</strong>. Three seeds in one drawer is a single point of failure with extra steps.</p>
+
+            <h2 class="section-heading-grey">The Descriptor: The Backup People Forget</h2>
+            <img src="./assets/images/doodles/ledger-book.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>A multisig wallet is more than its seeds. The <strong>wallet output descriptor</strong> is a text string recording the three xpubs, the 2-of-3 policy, and the derivation paths. Here is the part that surprises people: <strong>without the descriptor, all three seeds together may not be enough to rebuild the wallet</strong>, because you cannot reconstruct which keys, paths, and script type were combined.</p>
+            <p>Treat the descriptor as seriously as a seed, with one difference: it contains no secrets, so you can copy it freely. Export it from Sparrow, print several copies, and store one with each seed backup. Now any two seeds plus any descriptor copy can always resurrect the wallet.</p>
+
+            <h2 class="section-heading-grey">Choosing a Quorum</h2>
+            <img src="./assets/images/doodles/map-pin.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <ul>
+                <li><strong>2-of-3</strong>: the sweet spot for individuals. Real fault tolerance, manageable ceremony.</li>
+                <li><strong>3-of-5</strong>: for very large holdings or groups; survives losing two keys at the cost of more devices, more locations, more discipline.</li>
+                <li><strong>2-of-2</strong>: avoid it. Lose either key and everything is gone; it is shared control with zero fault tolerance.</li>
+            </ul>
+            <p>Multisig also has costs: transactions are bigger (so fees run higher), signing takes longer, and there is simply more to manage. For everyday amounts, a well-run single-sig setup with a <a href="seed-passphrase.html" class="entry-link" style="text-transform: none; font-size: inherit;">passphrase</a> is plenty. Multisig earns its keep on long-term savings you would genuinely mourn. And if what you mainly want is recovery from a lost key rather than theft resistance, <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana's timelocked recovery paths</a> solve that with less ceremony.</p>
+
+            <h2 class="section-heading-grey">The Mistakes That Undo It</h2>
+            <ul>
+                <li>No descriptor backup (the classic).</li>
+                <li>All seeds stored in one place.</li>
+                <li>Never rehearsing a recovery, so the first real restore is also the first test.</li>
+                <li>Skipping address verification on the device screens.</li>
+                <li>Over-engineering a quorum you will not maintain.</li>
+            </ul>
+
+            <div class="callout-box">
+                <p><strong>⚠️ Before funding a multisig:</strong> seeds on metal in separate locations, descriptor backed up in several places, receive address verified on each device, one test deposit sent and spent, and one full recovery rehearsed from backups alone. Run the <a href="backup-verification.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">backup verification</a> playbook on every key.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep going.</strong> Start each key with <a href="diy-seed-generation.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">DIY seed generation</a>, set up each signer via <a href="signing-device-setup.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Setting Up a Signing Device</a>, and coordinate it all in <a href="sparrow-wallet.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Sparrow</a>. Multisig is a favourite <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> topic; bring questions.</p>
+            </div>
+
+        </article>
+    </main>

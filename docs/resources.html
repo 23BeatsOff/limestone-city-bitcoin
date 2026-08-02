@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Technical Resources | Limestone City Bitcoin"
-description: "Technical Bitcoin resources from Limestone City Bitcoin: the Bitcoin whitepaper, a guide to using Bitcoin as money, and more."
+description: "Technical Bitcoin resources from Limestone City Bitcoin: the Bitcoin whitepaper, guides to the fundamentals, and hands-on security guides covering seeds, passphrases, signing devices, backups, and multisig."
 keywords: "Bitcoin white paper, Satoshi Nakamoto, technical Bitcoin, Bitcoin guides, using Bitcoin as money, sending Bitcoin, Lightning, Kingston Bitcoin"
 og_description: "Bitcoin whitepapers, guides, and technical resources."
 og_type: "website"
@@ -21,7 +21,7 @@ og_type: "website"
             <a href="./assets/resources/papers/bitcoin-white-paper-in-plain-text.pdf" target="_blank" class="book-link">Read PDF →</a>
         </div>
 
-        <h2 class="section-heading-grey">Guides</h2>
+        <h2 class="section-heading-grey">Bitcoin Fundamentals</h2>
         <img src="./assets/images/doodles/open-book.svg" alt="" aria-hidden="true" class="doodle doodle-left">
 
         <div class="book-entry">
@@ -52,6 +52,39 @@ og_type: "website"
             <h3 class="book-title">Public Keys</h3>
             <p class="book-desc">The half you can share: how your public key is derived from the private key on the secp256k1 curve, its formats (compressed, uncompressed, x-only), the one-way trapdoor, and how it verifies your signatures.</p>
             <a href="public-keys.html" class="book-link">Read the guide →</a>
+        </div>
+
+        <h2 class="section-heading-grey">Security &amp; Keys</h2>
+        <img src="./assets/images/doodles/shield.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+
+        <div class="book-entry">
+            <h3 class="book-title">DIY Seed Generation</h3>
+            <p class="book-desc">Roll your own randomness. Generate a Bitcoin seed with dice, convert the rolls to BIP39 words, handle the checksum, and verify the whole chain yourself on an air-gapped machine.</p>
+            <a href="diy-seed-generation.html" class="book-link">Read the guide →</a>
+        </div>
+
+        <div class="book-entry">
+            <h3 class="book-title">Seed Passphrases</h3>
+            <p class="book-desc">The 25th word: how a passphrase turns one seed into a hidden wallet, decoy wallets for coercion resistance, diceware generation, and the storage rules that keep it from backfiring.</p>
+            <a href="seed-passphrase.html" class="book-link">Read the guide →</a>
+        </div>
+
+        <div class="book-entry">
+            <h3 class="book-title">Setting Up a Signing Device</h3>
+            <p class="book-desc">From sealed box (or bag of parts) to trusted signer: sourcing safely, verifying software, loading your seed, pairing air-gapped with Sparrow, and testing before you trust it.</p>
+            <a href="signing-device-setup.html" class="book-link">Read the guide →</a>
+        </div>
+
+        <div class="book-entry">
+            <h3 class="book-title">Backup Verification</h3>
+            <p class="book-desc">An untested backup is just a hope. Prove your seed backup restores the right wallet, test passphrase setups, and know exactly what to do when the addresses do not match.</p>
+            <a href="backup-verification.html" class="book-link">Read the guide →</a>
+        </div>
+
+        <div class="book-entry">
+            <h3 class="book-title">Multisig</h3>
+            <p class="book-desc">No single point of failure: how 2-of-3 wallets survive a lost or stolen key, PSBT signing, quorum choices, and why the wallet descriptor is as important as the seeds.</p>
+            <a href="multisig.html" class="book-link">Read the guide →</a>
         </div>
 
     </main>
