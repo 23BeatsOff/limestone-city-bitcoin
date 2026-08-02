@@ -2,7 +2,7 @@
 layout: default
 title: "Choosing a Wallet | Limestone City Bitcoin"
 description: "A beginner's guide to Bitcoin wallets: what they really store, hot vs cold, custodial vs self-custody, and recommended Bitcoin-only wallets for phone, desktop, and cold storage."
-keywords: "Bitcoin wallet, choosing a wallet, hot wallet, cold wallet, self-custody, BlueWallet, Cove, Electrum, Sparrow, SeedSigner, Bitcoin only, Kingston Bitcoin"
+keywords: "Bitcoin wallet, choosing a wallet, hot wallet, cold wallet, self-custody, BlueWallet, Cove, Electrum, Sparrow, Liana, SeedSigner, Krux, Specter DIY, Bitcoin only, Kingston Bitcoin"
 og_description: "What a Bitcoin wallet really is, and how to choose one for phone, desktop, and cold storage."
 og_type: "website"
 ---
@@ -42,6 +42,10 @@ og_type: "website"
             <h2 class="section-heading-grey">4. Which Wallet Should You Use?</h2>
             <p>There are many good <strong>Bitcoin-only</strong> wallets. Here are dependable, open-source picks for each job.</p>
 
+            <div class="callout-box">
+                <p><strong>New here? Start free.</strong> You do not need to spend money on cold storage to begin. A good software wallet costs nothing and is the best place to learn: receive a little, send a little, back it up, restore it. Build your security in step with your skills, and add a hardware signer once your savings (and your confidence) have grown enough to deserve one.</p>
+            </div>
+
             <h3 class="content-heading">On your phone: for everyday spending</h3>
             <div class="info-box">
                 <h3>BlueWallet</h3>
@@ -65,6 +69,11 @@ og_type: "website"
                 <p>A privacy-focused, full-control desktop wallet that can connect to your own node. Our pick for serious desktop self-custody.</p>
                 <a href="sparrow-wallet.html">Read our Sparrow guide →</a>
             </div>
+            <div class="info-box">
+                <h3>Liana</h3>
+                <p>A desktop wallet with recovery built in: timelocked backup keys can rescue your funds if the primary key is ever lost, and the same mechanism gives you a clean inheritance plan.</p>
+                <a href="owning-your-keys.html">Read our Liana guide →</a>
+            </div>
 
             <h3 class="content-heading">Hardware: for cold storage</h3>
             <div class="info-box">
@@ -72,7 +81,17 @@ og_type: "website"
                 <p>An open-source, air-gapped signer you build yourself from inexpensive parts. It keeps your keys completely offline and signs entirely by QR code.</p>
                 <a href="seedsigner.html">Read our SeedSigner guide →</a>
             </div>
-            <p>The strongest setup pairs a software wallet with a hardware device: the software (Sparrow, Electrum, or Cove) is the interface that watches your balance and builds transactions, while the hardware (like SeedSigner) holds your keys and signs <strong>air-gapped</strong>, by QR code or microSD, never over a cable to your computer.</p>
+            <div class="info-box">
+                <h3>Krux</h3>
+                <p>Open-source firmware that turns cheap, off-the-shelf touchscreen devices into an air-gapped signer. Everything moves by QR code, multisig included, and a build costs well under $100.</p>
+                <a href="https://selfcustody.github.io/krux/" target="_blank">selfcustody.github.io/krux →</a>
+            </div>
+            <div class="info-box">
+                <h3>Specter DIY</h3>
+                <p>A build-it-yourself, air-gapped signer that talks entirely by QR code. It also supports Miniscript, which makes it a natural hardware partner for Liana's recovery paths.</p>
+                <a href="https://docs.specter.solutions/diy/" target="_blank">docs.specter.solutions/diy →</a>
+            </div>
+            <p>The strongest setup pairs a software wallet with a hardware device: the software (Sparrow, Electrum, or Cove) is the interface that watches your balance and builds transactions, while the hardware (SeedSigner, Krux, or Specter DIY) holds your keys and signs <strong>air-gapped</strong>, by QR code or microSD, never over a cable to your computer.</p>
 
             <h2 id="why-bitcoin-only" class="section-heading-grey">5. Why Bitcoin-Only?</h2>
             <img src="./assets/images/doodles/bitcoin-coin-2.svg" alt="" aria-hidden="true" class="doodle doodle-left">
@@ -90,7 +109,7 @@ og_type: "website"
             <img src="./assets/images/doodles/signpost.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <p>You don't have to do everything at once. A good path for most people:</p>
             <ul>
-                <li><strong>Start small.</strong> Put a little bitcoin in a phone wallet and learn the ropes: receiving, sending, and backing up your recovery phrase.</li>
+                <li><strong>Start small and free.</strong> A software wallet costs nothing. Put a little bitcoin in one and learn the ropes: receiving, sending, and backing up your recovery phrase.</li>
                 <li><strong>Grow into cold storage.</strong> As your savings grow, move them to a hardware wallet.</li>
                 <li><strong>Back up properly.</strong> Write your recovery words on paper, then metal. Never a photo, never the cloud, and never share them with anyone.</li>
             </ul>
