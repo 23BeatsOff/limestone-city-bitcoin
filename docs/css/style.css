@@ -292,6 +292,32 @@ html, body {
     }
 }
 
+/* Phones: hamburger joins the flex row so it can never sit over the stats */
+@media (max-width: 640px) {
+    .menu-toggle {
+        position: static;
+        transform: none;
+        margin-left: 4px;
+        flex-shrink: 0;
+    }
+
+    .header-center {
+        flex: 1;
+        gap: 12px;
+        /* balances the toggle's width so the stats stay centred on the page */
+        padding-right: 64px;
+    }
+
+    .height {
+        font-size: 20px;
+    }
+
+    .label {
+        font-size: 9.5px;
+        letter-spacing: 1.2px;
+    }
+}
+
 /* 8. DROPDOWN SPECIFIC STYLING */
 .nav-dropdown summary {
     list-style: none;
