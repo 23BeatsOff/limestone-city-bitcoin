@@ -1,0 +1,66 @@
+---
+layout: default
+title: "Miniscript | Limestone City Bitcoin"
+description: "Miniscript explained: how Bitcoin's spending rules become readable building blocks, absolute and relative timelocks, hashlocks, decaying multisig and inheritance policies, Taproot privacy, and which signing devices can sign it."
+keywords: "Miniscript, BIP-379, Bitcoin Script, timelock, hashlock, thresh, decaying multisig, inheritance, Taproot, MuSig2, wallet descriptor, Liana, Krux, Specter DIY, Kingston Bitcoin"
+og_description: "Bitcoin's spending rules, written in pieces you can read: timelocks, thresholds, and policies that survive you."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <p class="crumb"><a href="resources.html#security-keys">Technical Resources &#9656; Security &amp; Keys</a></p>
+        <h1 class="page-title">Miniscript</h1>
+        <p class="page-subtitle">Spending rules you can read</p>
+
+        <article class="post-content">
+
+            <p>Every Bitcoin wallet you have ever used runs a tiny program. Coins are not "in" an address; they sit behind a spending condition written in <strong>Bitcoin Script</strong>, the programming language built into the protocol since block one. A normal single-sig wallet compiles to the simplest program there is: <em>this key must sign</em>. But Script can express far more than that, and it always could. The problem was never power. The problem was that raw Script is brutal to write by hand: one mistake can lock coins forever, and a finished script is nearly impossible to audit at a glance.</p>
+
+            <p><strong>Miniscript</strong> (BIP-379, from Pieter Wuille and collaborators) fixes the usability, not the rules. It is a structured way of writing Script out of small, well-defined pieces, so that software can <strong>analyze</strong> a policy before funding it, <strong>compose</strong> conditions safely, and <strong>sign</strong> for it generically. Everything still compiles down to ordinary Bitcoin Script, enforced by every node on the network. No company, no sidecar protocol, no extra trust.</p>
+
+            <h2 class="section-heading-grey">The Building Blocks</h2>
+            <img src="./assets/images/doodles/chain-link.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Each piece states one condition. A few of the important ones:</p>
+            <ul>
+                <li><strong>A key must sign.</strong> <code>pk(Alice)</code> is the whole of single-sig, now just one brick among many.</li>
+                <li><strong>k of n keys must sign.</strong> <code>multi(2,Alice,Bob,Charlie)</code> is the classic <a href="multisig.html" class="entry-link" style="text-transform: none; font-size: inherit;">2-of-3</a>.</li>
+                <li><strong>A secret must be revealed.</strong> Hashlocks require the spender to publish a value matching a known hash, the same trick that powers Lightning channels and atomic swaps.</li>
+            </ul>
+            <img src="./assets/images/doodles/hourglass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Then come <strong>timelocks</strong>, the pieces that make the interesting policies possible. <code>after(n)</code> is absolute: the coins unlock at a specific block height or date, permanently. <code>older(n)</code> is relative: the coins must sit unmoved for a duration after they confirm. So <code>and_v(v:pk(Alice),older(12960))</code> reads: Alice can spend, but only once the coins have rested about ninety days. One caveat worth knowing: the chain measures time by the median of the last eleven blocks, so calendar dates are close approximations, not appointments.</p>
+            <p>Finally, the <strong>combinators</strong> glue conditions together: <em>and</em>, <em>or</em>, an if/else form called <code>andor</code>, and <code>thresh(k, ...)</code>, a threshold whose members can be whole expressions rather than bare keys. That last detail is the quiet superpower: "two of: Alice, Bob, or ninety days have passed" is a perfectly valid policy.</p>
+
+            <h2 class="section-heading-grey">What You Can Build</h2>
+            <img src="./assets/images/doodles/calendar.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Snap those pieces together and wallets start doing things no bank account can:</p>
+            <ul>
+                <li><strong>Decaying multisig (inheritance without a custodian).</strong> Day to day, a 2-of-3 controls the funds. If the wallet sits untouched for six months, a designated backup key can spend on its own: <code>andor(pk(Backup),older(26000),multi(2,A,B,C))</code>. While you are alive and active the backup path never wakes up; if you are gone, your heir waits out the clock and recovers everything. If that sounds familiar, it should: this is exactly the mechanism behind <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana's recovery paths</a>.</li>
+                <li><strong>A treasury with layered approvals.</strong> Routine spending needs two finance leads plus an automated co-signer; anything the co-signer refuses needs an executive's key instead; and if all else fails, the two leads alone can spend after a seven-day delay. Three tiers of control, enforced by the coins themselves.</li>
+                <li><strong>Escrow without a middleman holding funds.</strong> Buyer and seller sign together to settle, or after a timeout either of them plus an arbiter can. The arbiter can break ties but can never run off with the money.</li>
+            </ul>
+            <p>The common thread: the rules are not a company's promise or a lawyer's letter. They are enforced on-chain by the same consensus that enforces the 21 million cap.</p>
+
+            <h2 class="section-heading-grey">Taproot Makes It Private</h2>
+            <img src="./assets/images/doodles/merkle-tree.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>A fair objection: does publishing all these conditions on-chain leak your security setup? With <strong>Taproot</strong>, no. A Taproot output commits to a tree of alternative spending branches plus one <strong>key path</strong>. Spend by the key path and the output looks like plain single-sig; nobody learns the tree existed. Spend by a branch and only that one branch is revealed, while the others stay hidden forever. Your inheritance clause, your emergency path, your arbiter: all invisible until the day one of them is actually used.</p>
+            <p><strong>MuSig2</strong> goes further, letting several signers cooperate to produce one aggregated Schnorr signature, so even a multi-party key path spends looking like one person with one key. Signing device support for MuSig2 has not landed yet, so treat that piece as near-future rather than today.</p>
+
+            <h2 class="section-heading-grey">The Fine Print</h2>
+            <img src="./assets/images/doodles/padlock-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Two things keep Miniscript honest in practice. First, <strong>the descriptor rule gets stricter</strong>. Your policy lives in the <a href="multisig.html" class="entry-link" style="text-transform: none; font-size: inherit;">wallet descriptor</a>, and with Miniscript the descriptor carries the whole structure: keys, timelocks, branches. Every seed backup needs a descriptor copy beside it, because all your keys together cannot reconstruct a policy nobody wrote down. Run the <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup verification</a> playbook on the whole arrangement, not just the seeds.</p>
+            <p>Second, <strong>complexity is a cost you pay forever</strong>. Every extra path is one more thing to back up, rehearse, and explain to the people who inherit it. A policy you cannot restore from paper under stress is not security; it is a puzzle with your savings inside. Start with the simplest policy that solves your actual problem, prove the recovery works with a small amount, and only then add cleverness.</p>
+
+            <h2 class="section-heading-grey">Who Speaks It</h2>
+            <p>In the stack we already use: <a href="owning-your-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Liana</a> is built on Miniscript from the ground up, and both <a href="krux.html" class="entry-link" style="text-transform: none; font-size: inherit;">Krux</a> (including Taproot Miniscript) and <a href="specter-diy.html" class="entry-link" style="text-transform: none; font-size: inherit;">Specter DIY</a> can read a descriptor, show you the policy in plain language, and sign for it, air-gapped as always. SeedSigner does not support Miniscript yet, which is the one reason we steer Liana users toward the other two builds.</p>
+
+            <div class="callout-box">
+                <p><strong>The takeaway.</strong> Bitcoin has always been programmable money. Miniscript is what makes that programmability safe enough to actually use: spending rules you can read, verify, and hand to a signing device, with nothing enforced by anyone but the network itself.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep going.</strong> See <a href="multisig.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Multisig</a> for the m-of-n foundations, <a href="owning-your-keys.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Owning Your Keys</a> to put a timelocked recovery path into practice with Liana, and <a href="krux.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Krux</a> or <a href="specter-diy.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Specter DIY</a> for a signer that can sign it. Questions welcome at any <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>.</p>
+            </div>
+
+        </article>
+    </main>
