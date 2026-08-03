@@ -933,6 +933,12 @@ html, body {
     clear: both;
 }
 
+/* Keeps a paragraph's lines in one column beside a floated doodle,
+   so the last lines don't slip underneath it and break the left edge */
+.beside-doodle {
+    overflow: hidden;
+}
+
 @media (max-width: 640px) {
     .doodle {
         width: 104px;
