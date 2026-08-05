@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ page.description }}">
+    {% if page.is_404 %}<!-- 404 is served at any path, so relative asset and nav links need a root base -->
+    <base href="/">
+    <meta name="robots" content="noindex">
+    {% endif %}<meta name="description" content="{{ page.description }}">
     <meta name="keywords" content="{{ page.keywords }}">
     <meta property="og:title" content="{{ page.title }}">
     <meta property="og:description" content="{{ page.og_description }}">

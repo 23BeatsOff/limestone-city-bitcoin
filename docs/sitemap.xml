@@ -1,0 +1,16 @@
+---
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated at build time from the site's own pages. Any page can opt out
+     with `sitemap: false` in its front matter (the 404 page does). Files
+     without front matter, like the retired coldcard-q redirect stub, are
+     static files and never appear here. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- assign pages = site.pages | sort: 'url' -%}
+{%- for p in pages %}
+{%- if p.name contains '.html' and p.sitemap != false %}
+  <url><loc>{{ p.url | absolute_url }}</loc></url>
+{%- endif %}
+{%- endfor %}
+</urlset>
