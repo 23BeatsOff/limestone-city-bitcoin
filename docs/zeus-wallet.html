@@ -1,0 +1,73 @@
+---
+layout: default
+title: "Lightning in Your Pocket: A Guide to Zeus | Limestone City Bitcoin"
+description: "A beginner's guide to Zeus, the open-source, Bitcoin-only mobile wallet: start with ecash pocket change, grow into a self-custodial Lightning node on your phone, and graduate to your own node at home. First sats, Lightning addresses, channels in plain English."
+keywords: "Zeus wallet, ZEUS, Lightning wallet, Lightning Network, first sats, ecash, Cashu, embedded node, Olympus LSP, Lightning address, ZEUS Pay, self-custody, Bitcoin only, Kingston Bitcoin"
+og_description: "Your first sats, five minutes from now: the Bitcoin-only Lightning wallet that grows with you."
+og_type: "website"
+---
+
+<main class="main-content page-wrapper">
+
+        <p class="crumb"><a href="learn.html#wallets">Learn &#9656; Wallet Guides</a></p>
+        <h1 class="page-title">Lightning in Your Pocket</h1>
+        <p class="page-subtitle">A Beginner's Guide to Zeus</p>
+
+        <article class="post-content">
+
+            <p>Every path on this site eventually says the same thing: get a few sats and <em>use</em> them. Boost a <a href="40hpw.html" class="entry-link" style="text-transform: none; font-size: inherit;">podcast</a>, pay a friend back, feel Bitcoin move at the speed of a text message. This is the guide to the wallet we recommend for exactly that first step: <strong>Zeus</strong>, a free, open-source, Bitcoin-only wallet for your phone that speaks the <strong>Lightning Network</strong> natively, on iOS and Android.</p>
+
+            <h2 class="section-heading-grey">Why Zeus</h2>
+            <img src="./assets/images/doodles/lightning-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Plenty of apps will send a Lightning payment. Zeus earns its place here because it checks every box we care about, and one more that most wallets miss:</p>
+            <ul>
+                <li><strong>Bitcoin-only.</strong> No altcoins, no token casino, no distractions. One asset, done properly.</li>
+                <li><strong>Open source.</strong> The whole wallet is public code (AGPL licensed) that anyone can read, audit, and build.</li>
+                <li><strong>No accounts, no KYC.</strong> Download it and use it. Nobody asks your name.</li>
+                <li><strong>It grows with you.</strong> This is the special part. Zeus starts as a simple pocket-money wallet and can end, years later, as the remote control for a Lightning node running in your basement. You never have to switch apps to level up. That is our whole philosophy, <a href="choosing-a-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">start free and build security in step with your skills</a>, shipped as software.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">One Wallet, Three Gears</h2>
+            <img src="./assets/images/doodles/phone-wallet.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Zeus can run in three modes, and they map neatly onto a Bitcoiner's journey. Being honest about the tradeoffs of each is what separates a good wallet from a slick one.</p>
+            <ul>
+                <li><strong>First gear: ecash, for pocket change.</strong> Out of the box, Zeus can hold small amounts as <strong>Cashu ecash</strong>: instant, private, and working within seconds of installing, with no setup cost at all. The honest tradeoff: ecash is <strong>custodial</strong>. A server called a mint holds the actual sats, and a dishonest or failed mint can lose them. Treat this gear like the change in your literal pocket or a loaded coffee card: perfect for boosts and small payments, never for savings.</li>
+                <li><strong>Second gear: a node in your phone.</strong> Flip it on and Zeus runs a real, lightweight <strong>Lightning node on your device</strong>. Now the keys live with you and no custodian can touch your funds. This is self-custody on Lightning, and it is the gear to shift into once your balance stops feeling like pocket change.</li>
+                <li><strong>Third gear: your own node at home.</strong> Zeus began life as a remote control for node runners, and it remains the best one: connect it to <a href="bitcoin-node.html" class="entry-link" style="text-transform: none; font-size: inherit;">your own Bitcoin node</a> and your phone becomes a window onto infrastructure you fully own. This is the graduation ceremony.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">Your First Five Minutes</h2>
+            <img src="./assets/images/doodles/speech-bubble-sat.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <ul>
+                <li><strong>Download from an official source only:</strong> the Apple App Store, Google Play, or F-Droid, linked from <a href="https://zeusln.com" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">zeusln.com</a>. Never sideload a wallet from a link someone sent you.</li>
+                <li><strong>Create your wallet and write down the seed phrase</strong> on paper the moment Zeus shows it to you. Phones fall in lakes. The seed is the wallet; the app is just its face. (The full ritual lives in our <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup guide</a>.)</li>
+                <li><strong>Get your first sats.</strong> The best way is the human way: ask at a <a href="meetups.html" class="entry-link" style="text-transform: none; font-size: inherit;">meetup</a> and someone will happily send your first hundred sats to see the look on your face. Otherwise, any exchange withdrawal over Lightning works.</li>
+                <li><strong>Claim a Lightning address.</strong> Zeus gives you a human-readable address (yourname@zeuspay.com) that works like email for money. Hand it out; payments find you.</li>
+                <li><strong>Spend some.</strong> Seriously. Boost one <a href="40hpw.html" class="entry-link" style="text-transform: none; font-size: inherit;">#40HPW episode</a>. The first time value moves from your thumb to a creator's pocket with no bank in between, Bitcoin stops being an abstraction.</li>
+            </ul>
+
+            <h2 class="section-heading-grey">When You Shift Up: Channels in Plain English</h2>
+            <img src="./assets/images/doodles/water-drop.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Second gear introduces the one Lightning concept worth actually understanding: the <strong>channel</strong>. Lightning payments travel through funded connections between nodes. Think of your channel as a <strong>glass of water</strong>: spending pours water out and makes room to receive; receiving fills it back up. The glass itself has to be created once, with a real Bitcoin transaction.</p>
+            <p>Zeus handles that creation for you through a <strong>liquidity provider</strong>: your first deposit arrives, a channel opens automatically, and a <strong>one-time setup fee is deducted</strong> to cover the on-chain transaction that built your glass. A custodial app hides this cost by quietly owning your money; Zeus charges it openly and hands you the keys. Two practical tips follow. Shift to second gear with a meaningful first deposit (tens of dollars, not two), so the setup fee stays a small fraction. And keep the channel working: a glass you pour from and refill beats a dusty shelf of tiny ones.</p>
+
+            <h2 class="section-heading-grey">The Rules That Keep You Safe</h2>
+            <ul>
+                <li><strong>Ecash is spending money.</strong> Small amounts only, and shift to second gear when the balance starts to matter. Zeus itself will nudge you; listen to it.</li>
+                <li><strong>The seed phrase never goes digital.</strong> Paper, then <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">verified</a>. No screenshots, no cloud notes, and nobody legitimate will ever ask for it.</li>
+                <li><strong>A phone wallet is a hot wallet.</strong> Even self-custodial, it lives on an internet-connected device. Pocket money and spending flow live here; savings belong in <a href="choosing-a-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">cold storage</a> behind a signing device.</li>
+                <li><strong>Verify before you trust.</strong> Official downloads, and confirm receive details on the screen before sharing them. The <a href="using-bitcoin-as-money.html" class="entry-link" style="text-transform: none; font-size: inherit;">sending and receiving guide</a> covers the habits.</li>
+            </ul>
+
+            <div class="callout-box">
+                <p><strong>Put it to work today.</strong> This wallet is rung one of the <a href="build.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Build ladder</a>: load it with a few dollars of sats, pick a show on <a href="40hpw.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">#40HPW</a>, and boost an episode you liked. Five minutes, and you are using Bitcoin the way it was meant to be used.</p>
+            </div>
+
+            <div class="callout-box" style="margin-top: 30px;">
+                <p><strong>Keep going.</strong> Understand what you just did in <a href="using-bitcoin-as-money.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">Using Bitcoin as Money</a>, plan your graduation to third gear with the <a href="bitcoin-node.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">node guide</a>, and bring your phone to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a>; first sats are our favourite thing to send.</p>
+            </div>
+
+            <p style="font-size: 14px; color: #888; margin-top: 30px;">Limestone City Bitcoin is not affiliated with Zeus or ZeusLN. This guide is educational and is not financial advice.</p>
+
+        </article>
+    </main>
