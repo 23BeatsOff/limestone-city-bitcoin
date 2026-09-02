@@ -950,3 +950,29 @@ html, body {
         margin: 2px 16px 8px 0;
     }
 }
+
+/* Flex items will not shrink below their content's minimum width, so a long
+   command line in a <pre> would push the whole article past a phone screen.
+   Letting the article shrink keeps the scrolling inside the <pre>. */
+.main-content > .post-content {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Command blocks in guides (Sparrow download verification and the like) */
+.post-content pre {
+    background: #f4f4f2;
+    border: 1px solid #e6e6e2;
+    border-radius: 4px;
+    padding: 14px 16px;
+    margin: 12px 0 20px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.post-content pre code {
+    white-space: pre;
+    background: none;
+    padding: 0;
+}

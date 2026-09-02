@@ -65,22 +65,57 @@ og_type: "website"
                 <li>Pen, paper, and a little patience.</li>
             </ul>
 
-            <h2 class="section-heading-grey">7. Setting Up Sparrow (The High-Level Path)</h2>
+            <h2 class="section-heading-grey">7. Verify Before You Install</h2>
+            <img src="./assets/images/doodles/fingerprint.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>Sparrow is the coordinator: it builds every transaction, shows you every receive address, and holds the public keys that reveal your whole balance and history. That makes a tampered copy of Sparrow the single most valuable attack on this entire setup. A fake build can swap a receive address, quietly send your xpubs to a stranger, or hand your signer a transaction that pays someone else. Your signing device's screen catches the first trick. It cannot catch the other two. So before Sparrow ever touches your wallet, prove that the file you downloaded is the one Craig Raw actually published.</p>
+            <p>Every Sparrow release ships with two small extra files: a <strong>manifest</strong> (<code>sparrow-2.5.4-manifest.txt</code>, the SHA-256 hash of every installer) and the manifest's <strong>PGP signature</strong> (<code>sparrow-2.5.4-manifest.txt.asc</code>). Verification asks two questions: did Craig Raw sign this manifest, and does my installer's hash match what the manifest says? Download all three files into the same folder (Downloads is fine), swap in the current version number wherever you see 2.5.4, and work through the steps for your system.</p>
+
+            <h3 class="content-heading">Step 1: Get the tools</h3>
+            <ul>
+                <li><strong>Linux:</strong> <code>gpg</code> and <code>sha256sum</code> are almost certainly installed already. If <code>gpg --version</code> complains, install the <code>gnupg</code> package with your distribution's package manager.</li>
+                <li><strong>macOS:</strong> <code>shasum</code> is built in, but GPG is not. Install it with Homebrew (<code>brew install gnupg</code>) or install GPG Suite from gpgtools.org, then open Terminal for the rest.</li>
+            </ul>
+
+            <h3 class="content-heading">Step 2: Import the signing key and check its fingerprint</h3>
+            <p>Identical on both systems:</p>
+<pre><code>curl https://keybase.io/craigraw/pgp_keys.asc | gpg --import
+gpg --fingerprint craig@sparrowwallet.com</code></pre>
+            <p>The second command prints the key's fingerprint. It should read exactly:</p>
+<pre><code>D4D0 D320 2FC0 6849 A257  B38D E946 1833 4C67 4B40</code></pre>
+            <p>Do not take our word for it. Compare it against the fingerprint on Sparrow's own download page and on keybase.io/craigraw. Three independent sources agreeing is the whole point. If any one of them disagrees, stop and ask before going further.</p>
+
+            <h3 class="content-heading">Step 3: Verify the manifest's signature</h3>
+<pre><code>cd ~/Downloads
+gpg --verify sparrow-2.5.4-manifest.txt.asc</code></pre>
+            <p>You want to see <code>Good signature from "Craig Raw &lt;craig@sparrowwallet.com&gt;"</code>. You will also see a warning that the key "is not certified with a trusted signature." That is normal: GPG is pointing out that you have not personally vouched for this key, and the fingerprint check in step 2 is what stands in for that. What you must never see is <code>BAD signature</code>.</p>
+
+            <h3 class="content-heading">Step 4: Check the installer against the manifest</h3>
+            <ul>
+                <li><strong>Linux:</strong> <code>sha256sum --check sparrow-2.5.4-manifest.txt --ignore-missing</code></li>
+                <li><strong>macOS:</strong> <code>shasum --check sparrow-2.5.4-manifest.txt --ignore-missing</code></li>
+            </ul>
+            <p>The manifest lists every build for every platform, and <code>--ignore-missing</code> tells the tool to check only the file you actually have. A good result is a single line, such as <code>sparrowwallet_2.5.4-1_amd64.deb: OK</code> on Linux or <code>Sparrow-2.5.4-aarch64.dmg: OK</code> on an Apple silicon Mac. Both checks passed? Now install.</p>
+
+            <h3 class="content-heading">Step 5: Let Sparrow verify its own updates</h3>
+            <p>Here is the payoff. Once you are running a copy of Sparrow you verified by hand, every later update can be checked inside the app: download the new installer, manifest, and signature into one folder, then open <strong>Tools → Verify Download</strong> (or drag any of the three files onto the Sparrow window). It checks the signature against Craig Raw's key and the installer's hash against the manifest, and tells you plainly whether the download is good. It can be pointed at other projects' signed releases too, such as Bitcoin Core or signing-device firmware, which makes it a handy classroom for the whole idea.</p>
+            <p>The honest caveat: the tool can only vouch for the <em>next</em> version, because the copy doing the checking is the one you already trust. That is why the first install gets the manual treatment above. Skip it, and you are asking a possibly fake Sparrow whether it is real.</p>
+
+            <div class="callout-box">
+                <p><strong>⚠️ If anything fails.</strong> A <code>BAD signature</code>, a <code>FAILED</code> hash, or a fingerprint that does not match: do not install. Delete the files and download again from sparrowwallet.com typed into the address bar by hand, never from a search result or a link someone sent you. If it fails twice, bring it to a <a href="meetups.html" style="color: #F7931A; text-decoration: none; font-weight: bold;">meetup</a> before you touch it.</p>
+            </div>
+
+            <h2 class="section-heading-grey">8. Setting Up Sparrow (The High-Level Path)</h2>
             <p>This is the shape of the process. For the exact click-by-click, follow Sparrow's own up-to-date documentation, linked at the bottom.</p>
             <ul>
                 <li><strong>Download from the official source only</strong>: the <a href="https://sparrowwallet.com/download/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow download page</a>.</li>
-                <li><strong>Verify the download.</strong> Sparrow's releases are PGP-signed with a published manifest. Check the signature before you install (more below).</li>
+                <li><strong>Verify the download</strong> exactly as in section 7 above. It is the one step here that is not optional.</li>
                 <li><strong>Choose how you connect:</strong> your own Bitcoin Core node or private server for full privacy, or a public server over Tor to start.</li>
                 <li><strong>Import your signing device</strong> into Sparrow as your wallet. Your recovery words are generated and stored on the device. Write them on paper, then metal, never as a digital file, screenshot, or photo.</li>
                 <li><strong>Back up your wallet.</strong> Keep your recovery words safe, and for a multisig wallet, also back up the <strong>wallet output descriptor</strong> (the map of your keys), which you'll need to restore it.</li>
                 <li><strong>Receive a small test amount first,</strong> and verify the receive address on your signing device's own screen before sending anything real.</li>
                 <li><strong>Label as you go</strong>. Naming your coins and transactions keeps your privacy and bookkeeping clean from day one.</li>
             </ul>
-            <div class="callout-box">
-                <p><strong>⚠️ Verify before you install.</strong> Always confirm the PGP signature on your Sparrow download. It's the step that stops you from running a tampered copy that could swap addresses and steal your funds. Sparrow's site explains exactly how.</p>
-            </div>
-
-            <h2 class="section-heading-grey">8. The Golden Rules of Self-Custody</h2>
+            <h2 class="section-heading-grey">9. The Golden Rules of Self-Custody</h2>
             <img src="./assets/images/doodles/shield.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <ul>
                 <li><strong>Your recovery words are the keys.</strong> Never type them into a website, app, or "support agent" chat. No legitimate person or wallet will ever ask.</li>
