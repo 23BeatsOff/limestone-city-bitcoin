@@ -75,15 +75,17 @@ og_type: "website"
             <img src="./assets/images/doodles/keypad-hardware-wallet.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <p>First, a word about names. These devices are usually sold as "hardware wallets," but the name misleads. Your Bitcoin never sits inside the device; the coins live on the Bitcoin network, at addresses your keys control. Liana is the wallet: it watches your balance and builds your transactions. The device's real job is to keep your keys offline and <em>sign</em>, so we call it what it is: a <strong>signing device</strong>. Liana supports any signing device that implements Miniscript.</p>
             <p><strong>Our recommendation: build your own.</strong> <a href="specter-diy.html" class="entry-link" style="text-transform: none; font-size: inherit;">Specter DIY</a> and <a href="krux.html" class="entry-link" style="text-transform: none; font-size: inherit;">Krux</a> are air-gapped, Miniscript-capable signers you assemble yourself from generic electronics. A build costs less than a commercial device, nothing in the package says Bitcoin (so there is no branded shipment to intercept and no vendor customer list with your address on it), you verify the firmware yourself before flashing, and you finish the build actually understanding the thing that guards your savings. Bring the parts to a <a href="meetups.html" class="entry-link" style="text-transform: none; font-size: inherit;">meetup</a> and build alongside someone who has done it.</p>
-            <p>Prefer something ready-made? One off-the-shelf device supports Liana well:</p>
             <div class="info-box">
-                <h3>Coldcard (Mk4 / Q)</h3>
-                <p>Bitcoin-only and fully air-gapped. It can sign over microSD or QR without ever plugging into your computer, and it has full Miniscript support for Liana. The Q model adds a full keyboard and larger screen. Read the warning below before you set one up.</p>
+                <h3>Krux</h3>
+                <p>Open firmware for cheap off-the-shelf boards. Air-gapped by QR code or microSD, dice-roll seed generation built in, and full Miniscript support (Taproot included), so it reads Liana's descriptors and signs its recovery paths. The lowest-cost road to Liana.</p>
+                <a href="krux.html">Read our Krux guide →</a>
             </div>
-            <div class="callout-box">
-                <p><strong>⚠️ Before you trust a Coldcard.</strong> In July 2026 a firmware flaw came to light that had been quietly weakening seeds generated on Coldcards since 2021, and thieves used it to drain hundreds of wallets. Coinkite has shipped fixed firmware. If you choose a Coldcard for Liana, two rules are not optional. First, update to the latest firmware before setup (5.6.0 or newer for the Mk4 and Mk5, 1.5.0Q or newer for the Q). Second, never let the device generate your seed on its own: use the dice-roll option with your own rolls (99 or more, so any bias in your dice gets corrected) and the randomness comes from you, not the firmware. If you already hold funds on a seed a Coldcard generated for you, update the firmware, then move the funds to a fresh dice-generated seed.</p>
+            <div class="info-box">
+                <h3>Specter DIY</h3>
+                <p>A developer board, a QR scanner, and no soldering. The biggest screen of the DIY signers, a scanner-first workflow, and the Miniscript support that puts it on Liana's own supported-device list.</p>
+                <a href="specter-diy.html">Read our Specter DIY guide →</a>
             </div>
-            <p>Beyond these, see Liana's <a href="https://lianawallet.com/resources/guides/signing-devices/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">full list of supported devices →</a></p>
+            <p>Both appear on Liana's <a href="https://lianawallet.com/resources/guides/signing-devices/" target="_blank" class="entry-link" style="text-transform: none; font-size: inherit;">full list of supported devices →</a></p>
             <p style="font-size: 14px; color: #888;">A note for DIY fans: <strong>SeedSigner</strong> is a popular open-source, air-gapped signer, but it does not yet support Miniscript, so it can't be used with Liana's recovery setups for now.</p>
             <div class="callout-box">
                 <p><strong>Buying ready-made? Buy direct.</strong> Always purchase from the manufacturer, never from a third-party marketplace or used. A tampered device can quietly steal your funds. (DIY builds sidestep the problem: the parts are generic, and nobody tampers with a shipment they cannot identify.)</p>
