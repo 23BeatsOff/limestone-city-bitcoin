@@ -30,7 +30,7 @@ og_type: "website"
             <h2 class="section-heading-grey">Building One</h2>
             <img src="./assets/images/doodles/people-3.svg" alt="" aria-hidden="true" class="doodle doodle-left">
             <p>Each of the three keys should be its own seed on its own signer, ideally on <strong>different device types</strong> so one project's bug cannot touch two keys at once. In our air-gapped, Bitcoin-only world that might be a <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a>, a <a href="specter-diy.html" class="entry-link" style="text-transform: none; font-size: inherit;">Specter DIY</a>, and a <a href="krux.html" class="entry-link" style="text-transform: none; font-size: inherit;">Krux</a> build. A coordinator like <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> collects the three <strong>xpubs</strong> (public keys only, nothing secret) and assembles the wallet. Generate each seed with <a href="diy-seed-generation.html" class="entry-link" style="text-transform: none; font-size: inherit;">your own dice</a> if you want the full no-trust setup.</p>
-            <p>Then distribute: each seed backed up on metal, each stored in a <strong>different physical location</strong>. Three seeds in one drawer is a single point of failure with extra steps.</p>
+            <p class="beside-doodle">Then distribute: each seed backed up on metal, each stored in a <strong>different physical location</strong>. Three seeds in one drawer is a single point of failure with extra steps.</p>
 
             <h2 class="section-heading-grey">The Descriptor: The Backup People Forget</h2>
             <img src="./assets/images/doodles/ledger-book.svg" alt="" aria-hidden="true" class="doodle doodle-right">
@@ -39,7 +39,7 @@ og_type: "website"
 
             <h2 class="section-heading-grey">Choosing a Quorum</h2>
             <img src="./assets/images/doodles/map-pin.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <ul>
+            <ul class="beside-doodle">
                 <li><strong>2-of-3</strong>: the sweet spot for individuals. Real fault tolerance, manageable ceremony.</li>
                 <li><strong>3-of-5</strong>: for very large holdings or groups; survives losing two keys at the cost of more devices, more locations, more discipline.</li>
                 <li><strong>2-of-2</strong>: avoid it. Lose either key and everything is gone; it is shared control with zero fault tolerance.</li>
