@@ -28,13 +28,14 @@
 </head>
 <body>
 
-    <header class="header-status">
+    <header class="header-status{% unless page.url == "/" %} header-quiet{% endunless %}">
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
 
+        {% if page.url == "/" %}
         <div class="header-center">
             <div class="header-stat">
                 <div class="label">Current Block Height</div>
@@ -51,23 +52,16 @@
                 <p class="height">Live ↗</p>
             </a>
         </div>
+        {% else %}
+        <div class="header-center">
+            <a href="index.html" class="header-brand">Limestone City Bitcoin</a>
+        </div>
+        {% endif %}
 
         <nav class="nav-menu" id="nav-menu">
             <a href="index.html" class="nav-item">Home</a>
-            <a href="about.html" class="nav-item">About</a>
             <a href="learn.html" class="nav-item">Learn</a>
             <a href="build.html" class="nav-item">Build</a>
-            <a href="40hpw.html" class="nav-item">#40HPW</a>
-            <a href="pioneers.html" class="nav-item">Pioneers</a>
-
-            <details class="nav-dropdown">
-                <summary>Block Bits</summary>
-                <div class="dropdown-content">
-                    <a href="long-view-index.html">The Long View Series</a>
-                    <a href="block-bits-owen.html">Owen's First Year</a>
-                </div>
-            </details>
-
             <a href="meetups.html" class="nav-item">Meetups</a>
             <a href="contact.html" class="nav-item">Contact</a>
         </nav>
@@ -77,6 +71,13 @@
 
     <footer class="site-footer">
         <div class="footer-container">
+            <nav class="footer-nav" aria-label="More pages">
+                <a href="about.html">About</a>
+                <a href="40hpw.html">#40HPW</a>
+                <a href="pioneers.html">Pioneers</a>
+                <a href="long-view-index.html">The Long View</a>
+                <a href="resources.html">Technical Library</a>
+            </nav>
             <div class="footer-row">
                 <div class="footer-text">
                     <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>

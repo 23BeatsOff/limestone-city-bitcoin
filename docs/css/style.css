@@ -976,3 +976,53 @@ html, body {
     background: none;
     padding: 0;
 }
+
+/* 23. QUIET HEADER + FOOTER NAV (site simplification) */
+
+/* Every page except home shows a wordmark instead of the live stats */
+.header-quiet {
+    min-height: 64px;
+    padding: 12px 0;
+}
+
+.header-brand {
+    color: #F7931A;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: 0.2s;
+}
+
+.header-brand:hover {
+    color: #e07f0f;
+}
+
+/* Secondary pages live in the footer rather than the main nav */
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 22px;
+    margin-bottom: 18px;
+}
+
+.footer-nav a {
+    color: #666;
+    text-decoration: none;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.2s;
+}
+
+.footer-nav a:hover {
+    color: #F7931A;
+}
+
+/* Home: one primary action, one quiet secondary link */
+.home-secondary {
+    text-align: center;
+    margin: 16px 0 0;
+}
