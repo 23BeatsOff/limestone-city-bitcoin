@@ -22,66 +22,83 @@
     <meta name="twitter:title" content="{{ page.title }}">
     <meta name="twitter:description" content="{{ page.og_description }}">
     <meta name="twitter:image" content="{{ page.og_image | default: '/assets/images/og-image.jpg' | absolute_url }}">
-    <link rel="icon" type="image/png" href="./assets/images/logo.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32.png">
+    <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
+    <meta name="theme-color" content="#ECE8E0">
     <title>{{ page.title }}</title>
+    <link rel="preload" href="./assets/fonts/work-sans.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="./css/style.css?v={{ site.time | date: '%Y%m%d%H%M' }}">
 </head>
 <body>
 
-    <header class="header-status{% unless page.url == "/" %} header-quiet{% endunless %}">
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    {% assign here = page.url %}
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand"{% if here == "/" %} aria-current="page"{% endif %}>
+                <span class="brand-name">Limestone City Bitcoin</span>
+                <span class="brand-rule" aria-hidden="true"></span>
+                <span class="brand-place">Kingston, Ontario</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Main">
+                <a href="learn.html"{% if here == "/learn.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">A</span><span class="nav-label">Learn</span><span class="nav-note">Start here, then own your keys</span></a>
+                <a href="build.html"{% if here == "/build.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">B</span><span class="nav-label">Build</span><span class="nav-note">Signers, nodes, and helping others</span></a>
+                <a href="long-view-index.html"{% if here contains "/long-view" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">The Long View</span><span class="nav-note">Six essays on freedom</span></a>
+                <a href="meetups.html"{% if here == "/meetups.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">Meetups</span><span class="nav-note">Kingston, in person</span></a>
+                <a href="about.html"{% if here == "/about.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">About</span><span class="nav-note">Who we are</span></a>
+                <div class="nav-bside">
+                    <span class="footer-label">B-side</span>
+                    <div class="nav-bside-links">
+                        <a href="contact.html">Contact</a>
+                        <a href="40hpw.html">#40HPW</a>
+                        <a href="pioneers.html">Pioneers</a>
+                        <a href="resources.html">Technical Library</a>
+                    </div>
+                </div>
+            </nav>
+
+            <button type="button" class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-menu">Menu</button>
         </div>
 
-        {% if page.url == "/" %}
-        <div class="header-center">
+        {% if here == "/" %}
+        <div class="header-stats">
             <div class="header-stat">
-                <div class="label">Current Block Height</div>
+                <div class="label">Block height</div>
                 <p id="block-height" class="height">-------</p>
             </div>
-            <div class="header-divider"></div>
             <div class="header-stat" title="Satoshis per US dollar. Watch the rate in sats, not fiat price">
-                <div class="label">Moscow Time</div>
+                <div class="label">Moscow time</div>
                 <p id="moscow-time" class="height">--:--</p>
             </div>
-            <div class="header-divider"></div>
-            <a href="https://canadiandebtclock.com" target="_blank" class="header-stat header-stat-link" title="Canada's national debt, live">
-                <div class="label">Canadian Debt</div>
+            <a href="https://canadiandebtclock.com" target="_blank" rel="noopener" class="header-stat header-stat-link" title="Canada's national debt, live">
+                <div class="label">Canadian debt</div>
                 <p class="height">Live ↗</p>
             </a>
         </div>
-        {% else %}
-        <div class="header-center">
-            <a href="index.html" class="header-brand">Limestone City Bitcoin</a>
-        </div>
         {% endif %}
-
-        <nav class="nav-menu" id="nav-menu">
-            <a href="index.html" class="nav-item">Home</a>
-            <a href="learn.html" class="nav-item">Learn</a>
-            <a href="build.html" class="nav-item">Build</a>
-            <a href="meetups.html" class="nav-item">Meetups</a>
-            <a href="contact.html" class="nav-item">Contact</a>
-        </nav>
     </header>
 
 {{ content }}
 
     <footer class="site-footer">
         <div class="footer-container">
-            <nav class="footer-nav" aria-label="More pages">
-                <a href="about.html">About</a>
-                <a href="40hpw.html">#40HPW</a>
-                <a href="pioneers.html">Pioneers</a>
-                <a href="long-view-index.html">The Long View</a>
-                <a href="resources.html">Technical Library</a>
-            </nav>
-            <div class="footer-row">
-                <div class="footer-text">
-                    <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="brand-name">Limestone City Bitcoin</span>
+                    <span class="brand-rule" aria-hidden="true"></span>
+                    <div class="footer-text">
+                        <p>No copyright on this site. No rights reserved. Content hosted or linked here may have copyright of its own.</p>
+                    </div>
                 </div>
+                <div class="footer-side">
+                    <nav class="footer-nav" aria-label="More pages">
+                        <span class="footer-label">B-side</span>
+                        <a href="contact.html">Contact</a>
+                        <a href="40hpw.html">#40HPW</a>
+                        <a href="pioneers.html">Pioneers</a>
+                        <a href="resources.html">Technical Library</a>
+                    </nav>
                 <div class="footer-icons">
                     <a href="https://signal.group/#CjQKIN65dM3kLRkn1UcJwmxcDUcBEww4IGvL1FFIGee557yaEhAs_fvpE6t8Fa9Yn_PncDi8" target="_blank" aria-label="Signal Group">
                         <img src="./assets/images/signal.svg" alt="Signal">
@@ -92,6 +109,7 @@
                     <a href="https://njump.me/npub17exm4s7zmaxuyeljm0w22gfuhqlf82zedqjf3eaxk55m7tv3ug9see3cl4" target="_blank" aria-label="Nostr Profile">
                         <img src="./assets/images/nostr.svg" alt="Nostr">
                     </a>
+                </div>
                 </div>
             </div>
         </div>

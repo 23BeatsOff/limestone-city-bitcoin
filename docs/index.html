@@ -9,34 +9,63 @@ og_type: "website"
 
 <main class="main-content home-main">
 
-        <!-- Logo -->
-        <a href="https://github.com/23BeatsOff/limestone-city-bitcoin" class="home-logo">
-            <img src="./assets/images/logo.png" alt="Limestone City Bitcoin">
-        </a>
-
-        <!-- Welcome Section -->
-        <div class="home-welcome">
-            <h1 class="home-title">Kingston's Bitcoin Meetup</h1>
-            <p class="home-lead">
-                Join us in the Limestone City to discuss Bitcoin, sound money, privacy, and freedom technology, and to build the local community around it. Anyone can stack and wait. We would rather build. All are welcome, from curious beginners to seasoned cypherpunks.
-            </p>
-
-            <div class="btn-row">
-                <a href="learn.html" class="btn-primary btn-lg">Start Here</a>
+        <!-- Hero: welcome on the left, the logo as a record sleeve on the right -->
+        <section class="home-hero">
+            <div class="home-welcome">
+                <div class="eyebrow">Kingston's Bitcoin meetup</div>
+                <h1 class="home-title">Sound money,<br>slowly.</h1>
+                <p class="home-lead">
+                    Join us in the Limestone City to discuss Bitcoin, sound money, privacy, and freedom technology, and to build the local community around it. Anyone can stack and wait. We would rather build. All are welcome, from curious beginners to seasoned cypherpunks.
+                </p>
+                <div class="btn-row">
+                    <a href="learn.html" class="btn-primary btn-lg">Start here</a>
+                    <a href="meetups.html" class="btn-secondary btn-lg">Coming to a meetup?</a>
+                </div>
             </div>
-            <p class="home-secondary"><a href="meetups.html" class="entry-link">Coming to a meetup? →</a></p>
-        </div>
+
+            <div class="home-logo">
+                <div class="sleeve">
+                    <img src="./assets/images/logo-block.svg" alt="" width="360" height="360">
+                    <p class="sleeve-wordmark"><span>Limestone City</span><span>Bitcoin</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Long View, listed like the back of a record -->
+        <section class="home-section" aria-labelledby="long-view-heading">
+            <div class="home-section-intro">
+                <div class="eyebrow">From Block Bits</div>
+                <h2 id="long-view-heading">The Long View</h2>
+                <span class="hairline" aria-hidden="true"></span>
+                <p>A six-part series on freedom and the systems that shape us. By Long View, May 2026.</p>
+                <p><a href="long-view-index.html" class="entry-link">See the whole series →</a></p>
+            </div>
+            <ol class="tracklist">
+                <li><a href="long-view-1.html"><span class="track-num">01</span><span class="track-title">How Systems Shape You Without You Noticing</span><span class="track-time">4 min</span></a></li>
+                <li><a href="long-view-2.html"><span class="track-num">02</span><span class="track-title">Why Your Money Is Working Against You</span><span class="track-time">5 min</span></a></li>
+                <li><a href="long-view-3.html"><span class="track-num">03</span><span class="track-title">Who Taught You How to Think?</span><span class="track-time">4 min</span></a></li>
+                <li><a href="long-view-4.html"><span class="track-num">04</span><span class="track-title">The Crowd and the Individual</span><span class="track-time">4 min</span></a></li>
+                <li><a href="long-view-5.html"><span class="track-num">05</span><span class="track-title">Rules Without Rulers: What Bitcoin Actually Is</span><span class="track-time">5 min</span></a></li>
+                <li><a href="long-view-6.html"><span class="track-num">06</span><span class="track-title">Freedom Isn't Given. It's Chosen.</span><span class="track-time">5 min</span></a></li>
+            </ol>
+        </section>
 
         <!-- Featured: latest addition to the site -->
-        <div class="featured-box">
-            <img src="./assets/images/doodles/lightning-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <div class="eyebrow">Latest Update: New Wallet Guide</div>
-            <h2 class="featured-title">Zeus: Lightning in Your Pocket</h2>
-            <p class="featured-desc">
-                Your first sats, five minutes from now. Zeus is the Bitcoin-only, open-source Lightning wallet that grows with you: start with pocket change, shift into a self-custodial node on your phone, and graduate to a node of your own.
-            </p>
-            <a href="zeus-wallet.html" class="entry-link">Read the guide →</a>
-            <div style="clear: both;"></div>
-        </div>
+        <section class="home-section" aria-labelledby="latest-heading">
+            <div class="home-section-intro">
+                <div class="eyebrow">Latest update</div>
+                <h2 id="latest-heading">New wallet guide</h2>
+                <span class="hairline" aria-hidden="true"></span>
+            </div>
+            <div class="featured-box">
+                <img src="./assets/images/doodles/lightning-2.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+                <h3 class="featured-title">Zeus: Lightning in Your Pocket</h3>
+                <p class="featured-desc">
+                    Your first sats, five minutes from now. Zeus is the Bitcoin-only, open-source Lightning wallet that grows with you: start with pocket change, shift into a self-custodial node on your phone, and graduate to a node of your own.
+                </p>
+                <a href="zeus-wallet.html" class="entry-link">Read the guide →</a>
+                <div style="clear: both;"></div>
+            </div>
+        </section>
 
     </main>
