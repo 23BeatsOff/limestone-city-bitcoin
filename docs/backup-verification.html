@@ -25,10 +25,9 @@ og_type: "website"
             <img src="./assets/images/doodles/refresh-cycle.svg" alt="" aria-hidden="true" class="doodle doodle-left">
             <ul>
                 <li><strong>Same device, new wallet (best before funding).</strong> With zero funds on the wallet, wipe the device, restore it using only your written words, and compare the first address. On a stateless SeedSigner this is painless: power off, reload from the written seed, compare.</li>
-                <li><strong>Second device (best when funds already exist).</strong> Restore the backup onto a different signer or an air-gapped machine, compare several addresses, then wipe the test device. Your live wallet is never touched.</li>
-                <li><strong>Sparrow's built-in check.</strong> <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a> can test a backup directly: open your wallet's keystore settings and choose "Test Backup", then enter the words from your written copy.</li>
+                <li><strong>Second device (best when funds already exist).</strong> Restore the backup onto a second signer you built yourself, compare several addresses, then wipe the test device. Your live wallet is never touched.</li>
             </ul>
-            <p>Whichever you use, the words you enter must come from the physical backup, not from memory. You are testing the artifact, not yourself.</p>
+            <p>Whichever you use, the words you load must come from the physical backup, not from memory. You are testing the artifact, not yourself.</p>
 
             <h2 class="section-heading-grey">Testing a Passphrase Wallet</h2>
             <img src="./assets/images/doodles/padlock-3.svg" alt="" aria-hidden="true" class="doodle doodle-right">
@@ -46,7 +45,7 @@ og_type: "website"
             </ul>
 
             <div class="callout-box">
-                <p><strong>⚠️ Never type a live seed into anything online.</strong> Every test here happens on a signing device or an air-gapped machine. A seed that has touched an internet-connected browser or notes app should be treated as burned: make a new wallet and move the funds.</p>
+                <p><strong>⚠️ Never type your words into a computer, phone or app.</strong> Every test here happens on your own offline signer, and nowhere else. A seed that has touched an internet-connected browser or notes app should be treated as burned: make a new wallet and move the funds.</p>
             </div>
 
             <div class="callout-box" style="margin-top: 30px;">

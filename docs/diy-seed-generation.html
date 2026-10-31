@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "DIY Seed Generation | Limestone City Bitcoin"
-description: "How to generate your own Bitcoin seed with dice: why device-generated seeds require trust, the 256-roll method, converting rolls to BIP39 words, the checksum, and how to verify the result on an air-gapped machine."
-keywords: "DIY seed generation, dice seed, Bitcoin entropy, BIP39, 256 bits, air-gapped, SeedSigner dice, seed phrase, checksum, Kingston Bitcoin"
+description: "How to generate your own Bitcoin seed with dice: why device-generated seeds require trust, rolling your dice into a signer you built, where the 24th word comes from, and why your words should never be typed into anything."
+keywords: "DIY seed generation, dice seed, Bitcoin entropy, BIP39, 256 bits, SeedSigner dice, Krux dice, seed phrase, checksum, 24th word, Kingston Bitcoin"
 og_description: "Roll your own randomness. Generate a Bitcoin seed with dice and verify it yourself, no trust required."
 og_type: "website"
 ---
@@ -15,104 +15,55 @@ og_type: "website"
 
         <article class="post-content">
 
-            <p>Your entire wallet grows from one random number (see <a href="private-keys.html" class="entry-link" style="text-transform: none; font-size: inherit;">Private Keys</a>). Normally you trust a device to pick that number for you. This guide shows you how to pick it yourself, with dice, so the randomness provably comes from your own hands. After a 2026 firmware flaw in a popular commercial signing device turned out to have silently weakened device-generated seeds for five years, this stopped being a paranoid hobby and became plain good practice.</p>
+            <p>Your entire wallet grows from one random number (see <a href="private-keys.html" class="text-link">Private Keys</a>). Normally you trust a device to pick that number for you. This guide shows you how to pick it yourself, with dice, and have it turned into words by a signer you built, so the randomness provably comes from your own hands and your words never touch a computer. After a 2026 firmware flaw in a popular commercial signing device turned out to have silently weakened device-generated seeds for five years, this stopped being a paranoid hobby and became plain good practice.</p>
 
             <h2 class="section-heading-grey">Why Not Trust the Device?</h2>
             <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>When a wallet generates a seed for you, you are trusting three things: that its random number generator is strong, that its code has no bugs or backdoors, and that the device was not tampered with before it reached you. Any one failure can produce a seed an attacker can guess. Dice remove all three trust assumptions at once. You can see the rolls, you can do the math, and nobody can weaken physics.</p>
+            <p>When a wallet generates a seed for you, you are trusting three things: that its random number generator is strong, that its code has no bugs or backdoors, and that the device was not tampered with before it reached you. Any one failure can produce a seed an attacker can guess. Dice remove all three trust assumptions at once. You make the randomness, you see every roll, and nobody can weaken physics. The signer only does the arithmetic, its code is open for anyone to read, and it forgets everything the moment you unplug it.</p>
 
             <h2 class="section-heading-grey">What You Need</h2>
             <ul>
-                <li><strong>Dice.</strong> Casino-grade if you can get them; five or ten at a time speeds things up.</li>
-                <li><strong>An air-gapped machine</strong> that has never touched the internet. A Raspberry Pi Zero 1.3 is ideal since it has no WiFi or Bluetooth at all. A <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> also works, and does most of the math for you.</li>
-                <li><strong>Pen and paper</strong> for working notes. You will destroy these afterward.</li>
-                <li><strong>A metal backup plate</strong> for the final seed. Paper burns and fades; metal does not.</li>
+                <li><strong>Dice.</strong> Casino-grade if you can get them; a handful at a time speeds things up.</li>
+                <li><strong>A signer you built yourself:</strong> a <a href="seedsigner.html" class="text-link">SeedSigner</a> or a <a href="krux.html" class="text-link">Krux</a>, running firmware you <a href="signing-device-setup.html" class="text-link">verified</a> before flashing. Neither has WiFi or Bluetooth, and a SeedSigner stores nothing at all.</li>
+                <li><strong>Pen and paper</strong> for the first copy of your words.</li>
+                <li><strong>A steel backup plate</strong> for the final seed. Paper burns and fades; steel does not.</li>
                 <li><strong>Privacy.</strong> No cameras, no phones, no smartwatches, no observers. Treat the session like handling the money itself, because you are.</li>
             </ul>
 
-            <h2 class="section-heading-grey">The Method: 256 Rolls to 24 Words</h2>
+            <h2 class="section-heading-grey">The Method: Roll Your Dice Into Your Signer</h2>
             <img src="./assets/images/doodles/seed-words-paper.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>A 24-word seed encodes 256 bits of entropy, and one die roll gives you one honest bit:</p>
-            <ul>
-                <li>Roll shows <strong>1, 2, or 3</strong>: write down <strong>0</strong>.</li>
-                <li>Roll shows <strong>4, 5, or 6</strong>: write down <strong>1</strong>.</li>
-            </ul>
-            <p>Do this <strong>256 times</strong>, recording the bits in 23 rows of 11 (a 4-4-3 grouping keeps them readable) plus 3 bits on row 24. Each 11-bit row is a number from 0 to 2047, and each of those numbers maps to one word on the <strong>BIP39 word list</strong> (2,048 words, in order). Convert each row from binary to decimal, look up the word, and rows 1 through 23 of your seed are done.</p>
-            <p>This half-and-half mapping is also why dice bias barely matters here: a worn die that favours one face still cannot push a "1, 2, 3 or not" split far from even, and any residual skew is spread across 256 independent rolls.</p>
-
-            <h2 class="section-heading-grey">Writing It Out: Paper and Pencil</h2>
-            <p>Rule a sheet into <strong>24 rows of 11 cells</strong>, with small gaps after the fourth and eighth cell so each row reads in a <strong>4-4-3</strong> rhythm that is hard to misread. Fill cells left to right as you roll. Row 24 gets only its first 3 cells; the rest arrive with the checksum.</p>
-            <p>To turn a finished row into its number (0 to 2047), you have two ways to do the multiplication:</p>
-            <ul>
-                <li><strong>On paper, with the eleven multipliers.</strong> Write the powers of two above the columns: <strong>1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1</strong>. Every cell showing a 1 is worth its column's multiplier; circle those and add them up.</li>
-                <li><strong>On the air-gapped machine.</strong> The shell does binary for free: <code>echo $((2#10111000101))</code> prints the same answer with no arithmetic.</li>
-            </ul>
-            <p>Here is a worked row. The bits 101 1100 0101 light up the 1024, 256, 128, 64, 4, and 1 columns, which sum to 1477, and word 1477 on the BIP39 list is "reward":</p>
-            <img src="./assets/images/doodles/dice-worksheet.svg" alt="A hand-drawn worksheet row: the eleven powers of two written above eleven dice-roll bits, with the columns showing a one circled in orange, summing to 1477 and pointing to the word reward" style="display: block; width: 100%; max-width: 480px; margin: 6px auto 22px;">
-            <p>One gotcha when you look words up: the BIP39 list counts from <strong>0</strong>, but most published copies number their lines from 1. Your number 1477 is line 1478 on a 1-numbered list. Off-by-one here means a valid-looking seed with the wrong words, which is exactly the kind of mistake the verification step below exists to catch.</p>
-
-            <h2 class="section-heading-grey">Another Way: The Diceware Lookup Table</h2>
-            <p>If converting binary by hand isn't your idea of a good evening, there's a gentler method that skips the math entirely. BitBox published a clear, printable guide with a lookup table holding all 2,048 BIP39 words, arranged so dice can point straight at a word:</p>
-            <ul>
-                <li><strong>Roll five dice and flip a coin.</strong> Line up every die showing 1 to 4; reroll any 5 or 6 until it shows 1 to 4. Decide your left-to-right reading order <em>before</em> you start, and stick to it.</li>
-                <li><strong>Read the table.</strong> The first four dice find the row, and the fifth die plus the coin find the column. The cell is your word.</li>
-                <li><strong>Repeat for 23 words.</strong> Do not pick the 24th yourself; it contains the checksum.</li>
-            </ul>
-            <p>The guide finishes on a BitBox02, which works out the valid final word. You don't need one, and you don't need to trust any vendor's device. Use one of the two simple ways in <a href="#last-word" class="text-link">The Last Word</a> below to get it from your 23 words, offline, then verify the full 24 on your air-gapped machine.</p>
-            <p><a href="https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf" target="_blank" rel="noopener" class="entry-link">Download the Diceware how-to and lookup table (PDF) →</a></p>
-
-            <h2 class="section-heading-grey">The Last Word: The Checksum</h2>
-            <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-            <p>Word 24 is special. Its 11 bits are your 3 remaining rolled bits plus an <strong>8-bit checksum</strong>, which is the first 8 bits of the <strong>SHA-256 hash of your 256 bits of entropy</strong>. The checksum is what lets any wallet detect a mistyped seed later.</p>
-            <p>That hash is the one step you can't do with pencil and paper. Here are the two simplest ways to get word 24, both fully offline. Whichever you use, you are choosing 3 more random bits yourself (with three coin flips), so there are 8 valid last words and yours is still random.</p>
-
-            <h3 class="content-heading" id="last-word">Simplest: a SeedSigner</h3>
+            <p>You never choose or type a word. You only enter the dice rolls, and the signer turns them into words for you to copy down.</p>
             <ol>
-                <li>Power on your <a href="seedsigner.html" class="text-link">SeedSigner</a> (it has no WiFi or Bluetooth) and open the <strong>Tools</strong> menu.</li>
-                <li>Choose the final-word calculator for a 24-word seed and enter your 23 words.</li>
-                <li>When it asks for the last bits, use <strong>coin flips</strong> and enter your three flips.</li>
-                <li>It shows your 24th word. Write it on your sheet, and you're done.</li>
+                <li><strong>Power on your signer</strong> somewhere private, with no phones in the room.</li>
+                <li><strong>Start a new seed from dice.</strong> On a SeedSigner: <strong>Tools</strong>, then the new-seed option using <strong>dice rolls</strong>, then choose <strong>24 words</strong>. Krux has the same option for a six-sided die.</li>
+                <li><strong>Roll and enter every roll</strong>, exactly as it lands. For 24 words a SeedSigner asks for <strong>99 rolls</strong>. Don't skip, re-roll or "fix" a result; the point is that you don't choose.</li>
+                <li><strong>Copy the 24 words onto paper</strong>, in order, as the signer shows them. The 24th word is already done for you (see below).</li>
+                <li><strong>Confirm them.</strong> The signer asks you to pick some of the words back to prove your copy is right. Take your time.</li>
+                <li><strong>Unplug it.</strong> A SeedSigner forgets the seed the moment the power goes. From now on, your words exist only on your paper, and soon your steel.</li>
             </ol>
 
-            <h3 class="content-heading">No SeedSigner? Ten lines of Python on an offline computer</h3>
-            <p>Any old laptop or Raspberry Pi works, as long as it stays offline. Copy two files to it on a USB stick: the official <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank" rel="noopener" class="text-link">BIP39 English word list</a> (english.txt) and the script below (<a href="assets/tools/last_word.py" class="text-link" download>download last_word.py</a>). Then disconnect, run <code>python3 last_word.py</code>, type your 23 words, then your three coin flips.</p>
-            <pre><code># Finds the 24th word of a BIP39 seed from your 23 words + 3 coin flips.
-# Run it on an offline computer, next to the official english.txt word list.
-import hashlib
+            <h2 class="section-heading-grey" id="last-word">Where the 24th Word Comes From</h2>
+            <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+            <p>A 24-word seed carries 256 bits. The first 23 words hold 253 of them, and word 24 holds the last 3 plus an <strong>8-bit checksum</strong>: the first 8 bits of the <strong>SHA-256 hash</strong> of the whole 256. That checksum is what lets any wallet catch a mistyped or mis-stamped seed later.</p>
+            <p>SHA-256 is the one step you genuinely can't do with pencil and paper. That is exactly why this guide puts the dice into the signer: it hashes your rolls into 256 bits, works out the checksum, and hands you a complete, valid 24th word. You never have to type 23 words into a calculator, a script or a website to "finish" a seed, and you never should. Any tool that asks you to is asking for your keys.</p>
+            <p>Why 99 rolls? Each roll of a six-sided die carries about 2.58 bits of randomness, and 99 of them add up to just over 255 bits. Because the signer hashes the rolls rather than reading them directly, a slightly worn die can't skew the result.</p>
 
-words = open(&quot;english.txt&quot;).read().split()
-mine = input(&quot;Your 23 words: &quot;).lower().split()
-flips = input(&quot;Flip a coin 3 times (heads = 1, tails = 0), e.g. 101: &quot;).strip()
-
-if len(mine) != 23 or len(flips) != 3 or set(flips) - {&quot;0&quot;, &quot;1&quot;}:
-    raise SystemExit(&quot;Need exactly 23 words and 3 flips of 0 or 1.&quot;)
-for w in mine:
-    if w not in words:
-        raise SystemExit(f&quot;&#x27;{w}&#x27; is not on the BIP39 list. Check your spelling.&quot;)
-
-bits = &quot;&quot;.join(format(words.index(w), &quot;011b&quot;) for w in mine) + flips
-entropy = int(bits, 2).to_bytes(32, &quot;big&quot;)
-checksum = format(hashlib.sha256(entropy).digest()[0], &quot;08b&quot;)
-print(&quot;Your 24th word is:&quot;, words[int(flips + checksum, 2)])</code></pre>
-            <p>Two quick checks before you trust it:</p>
-            <ul>
-                <li><strong>Is the word list genuine?</strong> On the offline machine, run <code>sha256sum english.txt</code>. It must print <code>2f5eed53a4727b4bf8880d8f3f199efc90e58503646d9ff8eff3a2ed3b24dbda</code>.</li>
-                <li><strong>Is the script working?</strong> Type <code>abandon</code> 23 times and flips <code>000</code>. It must answer <code>art</code>, which matches the official BIP39 test vector.</li>
-            </ul>
-            <p>Then wipe the files from the machine, and never type your real words into a computer that will ever go online again. The point of doing it yourself is that you can also <em>check</em> it yourself: run the step, confirm word 24, and you have verified the whole chain.</p>
-
-            <h2 class="section-heading-grey">Verify Before You Trust</h2>
-            <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
-            <p>On the air-gapped machine, enter your 24 words into a wallet like <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>. If the wallet accepts the phrase, your checksum and conversions are correct. If it rejects it, recheck row 24 first, then your binary-to-decimal conversions. Nothing is at risk during a rejection; there are no funds involved yet.</p>
-            <p>Then treat it like any new wallet: stamp the words into steel, burn the paper, and run a full <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup verification</a> before the seed ever holds serious money.</p>
+            <h2 class="section-heading-grey">After the Roll</h2>
+            <img src="./assets/images/doodles/seed-plate.svg" alt="" aria-hidden="true" class="doodle doodle-left">
+            <p>Stamp the words into steel, then destroy the paper copy. Before the seed ever holds serious money, run a full <a href="backup-verification.html" class="text-link">backup verification</a> on your own signer, and for real savings, make this seed one key of a <a href="multisig.html" class="text-link">2-of-3 multisig</a> rather than a wallet on its own.</p>
 
             <div class="callout-box">
-                <p><strong>⚠️ No recovery exists.</strong> There is no support line and no password reset. A seed generated sloppily, recorded with one wrong word, or photographed for convenience is a seed that will eventually lose money. Take the two to four hours this deserves, alone, offline, on paper then metal.</p>
+                <p><strong>⚠️ Never type your words into anything.</strong> Not a computer, not a phone, not a script, not a wallet app, not a "seed checker" website. Your words should only ever exist on paper and steel, and inside your own offline signer while it is powered on. Anything that asks you to type them in is a scam or a mistake, and a seed that has been typed into a connected device should be treated as burned: make a new one and move the funds.</p>
+            </div>
+
+            <div class="callout-box">
+                <p><strong>⚠️ No recovery exists.</strong> There is no support line and no password reset. A seed recorded with one wrong word, or photographed for convenience, is a seed that will eventually lose money. Take the time this deserves, alone, offline, on paper then steel.</p>
             </div>
 
             <div class="callout-box" style="margin-top: 30px;">
-                <p><strong>Go deeper.</strong> Add a <a href="seed-passphrase.html" class="text-link">passphrase</a> on top of your new seed, load it into a <a href="signing-device-setup.html" class="text-link">signing device</a>, and <a href="backup-verification.html" class="text-link">verify the backup</a> before funding it. Questions? Bring your dice to a <a href="meetups.html" class="text-link">meetup</a>.</p>
+                <p><strong>Go deeper.</strong> Set up your <a href="signing-device-setup.html" class="text-link">signing device</a>, <a href="backup-verification.html" class="text-link">verify the backup</a>, and build toward a <a href="multisig.html" class="text-link">2-of-3 multisig</a> before funding it. Questions? Bring your dice to a <a href="meetups.html" class="text-link">meetup</a>.</p>
             </div>
 
         </article>
+
     </main>
