@@ -51,6 +51,16 @@ og_type: "website"
             <img src="./assets/images/doodles/dice-worksheet.svg" alt="A hand-drawn worksheet row: the eleven powers of two written above eleven dice-roll bits, with the columns showing a one circled in orange, summing to 1477 and pointing to the word reward" style="display: block; width: 100%; max-width: 480px; margin: 6px auto 22px;">
             <p>One gotcha when you look words up: the BIP39 list counts from <strong>0</strong>, but most published copies number their lines from 1. Your number 1477 is line 1478 on a 1-numbered list. Off-by-one here means a valid-looking seed with the wrong words, which is exactly the kind of mistake the verification step below exists to catch.</p>
 
+            <h2 class="section-heading-grey">Another Way: The Diceware Lookup Table</h2>
+            <p>If converting binary by hand isn't your idea of a good evening, there's a gentler method that skips the math entirely. BitBox published a clear, printable guide with a lookup table holding all 2,048 BIP39 words, arranged so dice can point straight at a word:</p>
+            <ul>
+                <li><strong>Roll five dice and flip a coin.</strong> Line up every die showing 1 to 4; reroll any 5 or 6 until it shows 1 to 4. Decide your left-to-right reading order <em>before</em> you start, and stick to it.</li>
+                <li><strong>Read the table.</strong> The first four dice find the row, and the fifth die plus the coin find the column. The cell is your word.</li>
+                <li><strong>Repeat for 23 words.</strong> Do not pick the 24th yourself; it contains the checksum.</li>
+            </ul>
+            <p>The guide finishes on a BitBox02, which works out the valid final word. You don't need one, and you don't need to trust any vendor's device. A <a href="seedsigner.html" class="text-link">SeedSigner</a> can calculate the final word from your 23 offline, then you verify the full 24 on your air-gapped machine as described below.</p>
+            <p><a href="https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf" target="_blank" rel="noopener" class="entry-link">Download the Diceware how-to and lookup table (PDF) →</a></p>
+
             <h2 class="section-heading-grey">The Last Word: The Checksum</h2>
             <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <p>Word 24 is special. Its 11 bits are your 3 remaining rolled bits plus an <strong>8-bit checksum</strong>, which is the first 8 bits of the <strong>SHA-256 hash of your 256 bits of entropy</strong>. The checksum is what lets any wallet detect a mistyped seed later.</p>
@@ -59,7 +69,7 @@ og_type: "website"
             <h2 class="section-heading-grey">Verify Before You Trust</h2>
             <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
             <p>On the air-gapped machine, enter your 24 words into a wallet like <a href="sparrow-wallet.html" class="entry-link" style="text-transform: none; font-size: inherit;">Sparrow</a>. If the wallet accepts the phrase, your checksum and conversions are correct. If it rejects it, recheck row 24 first, then your binary-to-decimal conversions. Nothing is at risk during a rejection; there are no funds involved yet.</p>
-            <p>Then treat it like any new wallet: stamp the words into metal, burn the paper, and run a full <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup verification</a> before the seed ever holds serious money.</p>
+            <p>Then treat it like any new wallet: stamp the words into steel, burn the paper, and run a full <a href="backup-verification.html" class="entry-link" style="text-transform: none; font-size: inherit;">backup verification</a> before the seed ever holds serious money.</p>
 
             <div class="callout-box">
                 <p><strong>⚠️ No recovery exists.</strong> There is no support line and no password reset. A seed generated sloppily, recorded with one wrong word, or photographed for convenience is a seed that will eventually lose money. Take the two to four hours this deserves, alone, offline, on paper then metal.</p>

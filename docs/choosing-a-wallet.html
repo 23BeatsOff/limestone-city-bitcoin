@@ -81,6 +81,10 @@ og_type: "website"
                 <a href="owning-your-keys.html">Read our Liana guide →</a>
             </div>
 
+            <div class="callout-box" id="trust-no-vendor">
+                <p><strong>Don't trust the hardware wallet companies.</strong> If you have spent any time in Bitcoin, the pattern should be obvious by now. Manufacturers leak customer lists, ship firmware that can pull your seed off the device, and generate keys you have no way to check. Every one of them asks you to trust a supply chain, a factory and a firmware team you will never meet. You don't have to. Build your own signer (<a href="seedsigner.html" class="text-link">SeedSigner</a> or <a href="krux.html" class="text-link">Krux</a>), <a href="diy-seed-generation.html" class="text-link">generate your own seed with dice</a>, and keep your keys as stamped steel spread across a <a href="multisig.html" class="text-link">2-of-3 multisig</a>. That way no company, and no single location, ever stands between you and your bitcoin.</p>
+            </div>
+
             <h3 class="content-heading">Signing devices: for cold storage</h3>
             <p>You will see these sold as "hardware wallets," but the name is off. The coins never leave the Bitcoin network; the device keeps your keys offline and signs transactions, which is why Bitcoiners call them <strong>signing devices</strong>. All three of our picks are ones you build yourself, and that is deliberate: generic parts mean there is nothing to tamper with in the mail, and the build teaches you exactly what is guarding your savings.</p>
             <div class="info-box">
@@ -117,8 +121,9 @@ og_type: "website"
             <p>You don't have to do everything at once. A good path for most people:</p>
             <ul>
                 <li><strong>Start small and free.</strong> A software wallet costs nothing. Put a little bitcoin in one and learn the ropes: receiving, sending, and backing up your recovery phrase.</li>
-                <li><strong>Grow into cold storage.</strong> As your savings grow, move them to a signing device, ideally one you built yourself.</li>
-                <li><strong>Back up properly.</strong> Write your recovery words on paper, then metal. Never a photo, never the cloud, and never share them with anyone.</li>
+                <li><strong>Grow into cold storage.</strong> As your savings grow, move them to a signing device you built yourself, holding a seed you <a href="diy-seed-generation.html" class="text-link">generated yourself</a>.</li>
+                <li><strong>Back up properly.</strong> Write your recovery words on paper, then stamp them into steel. Never a photo, never the cloud, and never share them with anyone.</li>
+                <li><strong>Graduate to a 2-of-3 multisig.</strong> A single seed is a single point of failure: every copy of it is the whole wallet for whoever finds it. Hiding a passphrase somewhere else doesn't really fix that. It just turns your wallet into a fragile 2-of-2 with no spare, where losing either piece loses the coins. A proper <a href="multisig.html" class="text-link">2-of-3 multisig</a> is the minimum worth learning for serious savings: three seeds on steel in three locations, any two can spend, and no single fire, flood, break-in or lost backup can take your bitcoin.</li>
             </ul>
 
             <div class="callout-box">
