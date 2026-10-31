@@ -100,36 +100,45 @@ async function updateMoscowTime() {
     }
 }
 
-/* 3. HAMBURGER MENU LOGIC */
+/* 3. PHONE MENU LOGIC
+   On wide screens the menu is a plain row of links and the button is hidden.
+   On phones the "Menu" button opens the menu as a full-screen sheet. */
 function setupMenu() {
     const menuToggle = document.querySelector('#mobile-menu');
     const navMenu = document.querySelector('#nav-menu');
 
     // Only run if both elements exist on the page
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            // This 'active' class matches the CSS we just wrote
-            navMenu.classList.toggle('active');
-            
-            // This allows for optional styling when the menu is open
-            menuToggle.classList.toggle('is-active');
-        });
+    if (!menuToggle || !navMenu) return;
 
-        // Close the menu if a user clicks a link inside it
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Close the menu if a user clicks anywhere outside the menu
-        document.addEventListener('click', (event) => {
-            const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
-            if (!isClickInside && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-            }
-        });
+    function setMenu(open) {
+        navMenu.classList.toggle('active', open);
+        menuToggle.classList.toggle('is-active', open);
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuToggle.textContent = open ? 'Close' : 'Menu';
+        document.body.classList.toggle('menu-open', open);
     }
+
+    menuToggle.addEventListener('click', () => {
+        setMenu(!navMenu.classList.contains('active'));
+    });
+
+    // Close the menu when a link inside it is chosen
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMenu(false));
+    });
+
+    // Close the menu with the Escape key and return focus to the button
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+            setMenu(false);
+            menuToggle.focus();
+        }
+    });
+
+    // If the screen gets wide again (rotating a tablet), reset the menu
+    window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => {
+        if (e.matches) setMenu(false);
+    });
 }
 
 /* 4. INITIALIZE EVERYTHING */

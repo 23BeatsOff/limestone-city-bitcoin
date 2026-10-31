@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="360" height="360">
+  <title>Limestone City Bitcoin</title>
+  <defs>
+    <filter id="edge" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="7"/>
+    </filter>
+    <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3.5" r="1.4" fill="#A69F91"/>
+    </pattern>
+  </defs>
+  <rect width="360" height="360" fill="#2E2D2A"/>
+  <circle cx="236" cy="124" r="62" fill="#C7A04C" fill-opacity="0.9"/>
+  <g filter="url(#edge)">
+    <polygon points="82,132 238,124 246,262 88,270" fill="#DCD6CA"/>
+    <polygon points="82,132 238,124 246,262 88,270" fill="url(#dots)" fill-opacity="0.5"/>
+  </g>
+  <line x1="88" y1="292" x2="246" y2="292" stroke="#D9826F" stroke-width="1.4"/>
+  <text x="88" y="318" font-family="Work Sans, sans-serif" font-size="13" font-weight="400" letter-spacing="3.2" fill="#ECE8E0">LIMESTONE CITY</text>
+  <text x="88" y="336" font-family="Work Sans, sans-serif" font-size="13" font-weight="300" letter-spacing="3.2" fill="#ECE8E0">BITCOIN</text>
+</svg>
