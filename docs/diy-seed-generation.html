@@ -58,13 +58,48 @@ og_type: "website"
                 <li><strong>Read the table.</strong> The first four dice find the row, and the fifth die plus the coin find the column. The cell is your word.</li>
                 <li><strong>Repeat for 23 words.</strong> Do not pick the 24th yourself; it contains the checksum.</li>
             </ul>
-            <p>The guide finishes on a BitBox02, which works out the valid final word. You don't need one, and you don't need to trust any vendor's device. A <a href="seedsigner.html" class="text-link">SeedSigner</a> can calculate the final word from your 23 offline, then you verify the full 24 on your air-gapped machine as described below.</p>
+            <p>The guide finishes on a BitBox02, which works out the valid final word. You don't need one, and you don't need to trust any vendor's device. Use one of the two simple ways in <a href="#last-word" class="text-link">The Last Word</a> below to get it from your 23 words, offline, then verify the full 24 on your air-gapped machine.</p>
             <p><a href="https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf" target="_blank" rel="noopener" class="entry-link">Download the Diceware how-to and lookup table (PDF) →</a></p>
 
             <h2 class="section-heading-grey">The Last Word: The Checksum</h2>
             <img src="./assets/images/doodles/block-hash-cube.svg" alt="" aria-hidden="true" class="doodle doodle-right">
             <p>Word 24 is special. Its 11 bits are your 3 remaining rolled bits plus an <strong>8-bit checksum</strong>, which is the first 8 bits of the <strong>SHA-256 hash of your 256 bits of entropy</strong>. The checksum is what lets any wallet detect a mistyped seed later.</p>
-            <p>Do not compute this step with improvised shell commands, because hashing the wrong representation of your bits produces the wrong checksum. Use a proper BIP39 tool on your air-gapped machine (the well-known open-source BIP39 page works offline), or let a <a href="seedsigner.html" class="entry-link" style="text-transform: none; font-size: inherit;">SeedSigner</a> take your dice rolls and derive the words for you. The point of doing it yourself is that you can also <em>check</em> it yourself: run the tool, confirm word 24, and you have verified the whole chain.</p>
+            <p>That hash is the one step you can't do with pencil and paper. Here are the two simplest ways to get word 24, both fully offline. Whichever you use, you are choosing 3 more random bits yourself (with three coin flips), so there are 8 valid last words and yours is still random.</p>
+
+            <h3 class="content-heading" id="last-word">Simplest: a SeedSigner</h3>
+            <ol>
+                <li>Power on your <a href="seedsigner.html" class="text-link">SeedSigner</a> (it has no WiFi or Bluetooth) and open the <strong>Tools</strong> menu.</li>
+                <li>Choose the final-word calculator for a 24-word seed and enter your 23 words.</li>
+                <li>When it asks for the last bits, use <strong>coin flips</strong> and enter your three flips.</li>
+                <li>It shows your 24th word. Write it on your sheet, and you're done.</li>
+            </ol>
+
+            <h3 class="content-heading">No SeedSigner? Ten lines of Python on an offline computer</h3>
+            <p>Any old laptop or Raspberry Pi works, as long as it stays offline. Copy two files to it on a USB stick: the official <a href="https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt" target="_blank" rel="noopener" class="text-link">BIP39 English word list</a> (english.txt) and the script below (<a href="assets/tools/last_word.py" class="text-link" download>download last_word.py</a>). Then disconnect, run <code>python3 last_word.py</code>, type your 23 words, then your three coin flips.</p>
+            <pre><code># Finds the 24th word of a BIP39 seed from your 23 words + 3 coin flips.
+# Run it on an offline computer, next to the official english.txt word list.
+import hashlib
+
+words = open(&quot;english.txt&quot;).read().split()
+mine = input(&quot;Your 23 words: &quot;).lower().split()
+flips = input(&quot;Flip a coin 3 times (heads = 1, tails = 0), e.g. 101: &quot;).strip()
+
+if len(mine) != 23 or len(flips) != 3 or set(flips) - {&quot;0&quot;, &quot;1&quot;}:
+    raise SystemExit(&quot;Need exactly 23 words and 3 flips of 0 or 1.&quot;)
+for w in mine:
+    if w not in words:
+        raise SystemExit(f&quot;&#x27;{w}&#x27; is not on the BIP39 list. Check your spelling.&quot;)
+
+bits = &quot;&quot;.join(format(words.index(w), &quot;011b&quot;) for w in mine) + flips
+entropy = int(bits, 2).to_bytes(32, &quot;big&quot;)
+checksum = format(hashlib.sha256(entropy).digest()[0], &quot;08b&quot;)
+print(&quot;Your 24th word is:&quot;, words[int(flips + checksum, 2)])</code></pre>
+            <p>Two quick checks before you trust it:</p>
+            <ul>
+                <li><strong>Is the word list genuine?</strong> On the offline machine, run <code>sha256sum english.txt</code>. It must print <code>2f5eed53a4727b4bf8880d8f3f199efc90e58503646d9ff8eff3a2ed3b24dbda</code>.</li>
+                <li><strong>Is the script working?</strong> Type <code>abandon</code> 23 times and flips <code>000</code>. It must answer <code>art</code>, which matches the official BIP39 test vector.</li>
+            </ul>
+            <p>Then wipe the files from the machine, and never type your real words into a computer that will ever go online again. The point of doing it yourself is that you can also <em>check</em> it yourself: run the step, confirm word 24, and you have verified the whole chain.</p>
 
             <h2 class="section-heading-grey">Verify Before You Trust</h2>
             <img src="./assets/images/doodles/magnifying-glass.svg" alt="" aria-hidden="true" class="doodle doodle-left">
