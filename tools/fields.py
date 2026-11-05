@@ -191,9 +191,10 @@ def veil(rng):
         x, y = rng.uniform(28, 86), rng.uniform(24, 72)
         a = rng.uniform(-10, 10)
         fill, op = rng.choice([(PALE, 0.9), (LIMESTONE, 0.9), (BLUSH, 0.85), (PAPER, 0.9), (INK, 0.35)])
+        # blurred enough that the panes read as light, not as cards
         marks.append(
             f'<g transform="rotate({a:.1f} {x + w / 2:.1f} {y + h / 2:.1f})">'
-            + rect(x, y, w, h, fill, opacity=op, filter='url(#b3)') + '</g>'
+            + rect(x, y, w, h, fill, opacity=op, filter='url(#b2)') + '</g>'
         )
     y = rng.uniform(44, 116)
     marks.append(line(rng.uniform(22, 40), y, rng.uniform(100, 136), y + rng.uniform(-6, 6), INK, 0.55, 0.5))

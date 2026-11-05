@@ -1120,7 +1120,7 @@ hr {
 }
 
 
-/* 12. FIELDS — soft colour washes that sit beside sections
+/* 12. FIELDS: soft colour washes that sit beside sections
    (files live in assets/images/doodles and are drawn by tools/fields.py;
    the class names are kept). Each field feathers out to nothing at its
    edges, so there is no box, no shadow and no object: it blends into the
