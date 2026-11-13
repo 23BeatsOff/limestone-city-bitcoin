@@ -12,10 +12,28 @@ og_type: "website"
         <h1 class="page-title">Meetups</h1>
         <p class="page-subtitle">Kingston's Bitcoin Community, In Person.</p>
 
-        <div class="callout-box" style="margin-bottom: 40px;">
-            <h2 style="margin-top: 0; color: var(--ink); font-size: 20px;">Check Back Soon</h2>
-            <p>Check back soon for our next scheduled meetup. Join our Signal group to be the first to know when a date is confirmed, or reach out if you would like to help make it happen.</p>
-        </div>
+        <!-- UPCOMING MEETUPS, PULLED FROM NOSTR
+             data-npubs: the Nostr accounts whose calendar events appear here.
+                         To add a meetup group, paste its npub on a new line.
+             data-relays: the public relays the page asks. -->
+        <section id="nostr-events" aria-labelledby="upcoming-heading" style="width: 100%; margin-bottom: 40px;"
+            data-npubs="
+                npub17exm4s7zmaxuyeljm0w22gfuhqlf82zedqjf3eaxk55m7tv3ug9see3cl4
+            "
+            data-relays="
+                wss://relay.damus.io
+                wss://nos.lol
+                wss://relay.primal.net
+            ">
+            <h2 id="upcoming-heading" class="contact-heading">Upcoming</h2>
+            <p class="event-status" data-status hidden>Checking Nostr for upcoming meetups…</p>
+            <div data-events></div>
+            <div class="callout-box" data-fallback>
+                <h3 style="margin-top: 0; color: var(--ink); font-size: 20px;">Check Back Soon</h3>
+                <p>Check back soon for our next scheduled meetup. Join our Signal group to be the first to know when a date is confirmed, or reach out if you would like to help make it happen.</p>
+            </div>
+            <p class="event-note">Meetups appear here automatically when they are published to Nostr as calendar events. Every event's signature is checked in your browser.</p>
+        </section>
 
         <div class="contact-block">
             <h2 class="contact-heading">Stay Informed</h2>
@@ -40,3 +58,5 @@ og_type: "website"
         </div>
 
     </main>
+
+    <script type="module" src="./js/meetups.js?v={{ site.time | date: '%Y%m%d%H%M' }}"></script>
