@@ -1,8 +1,9 @@
-/* MEETUPS FROM NOSTR
-   Shows upcoming calendar events (NIP-52) published by the accounts listed
-   on the Meetups page.
+/* UPCOMING MEETUPS, FROM NOSTR AND MEETUP.COM
+   Shows upcoming calendar events (NIP-52) published by the Nostr accounts
+   listed on the Meetups page, plus events from Meetup.com groups.
 
-   To add or remove a meetup group, edit the data-npubs list in meetups.html.
+   To add or remove a Nostr account, edit the data-npubs list in meetups.html.
+   To add or remove a Meetup.com group, edit meetups-backend/groups.txt.
    Nothing here needs to change.
 
    How it works: the page asks a few public relays for calendar events
@@ -144,12 +145,14 @@ function start(root) {
 
     const authors = (root.dataset.npubs || "").split(/\s+/).filter(Boolean).map(npubToHex).filter(Boolean);
     const relays = (root.dataset.relays || "").split(/\s+/).filter(Boolean);
-    if (!authors.length || !relays.length || !("WebSocket" in window)) return;
+    const feed = root.dataset.meetupFeed || "";
+    const useNostr = authors.length > 0 && relays.length > 0 && "WebSocket" in window;
+    if (!useNostr && !feed) return;
 
     const meetups = new Map();   // newest version of each event
     const names = new Map();     // pubkey -> { name, created }
     const seen = new Set();
-    let pending = relays.length;
+    let pending = (useNostr ? relays.length : 0) + (feed ? 1 : 0);
 
     function el(name, cls, text) {
         const node = document.createElement(name);
@@ -168,9 +171,9 @@ function start(root) {
             item.append(el("h3", "entry-title", m.title));
             if (m.where) item.append(el("p", "event-where", m.where));
             if (m.about) item.append(el("p", "entry-desc", m.about.length > 420 ? m.about.slice(0, 400).trimEnd() + "…" : m.about));
-            const host = names.get(m.pubkey);
-            if (host && host.name) item.append(el("p", "event-host", "Hosted by " + host.name));
-            const link = el("a", "entry-link", "View on Nostr →");
+            const host = m.host || (names.get(m.pubkey) || {}).name;
+            if (host) item.append(el("p", "event-host", "Hosted by " + host));
+            const link = el("a", "entry-link", m.linkText || "View on Nostr →");
             link.href = m.link;
             link.target = "_blank";
             link.rel = "noopener";
@@ -212,7 +215,36 @@ function start(root) {
 
     if (status) status.hidden = false;
 
-    for (const url of relays) {
+    /* Meetup.com events: a small file our own GitHub job refreshes a few times a day */
+    if (feed) {
+        fetch(feed, { cache: "no-store" })
+            .then((response) => (response.ok ? response.json() : Promise.reject(new Error("no feed"))))
+            .then((data) => {
+                for (const e of Array.isArray(data.events) ? data.events : []) {
+                    const begins = Date.parse(e.start);
+                    if (!Number.isFinite(begins)) continue;
+                    if (typeof e.url !== "string" || !e.url.startsWith("https://www.meetup.com/")) continue;
+                    meetups.set("meetup:" + e.url, {
+                        key: "meetup:" + e.url,
+                        created: 0,
+                        title: String(e.title || "Bitcoin meetup").slice(0, 160),
+                        where: String(e.where || "").slice(0, 200),
+                        about: String(e.about || ""),
+                        zone: "",
+                        start: begins,
+                        end: Date.parse(e.end) || begins + 3 * 3600 * 1000,
+                        allDay: false,
+                        link: e.url,
+                        host: String(e.group || "").slice(0, 80),
+                        linkText: "View on Meetup →",
+                    });
+                }
+            })
+            .catch(() => { /* the list simply shows without Meetup.com events */ })
+            .finally(finishOne);
+    }
+
+    for (const url of (useNostr ? relays : [])) {
         let closed = false;
         let socket;
         const finish = () => {

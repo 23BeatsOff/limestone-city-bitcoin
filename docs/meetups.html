@@ -12,14 +12,17 @@ og_type: "website"
         <h1 class="page-title">Meetups</h1>
         <p class="page-subtitle">Kingston's Bitcoin Community, In Person.</p>
 
-        <!-- UPCOMING MEETUPS, PULLED FROM NOSTR
+        <!-- UPCOMING MEETUPS, PULLED FROM NOSTR AND MEETUP.COM
              data-npubs: the Nostr accounts whose calendar events appear here.
                          To add a meetup group, paste its npub on a new line.
-             data-relays: the public relays the page asks. -->
+             data-relays: the public relays the page asks.
+             data-meetup-feed: Meetup.com events, refreshed by a GitHub job.
+                         Its groups are listed in meetups-backend/groups.txt. -->
         <section id="nostr-events" aria-labelledby="upcoming-heading" style="width: 100%; margin-bottom: 40px;"
             data-npubs="
                 npub17exm4s7zmaxuyeljm0w22gfuhqlf82zedqjf3eaxk55m7tv3ug9see3cl4
             "
+            data-meetup-feed="https://raw.githubusercontent.com/23BeatsOff/limestone-city-bitcoin/meetup-data/meetups.json"
             data-relays="
                 wss://relay.damus.io
                 wss://nos.lol
@@ -32,7 +35,7 @@ og_type: "website"
                 <h3 style="margin-top: 0; color: var(--ink); font-size: 20px;">Check Back Soon</h3>
                 <p>Check back soon for our next scheduled meetup. Join our Signal group to be the first to know when a date is confirmed, or reach out if you would like to help make it happen.</p>
             </div>
-            <p class="event-note">Meetups appear here automatically when they are published to Nostr as calendar events. Every event's signature is checked in your browser.</p>
+            <p class="event-note">Meetups appear here automatically, from Nostr calendar events and from Meetup.com groups nearby. Every Nostr event's signature is checked in your browser.</p>
         </section>
 
         <div class="contact-block">

@@ -1,0 +1,4 @@
+# Meetup.com groups whose upcoming events appear on the Meetups page.
+# One group per line: the last part of the group's Meetup.com address.
+# Example: https://www.meetup.com/ottawa-bitcoin-group/  ->  ottawa-bitcoin-group
+ottawa-bitcoin-group
