@@ -16,7 +16,7 @@ const KIND_DATE = 31922;   // all-day event
 const KIND_TIME = 31923;   // event with a start time
 const KIND_PROFILE = 0;    // the account's name
 const WAIT_MS = 8000;      // give up on slow relays after this long
-const MAX_EVENTS = 20;
+const PAGE_SIZE = 10;        // events shown before "Show more"
 
 /* ---- bech32 (npub… and naddr… text formats) ---- */
 const CHARSET = "qpzry9x8gf2tvdw0s3jn54khce6mua7l";
@@ -142,6 +142,8 @@ function start(root) {
     const list = root.querySelector("[data-events]");
     const fallback = root.querySelector("[data-fallback]");
     const status = root.querySelector("[data-status]");
+    const more = root.querySelector("[data-more]");
+    let shown = PAGE_SIZE;
 
     const authors = (root.dataset.npubs || "").split(/\s+/).filter(Boolean).map(npubToHex).filter(Boolean);
     const relays = (root.dataset.relays || "").split(/\s+/).filter(Boolean);
@@ -163,9 +165,9 @@ function start(root) {
 
     function render(done) {
         const now = Date.now();
-        const upcoming = [...meetups.values()].filter((m) => m.end >= now).sort((a, b) => a.start - b.start).slice(0, MAX_EVENTS);
+        const upcoming = [...meetups.values()].filter((m) => m.end >= now).sort((a, b) => a.start - b.start);
 
-        list.replaceChildren(...upcoming.map((m) => {
+        list.replaceChildren(...upcoming.slice(0, shown).map((m) => {
             const item = el("article", "entry event");
             item.append(el("p", "event-when", formatWhen(m)));
             item.append(el("h3", "entry-title", m.title));
@@ -181,10 +183,14 @@ function start(root) {
             return item;
         }));
 
+        if (more) more.hidden = upcoming.length <= shown;
+
         // The "check back soon" note stays until one of our own (Nostr) events is coming up
         fallback.hidden = upcoming.some((m) => !m.host);
         if (status) status.hidden = done || upcoming.length > 0;
     }
+
+    if (more) more.addEventListener("click", () => { shown += PAGE_SIZE; render(pending <= 0); });
 
     function accept(event) {
         if (!event || seen.has(event.id) || !authors.includes(event.pubkey)) return;

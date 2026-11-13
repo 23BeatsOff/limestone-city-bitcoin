@@ -24,7 +24,7 @@ query ($urlname: String!) {
   groupByUrlname(urlname: $urlname) {
     name
     link
-    events(first: 10, filter: { status: [ACTIVE] }, sort: ASC) {
+    events(first: 4, filter: { status: [ACTIVE] }, sort: ASC) {
       edges { node {
         title description dateTime endTime eventUrl
         venues { name address city state }
