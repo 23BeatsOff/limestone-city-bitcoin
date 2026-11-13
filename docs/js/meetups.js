@@ -181,7 +181,8 @@ function start(root) {
             return item;
         }));
 
-        fallback.hidden = upcoming.length > 0;
+        // The "check back soon" note stays until one of our own (Nostr) events is coming up
+        fallback.hidden = upcoming.some((m) => !m.host);
         if (status) status.hidden = done || upcoming.length > 0;
     }
 
