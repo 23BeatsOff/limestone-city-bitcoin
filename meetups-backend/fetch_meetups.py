@@ -104,7 +104,11 @@ def main():
             failed.append(urlname)
             events += [e for e in previous if e.get("source") == urlname]
 
-    events.sort(key=lambda e: e["start"])
+    # The same event can be listed by two groups; keep one copy.
+    unique = {}
+    for e in events:
+        unique.setdefault((e["group"], e["title"], e["start"]), e)
+    events = sorted(unique.values(), key=lambda e: e["start"])
     with open(path, "w") as f:
         json.dump({"updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
                    "events": events}, f, ensure_ascii=False, indent=1)

@@ -7,7 +7,6 @@
 ottawa-bitcoin-group
 CanadaBitcoin
 the-bitcoin-bay
-BitCoin-Bay-Kitchener-Waterloo
 simcoe-county-bitcoin-meetup
 
 # Quebec
@@ -26,4 +25,3 @@ yegbitcoin
 # British Columbia
 bitcoinvan
 victoriabitcoin
-victoria-bitcoiners-group
