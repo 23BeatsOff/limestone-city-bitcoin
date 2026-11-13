@@ -1368,3 +1368,408 @@ hr {
 .beside-plate {
     width: 100%;
 }
+
+
+/* 15. TOP BAR, BANDS AND DARK FOOTER
+   The site frame: a bar that stays at the top, full-width bands on the
+   home page, and a dark footer. These rules build on the sections above. */
+/* clip (not hidden) so the bar can stick to the top of the window */
+body {
+    overflow-x: clip;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+}
+
+.header-inner {
+    max-width: 1216px;
+    padding: 10px 32px;
+    align-items: center;
+}
+
+.brand {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    width: 36px;
+    height: 36px;
+    display: block;
+}
+
+.site-header .brand-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.nav-cta {
+    background: var(--accent);
+    color: var(--paper-2);
+}
+
+@media (min-width: 861px) {
+    .nav-menu {
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0 24px;
+        padding: 0;
+    }
+
+    .nav-menu a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0;
+        border: 0;
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    .nav-menu a[aria-current="page"] {
+        color: var(--accent);
+    }
+
+    .nav-menu a.nav-cta {
+        min-height: 40px;
+        padding: 0 18px;
+        font-size: 14px;
+        color: var(--paper-2);
+    }
+
+    .nav-menu a.nav-cta:hover {
+        background: var(--accent-dark);
+        color: var(--paper-2);
+    }
+}
+
+/* Mid-width screens: tighten the row, drop the button (it is in the footer too) */
+@media (min-width: 861px) and (max-width: 1080px) {
+    .nav-menu {
+        gap: 0 16px;
+    }
+
+    .nav-menu a.nav-cta {
+        display: none;
+    }
+}
+
+@media (max-width: 860px) {
+    .header-inner {
+        padding: 6px 20px;
+    }
+
+    .menu-toggle {
+        margin: 0 -8px 0 0;
+    }
+
+    .nav-menu {
+        padding-top: 80px;
+    }
+
+    /* Keep the bar pinned while the menu sheet is open */
+    body.menu-open .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .nav-menu > a.nav-cta {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        min-height: 48px;
+        margin-top: 28px;
+        padding: 0 24px;
+        border: 0;
+        font-size: 15px;
+        color: var(--paper-2);
+    }
+}
+
+/* Home page bands */
+.home-kc {
+    flex: 1;
+    width: 100%;
+}
+
+.kc-band {
+    padding: 72px 32px;
+}
+
+.kc-wrap {
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.kc-title {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6.4vw, 68px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-align: center;
+    margin: 0 0 56px;
+}
+
+.kc-two {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+}
+
+.kc-logo {
+    display: flex;
+    justify-content: center;
+}
+
+.kc-logo img {
+    width: min(320px, 100%);
+    height: auto;
+    display: block;
+    box-shadow: 0 1px 2px rgba(43, 42, 39, 0.18), 0 18px 48px rgba(43, 42, 39, 0.14);
+}
+
+.kc-copy {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+}
+
+.kc-copy p {
+    margin: 0 0 20px;
+}
+
+.kc-copy ul {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.kc-dark {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.kc-dark h2 {
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 300;
+    line-height: 1.15;
+    margin: 0 0 28px;
+}
+
+.kc-dark .btn-row {
+    justify-content: center;
+}
+
+.kc-dark .btn-primary {
+    background: var(--paper);
+    border-color: var(--paper);
+    color: var(--ink);
+}
+
+.kc-dark .btn-primary:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--ink);
+}
+
+.kc-dark .btn-secondary {
+    border-color: var(--paper);
+    color: var(--paper);
+}
+
+.kc-dark .btn-secondary:hover {
+    background: var(--paper);
+    color: var(--ink);
+}
+
+.kc-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.kc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.2s;
+}
+
+.kc-card:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+
+.kc-card h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.15;
+    margin: 0;
+}
+
+.kc-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+}
+
+.kc-more {
+    margin-top: auto;
+    padding-top: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--accent);
+}
+
+.kc-latest {
+    margin-top: 48px;
+    display: flow-root;
+}
+
+.kc-latest .eyebrow {
+    margin: 0 0 10px;
+}
+
+.kc-tint {
+    background: var(--paper-3);
+}
+
+.kc-clock {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+}
+
+.kc-clock-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.kc-clock-text .eyebrow {
+    margin: 0;
+}
+
+.kc-clock-number {
+    font-family: var(--mono);
+    font-size: clamp(26px, 5.2vw, 60px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+}
+
+.kc-clock-lead {
+    margin: 0;
+    max-width: 520px;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+.kc-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+    padding-top: 12px;
+}
+
+.kc-clock-plate {
+    flex: none;
+    width: 220px;
+    height: 220px;
+    display: block;
+    box-shadow: 0 1px 2px rgba(43, 42, 39, 0.14), 0 12px 30px rgba(43, 42, 39, 0.10);
+}
+
+@media (max-width: 860px) {
+    .kc-band {
+        padding: 48px 20px;
+    }
+
+    .kc-title {
+        margin-bottom: 40px;
+    }
+
+    .kc-two {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .kc-logo img {
+        width: min(240px, 100%);
+    }
+
+    .kc-cards {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .kc-clock {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .kc-clock-plate {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+/* Dark footer */
+.site-footer {
+    margin-top: 0;
+    background: var(--ink);
+    color: #BDB8AD;
+}
+
+.footer-inner {
+    border-top: 0;
+    padding: 40px 0 44px;
+}
+
+.footer-brand .brand-name,
+.footer-nav a {
+    color: var(--paper);
+}
+
+.footer-nav a:hover {
+    color: #fff;
+}
+
+.footer-text p,
+.site-footer .footer-label {
+    color: #BDB8AD;
+}
+
+.footer-icons img {
+    filter: brightness(0) invert(1) opacity(0.8);
+}
+
+.footer-icons a:hover img {
+    filter: brightness(0) invert(1) opacity(1);
+}

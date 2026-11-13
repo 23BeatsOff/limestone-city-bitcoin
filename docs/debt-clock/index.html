@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Canadian Debt Clock — Priced in Hard Money</title>
+    <meta
+      name="description"
+      content="Canada's national debt in real time — federal and total government debt, the hidden tax of monetary debasement, and every figure priced against Bitcoin's 21,000,000 hard cap."
+    />
+    <link rel="canonical" href="https://limestonecitybitcoin.com/debt-clock/" />
+
+    <!-- Favicon + installable app -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Debt Clock" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Canadian Debt Clock" />
+    <meta property="og:url" content="https://limestonecitybitcoin.com/debt-clock/" />
+    <meta property="og:title" content="The Canadian Debt Clock — Priced in Hard Money" />
+    <meta
+      property="og:description"
+      content="Canada's debt, ticking in real time — and priced against Bitcoin's 21,000,000 hard cap. Every Canadian owes ~149× more than their fair share of all the Bitcoin that will ever exist."
+    />
+    <meta property="og:image" content="https://limestonecitybitcoin.com/debt-clock/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Canadian Debt Clock — Canada's debt priced in hard money." />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Canadian Debt Clock — Priced in Hard Money" />
+    <meta
+      name="twitter:description"
+      content="Canada's debt in real time, priced against Bitcoin's 21,000,000 hard cap. Fix the money, fix the country."
+    />
+    <meta name="twitter:image" content="https://limestonecitybitcoin.com/debt-clock/og-image.png" />
+
+    <meta name="theme-color" content="#ECE8E0" />
+    <link rel="preconnect" href="https://api.coingecko.com" />
+    <link rel="preload" href="assets/fonts/ibm-plex-mono.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- ===================== SITE BAR (shared with limestonecitybitcoin.com) ===================== -->
+    <header class="site-bar">
+      <div class="site-bar-inner">
+        <a href="/" class="site-bar-brand"><img src="/assets/images/logo-block.svg" alt="" width="36" height="36" /><span>Limestone City Bitcoin</span></a>
+        <nav class="site-bar-nav" aria-label="Main">
+          <a href="/">Home</a>
+          <a href="/learn.html">Learn</a>
+          <a href="/build.html">Build</a>
+          <a href="/long-view-index.html">The Long View</a>
+          <a href="/meetups.html">Meetups</a>
+          <a href="/debt-clock/" aria-current="page">Debt Clock</a>
+          <a href="/about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-text"><span class="brand-name">The Canadian Debt Clock</span><span class="brand-rule" aria-hidden="true"></span><span class="brand-sub">Priced in hard money</span></span>
+      </div>
+      <div id="live-status" class="status-pill seed">● connecting…</div>
+    </header>
+
+    <p class="tagline">
+      A loonie is a promise. <strong>Bitcoin is a number that doesn't move.</strong>
+      Watch the gap widen in real time.
+    </p>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-label">CANADA · FEDERAL DEBT</div>
+        <div class="hero-number debt" data-metric="federalDebt" data-odometer>$0</div>
+        <span class="hero-rule" aria-hidden="true"></span>
+        <div class="hero-sub">
+          Federal + provincial net debt:
+          <span class="accent" data-metric="totalGovDebt" data-format="money">$0</span>
+        </div>
+        <div class="hero-context">
+          <span><span data-metric="federalDebtToGDP" data-format="pct">0%</span> of GDP (federal)</span>
+          <span class="dot">·</span>
+          <span><span data-metric="totalDebtToGDP" data-format="pct">0%</span> of GDP (all govts)</span>
+        </div>
+      </div>
+      <img class="hero-plate" src="assets/doodles/city-hall.svg" alt="" aria-hidden="true" width="300" height="300" />
+    </section>
+
+    <!-- ===================== CORE GRID ===================== -->
+    <section class="grid">
+      <article class="card">
+        <h3>Federal deficit · this fiscal year</h3>
+        <div class="value debt" data-metric="federalDeficitYTD" data-format="money">$0</div>
+        <p class="hint">Borrowed since April 1 — every dollar added to the pile above.</p>
+      </article>
+
+      <article class="card">
+        <h3>Interest on the debt · this fiscal year</h3>
+        <div class="value debt" data-metric="federalInterest" data-format="money">$0</div>
+        <p class="hint">Public debt charges. Money that buys nothing but yesterday.</p>
+      </article>
+
+      <article class="card">
+        <h3>Debt per citizen</h3>
+        <div class="value" data-metric="debtPerCitizen" data-format="moneyCents">$0</div>
+        <p class="hint">
+          Per taxpayer:
+          <span class="accent" data-metric="debtPerTaxpayer" data-format="moneyCents">$0</span>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Population of Canada</h3>
+        <div class="value" data-metric="population" data-format="count">0</div>
+        <p class="hint">
+          Total-government debt per citizen:
+          <span class="accent" data-metric="totalDebtPerCitizen" data-format="moneyCents">$0</span>
+        </p>
+      </article>
+    </section>
+
+    <!-- ===================== INTEREST BAND ===================== -->
+    <section class="interest-band">
+      <img class="hero-plate" src="assets/doodles/burning-banknote.svg" alt="" aria-hidden="true" width="220" height="220" />
+      <div class="hero-text">
+      <div class="interest-label">GOVERNMENT DEBT INTEREST · PAID THIS FISCAL YEAR</div>
+      <div class="interest-number" data-metric="combinedInterestYTD" data-odometer>$0</div>
+      <div class="interest-sub">
+        Federal + provincial. That's
+        <span class="accent" data-metric="combinedInterestPerSecond" data-format="moneyCents">$0</span>
+        <strong>every second</strong> — roughly
+        <span class="accent">$94&nbsp;billion a year</span>, money that buys nothing
+        but the right to keep borrowing. For context, Ottawa spends
+        <span id="ottawa-compare"><span class="accent">$80&nbsp;billion</span> on Old Age Security</span>
+        per year.
+      </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROVINCES ===================== -->
+    <section class="panel provinces">
+      <div class="panel-head">
+        <div class="ph-title">
+          <h2>The Burden by Province</h2>
+        </div>
+        <div class="ph-body">
+          <p>
+          Combined federal + provincial net debt as a share of each province's
+          economy. Newfoundland &amp; Labrador carries the heaviest load per
+          person at <strong>$71,611</strong>; Alberta the lightest at
+          <strong>$42,368</strong>. No province is debt-free.
+        </p>
+          <img class="head-doodle" src="assets/doodles/balance-scales.svg" alt="" aria-hidden="true" />
+        </div>
+      </div>
+      <div id="province-bars" class="prov-bars"></div>
+      <p class="prov-foot">
+        % of provincial GDP · combined federal + provincial net debt · Fraser
+        Institute, 2026.
+      </p>
+    </section>
+
+    <!-- ===================== AUSTRIAN PANEL ===================== -->
+    <section class="panel austrian">
+      <div class="panel-head">
+        <div class="ph-title">
+          <h2>The Hidden Tax</h2>
+        </div>
+        <div class="ph-body">
+          <p>
+          The debt above is the <em>small</em> lie. The big one is the dollar it's
+          measured in. When the money supply expands faster than the economy, your
+          savings are taxed without a vote — the Cantillon effect. This is the
+          honest inflation rate.
+        </p>
+          <img class="head-doodle" src="assets/doodles/money-printer.svg" alt="" aria-hidden="true" />
+        </div>
+      </div>
+      <div class="grid three">
+        <article class="card">
+          <h3>Money supply (M2)</h3>
+          <div class="value warn" data-metric="moneySupplyM2" data-format="money">$0</div>
+          <p class="hint">Loonies in existence. Printed, not earned.</p>
+        </article>
+        <article class="card">
+          <h3>Money-supply growth · the real debasement</h3>
+          <div class="value debt" data-metric="m2GrowthRate" data-format="pct">0%</div>
+          <p class="hint">How fast M2 is expanding, year over year. This is the tax.</p>
+        </article>
+        <article class="card">
+          <h3>Official CPI · fudged to suit</h3>
+          <div class="value" data-metric="cpiInflation" data-format="pct">0%</div>
+          <p class="hint">
+            The sanctioned figure — basket reweighted and substituted until it lands
+            where it suits.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Purchasing power of a 2020 dollar</h3>
+          <div class="value warn" data-metric="dollarPurchasingPower" data-format="ppower">$0</div>
+          <p class="hint">= M2(2020) ÷ M2(today). Falls in real time as money is printed.</p>
+        </article>
+        <article class="card">
+          <h3>New loonies printed since 2020</h3>
+          <div class="value warn" data-metric="moneyPrintedSince2020" data-format="money">$0</div>
+          <p class="hint">
+            ≈ <span data-metric="shareCreatedSince2020" data-format="pct">0%</span>
+            of every loonie in existence — conjured since 2020.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Nominal GDP</h3>
+          <div class="value" data-metric="gdp" data-format="money">$0</div>
+          <p class="hint">The economy the debt is borrowed against.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== TRUE RETURN ===================== -->
+    <section class="panel truereturn" id="true-return">
+      <div class="panel-head">
+        <div class="ph-title">
+          <h2>The True Return</h2>
+        </div>
+        <div class="ph-body">
+          <p>
+          Google Finance and Wealthsimple show you a stock in nominal dollars, as if
+          the loonie sat still while you held it. It didn't. Type any TSX or US
+          ticker (or just "bitcoin") and see the same position measured against
+          official inflation, against the money supply itself, and priced in
+          bitcoin. The gold line is the one your broker will never show you.
+        </p>
+          <img class="head-doodle" src="assets/doodles/line-chart-down.svg" alt="" aria-hidden="true" />
+        </div>
+      </div>
+
+      <form id="tr-form" class="tr-form" autocomplete="off">
+        <label class="tr-label" for="tr-ticker">Ticker</label>
+        <input
+          id="tr-ticker"
+          class="tr-input"
+          type="text"
+          inputmode="text"
+          spellcheck="false"
+          placeholder="SHOP, XEQT, AAPL, BTC…"
+          maxlength="15"
+          required
+        />
+        <button type="submit" class="share-btn tr-go">Chart it</button>
+        <div id="tr-ranges" class="tr-ranges" role="group" aria-label="Time range"></div>
+      </form>
+
+      <div id="tr-status" class="tr-status" hidden></div>
+
+      <div id="tr-chart-wrap" class="tr-chart-wrap" hidden>
+        <div id="tr-title" class="tr-title"></div>
+        <div id="tr-summary" class="tr-summary"></div>
+        <div class="tr-legend">
+          <span><i style="background:#8c8880"></i>Nominal (CAD)</span>
+          <span><i style="background:#2f6f8f"></i>After CPI</span>
+          <span><i style="background:#d92d20"></i>After M2 growth</span>
+          <span><i style="background:#f7931a"></i>In Bitcoin</span>
+        </div>
+        <div class="tr-canvas-box">
+          <canvas id="tr-chart" class="tr-chart"></canvas>
+          <div id="tr-tip" class="tr-tip" hidden></div>
+        </div>
+        <div id="tr-note" class="tr-note"></div>
+      </div>
+    </section>
+
+    <!-- ===================== BITCOIN PANEL ===================== -->
+    <section class="panel bitcoin">
+      <div class="panel-head">
+        <div class="ph-title">
+          <h2><span class="btc-mark">₿</span> Priced in Hard Money</h2>
+        </div>
+        <div class="ph-body">
+          <p>
+          Government debt grows without limit. Bitcoin's supply is capped at
+          <strong>21,000,000</strong> — forever. Here is the debt measured against
+          money that cannot be printed.
+        </p>
+          <img class="head-doodle" src="assets/doodles/cap-21m.svg" alt="" aria-hidden="true" />
+        </div>
+      </div>
+
+      <!-- Supply ring — centered feature -->
+      <div class="ring-wrap">
+        <svg viewBox="0 0 220 220" class="ring">
+          <circle class="ring-track" cx="110" cy="110" r="96" />
+          <circle
+            id="btc-ring-progress"
+            class="ring-progress"
+            cx="110"
+            cy="110"
+            r="96"
+            transform="rotate(-90 110 110)"
+          />
+        </svg>
+        <div class="ring-center">
+          <div class="ring-pct" data-metric="btcMinedPct" data-format="pct2">0%</div>
+          <div class="ring-label">of 21M mined</div>
+          <div class="ring-mined" data-metric="btcMined" data-format="count">0</div>
+        </div>
+      </div>
+
+      <!-- All Bitcoin framings in one uniform grid -->
+      <div class="grid btc-grid">
+        <article class="card btc-card">
+          <h3>Federal debt per bitcoin</h3>
+          <div class="value btc-val" data-metric="federalDebtPerBTC" data-format="money">$0</div>
+          <p class="hint">Federal debt ÷ 21,000,000 BTC.</p>
+        </article>
+        <article class="card btc-card">
+          <h3>Total gov debt per bitcoin</h3>
+          <div class="value btc-val" data-metric="totalDebtPerBTC" data-format="money">$0</div>
+          <p class="hint">All government debt ÷ the hard cap.</p>
+        </article>
+        <article class="card btc-card">
+          <h3>Your share of the debt</h3>
+          <div class="value btc-val" data-metric="yourShareInBTC" data-format="btc">0 ₿</div>
+          <p class="hint">
+            = <span data-metric="yourShareInSats" data-format="sats">0 sats</span> per citizen.
+          </p>
+        </article>
+        <article class="card btc-card">
+          <h3>BTC price (CAD)</h3>
+          <div class="value btc-val" data-metric="btcPriceCAD" data-format="money">$0</div>
+          <p class="hint">
+            Left to mine:
+            <span data-metric="btcRemaining" data-format="count">0</span> BTC, ever.
+          </p>
+        </article>
+        <article class="card btc-card">
+          <h3>Bitcoin issuance · headed to zero</h3>
+          <div class="value btc-val" data-metric="btcIssuanceRate" data-format="pct2">0%</div>
+          <p class="hint">
+            New supply per year, halving toward <strong>0</strong>. The loonie (M2)
+            grows <span data-metric="m2GrowthRate" data-format="pct">0%</span> a year,
+            with no cap and no end.
+          </p>
+        </article>
+        <article class="card btc-card">
+          <h3>Sats on the dollar · “Moscow time”</h3>
+          <div class="value btc-val" data-metric="satsPerCAD" data-format="sats">0</div>
+          <p class="hint">What one loonie buys in sats. It only shrinks.</p>
+        </article>
+      </div>
+
+      <!-- The scarcity bomb: a live gut-punch -->
+      <div class="scarcity-note">
+        <div class="scarcity-head">21,000,000. The whole supply — forever.</div>
+        <div class="gut-punch">
+          <div class="gp-side">
+            <span class="gp-label">What every Canadian owes<br />(their share of the national debt)</span>
+            <span class="gp-val debt" data-metric="yourShareInSats" data-format="sats">0</span>
+          </div>
+          <div class="gp-vs">vs</div>
+          <div class="gp-side">
+            <span class="gp-label">Every human's fair share of all Bitcoin, ever<br />(21,000,000 ÷ 8.1&nbsp;billion = 0.0026&nbsp;₿)</span>
+            <span class="gp-val btc-val" data-metric="satsPerHuman" data-format="sats">0</span>
+          </div>
+        </div>
+        <div class="scarcity-punch">
+          You owe <span data-metric="debtToScarcityRatio" data-format="multiple">0×</span>
+          more debt than you could ever own in hard money — and most coins are already
+          lost or held by people who will never sell.
+        </div>
+        <span class="maxi-cta">Own a whole one while you still can — and hold your own keys. Not your keys, not your coins.</span>
+      </div>
+
+      <div class="share-row">
+        <button id="share-card-btn" class="share-btn">
+          ↓ Generate my "debt in sats" card
+        </button>
+        <span class="share-hint">A shareable image of your number, at the live price.</span>
+      </div>
+
+      <div class="tip-row">
+        <a href="lightning:YGK@coinos.io" aria-label="Pay YGK@coinos.io over Lightning">
+          <img
+            class="tip-qr"
+            src="tip-qr.png"
+            width="120"
+            height="120"
+            alt="Lightning QR code for YGK@coinos.io"
+          />
+        </a>
+        <div class="tip-info">
+          <span class="tip-label">
+            <span class="tip-zap" aria-hidden="true">⚡</span>
+            Found this useful? Tip us a few sats over Lightning.
+          </span>
+          <span class="tip-actions">
+            <a class="tip-addr" href="lightning:YGK@coinos.io">YGK@coinos.io</a>
+            <button id="tip-copy-btn" class="tip-copy" type="button" data-addr="YGK@coinos.io">
+              Copy
+            </button>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+      <div class="foot-grid">
+        <div>
+          <h4>Methodology</h4>
+          <p>
+            Each figure is anchored to a sourced value and a rate of change, then
+            extrapolated in your browser. The BTC price is live from CoinGecko;
+            everything else updates when the underlying data is refreshed. This is
+            an estimate engine, not a settlement system — see
+            <code>js/data.js</code> for every number, its date, and its source.
+          </p>
+        </div>
+        <div>
+          <h4>Sources</h4>
+          <ul class="sources">
+            <li>Bank of Canada — Valet API</li>
+            <li>Statistics Canada — population &amp; monetary aggregates</li>
+            <li>Dept. of Finance — Fiscal Reference Tables / Budget</li>
+            <li>Public Accounts of Canada — debt &amp; public debt charges</li>
+            <li>Provincial public accounts</li>
+            <li>CoinGecko — live BTC price</li>
+          </ul>
+        </div>
+      </div>
+      <p class="foot-note">
+        Data as of <span id="as-of">—</span>. Figures are estimates for public
+        education; verify against primary sources before relying on them.
+        <strong>Fix the money, fix the country.</strong>
+      </p>
+      <p class="foot-credit">
+        Brought to you by
+        <a href="https://limestonecitybitcoin.com" target="_blank" rel="noopener"
+          >Limestone City Bitcoin</a
+        >.
+      </p>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

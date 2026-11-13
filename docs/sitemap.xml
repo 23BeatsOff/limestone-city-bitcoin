@@ -13,4 +13,5 @@ sitemap: false
   <url><loc>{{ p.url | absolute_url }}</loc></url>
 {%- endif %}
 {%- endfor %}
+  <url><loc>{{ "/debt-clock/" | absolute_url }}</loc></url>
 </urlset>

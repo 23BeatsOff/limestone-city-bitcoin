@@ -35,18 +35,20 @@
     {% assign here = page.url %}
     <header class="site-header">
         <div class="header-inner">
-            <a href="index.html" class="brand"{% if here == "/" %} aria-current="page"{% endif %}>
+            <a href="index.html" class="brand">
+                <img src="./assets/images/logo-block.svg" alt="" width="36" height="36" class="brand-logo">
                 <span class="brand-name">Limestone City Bitcoin</span>
-                <span class="brand-rule" aria-hidden="true"></span>
-                <span class="brand-place">Kingston, Ontario</span>
             </a>
 
             <nav class="nav-menu" id="nav-menu" aria-label="Main">
+                <a href="index.html"{% if here == "/" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">Home</span><span class="nav-note">Front page</span></a>
                 <a href="learn.html"{% if here == "/learn.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">A</span><span class="nav-label">Learn</span><span class="nav-note">Start here, then own your keys</span></a>
                 <a href="build.html"{% if here == "/build.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">B</span><span class="nav-label">Build</span><span class="nav-note">Signers, nodes, and helping others</span></a>
                 <a href="long-view-index.html"{% if here contains "/long-view" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">The Long View</span><span class="nav-note">Six essays on freedom</span></a>
                 <a href="meetups.html"{% if here == "/meetups.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">Meetups</span><span class="nav-note">Kingston, in person</span></a>
+                <a href="debt-clock/"><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">Debt Clock</span><span class="nav-note">Canada's debt, live</span></a>
                 <a href="about.html"{% if here == "/about.html" %} aria-current="page"{% endif %}><span class="nav-num" aria-hidden="true">·</span><span class="nav-label">About</span><span class="nav-note">Who we are</span></a>
+                <a href="https://signal.group/#CjQKIN65dM3kLRkn1UcJwmxcDUcBEww4IGvL1FFIGee557yaEhAs_fvpE6t8Fa9Yn_PncDi8" target="_blank" rel="noopener" class="nav-cta">Join on Signal</a>
                 <div class="nav-bside">
                     <span class="footer-label">B-side</span>
                     <div class="nav-bside-links">
@@ -59,23 +61,6 @@
 
             <button type="button" class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-menu">Menu</button>
         </div>
-
-        {% if here == "/" %}
-        <div class="header-stats">
-            <div class="header-stat">
-                <div class="label">Block height</div>
-                <p id="block-height" class="height">-------</p>
-            </div>
-            <div class="header-stat" title="Satoshis per US dollar. Watch the rate in sats, not fiat price">
-                <div class="label">Moscow time</div>
-                <p id="moscow-time" class="height">--:--</p>
-            </div>
-            <a href="https://canadiandebtclock.com" target="_blank" rel="noopener" class="header-stat header-stat-link" title="Canada's national debt, live">
-                <div class="label">Canadian debt</div>
-                <p class="height">Live ↗</p>
-            </a>
-        </div>
-        {% endif %}
     </header>
 
 {{ content }}

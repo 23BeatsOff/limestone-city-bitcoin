@@ -1,0 +1,230 @@
+# Extra symbols fetched nightly on top of the S&P/TSX Composite and S&P 500.
+# One Yahoo Finance symbol per line; TSX listings end in .TO. '#' starts a comment.
+# Add a name here and it appears on the site after the next nightly run.
+# Every Canadian ETF below was validated against Yahoo on 2026-09-07.
+
+# ---------------- iShares (BlackRock Canada) ----------------
+XIU.TO    # S&P/TSX 60
+XIC.TO    # Core S&P/TSX Capped Composite
+XEQT.TO   # Core Equity ETF Portfolio
+XGRO.TO
+XBAL.TO
+XCNS.TO
+XINC.TO
+XSP.TO    # S&P 500 (CAD-hedged)
+XUS.TO    # S&P 500
+XUU.TO    # Core S&P U.S. Total Market
+XEF.TO    # Core MSCI EAFE
+XEC.TO    # Core MSCI Emerging Markets
+XAW.TO    # Core MSCI All Country World ex Canada
+XWD.TO
+XQQ.TO    # NASDAQ 100 (CAD-hedged)
+XBB.TO    # Core Canadian Universe Bond
+XSB.TO
+XSH.TO
+XCB.TO
+XHY.TO
+XDV.TO    # Canadian Select Dividend
+XEI.TO
+XDIV.TO
+XRE.TO    # S&P/TSX Capped REIT
+XFN.TO    # S&P/TSX Capped Financials
+XIT.TO
+XEG.TO    # S&P/TSX Capped Energy
+XMA.TO
+XGD.TO    # S&P/TSX Global Gold
+XUT.TO
+XST.TO
+XHU.TO
+XHD.TO
+XSU.TO
+XMU.TO
+XMI.TO
+XMV.TO
+XCG.TO
+XCV.TO
+XEN.TO
+XLB.TO
+XTR.TO
+XHB.TO
+XFR.TO
+XCLR.TO
+XSE.TO
+CGL.TO    # Gold Bullion (CAD-hedged)
+
+# ---------------- Vanguard Canada ----------------
+VFV.TO    # S&P 500
+VSP.TO    # S&P 500 (CAD-hedged)
+VUN.TO    # U.S. Total Market
+VUS.TO
+VCN.TO    # FTSE Canada All Cap
+VCE.TO
+VDY.TO    # FTSE Canadian High Dividend Yield
+VEQT.TO   # All-Equity ETF Portfolio
+VGRO.TO
+VBAL.TO
+VCNS.TO
+VCIP.TO
+VXC.TO    # FTSE Global All Cap ex Canada
+VIU.TO
+VEE.TO
+VE.TO
+VA.TO
+VAB.TO    # Canadian Aggregate Bond
+VSB.TO
+VSC.TO
+VBU.TO
+VBG.TO
+VGV.TO
+VLB.TO
+VRE.TO
+VRIF.TO
+VI.TO
+VDU.TO
+VGG.TO
+VGH.TO
+VVL.TO
+VVO.TO
+VMO.TO
+
+# ---------------- BMO ETFs ----------------
+ZSP.TO    # S&P 500
+ZUE.TO
+ZCN.TO    # S&P/TSX Capped Composite
+ZEB.TO    # Equal Weight Banks
+ZWB.TO    # Covered Call Canadian Banks
+ZAG.TO    # Aggregate Bond
+ZDB.TO
+ZCS.TO
+ZLB.TO    # Low Volatility Canadian Equity
+ZLU.TO
+ZLI.TO
+ZQQ.TO    # NASDAQ 100 (CAD-hedged)
+ZNQ.TO
+ZDV.TO
+ZDY.TO
+ZDJ.TO
+ZGRO.TO
+ZBAL.TO
+ZCON.TO
+ZEQT.TO
+ZMMK.TO   # Money Market Fund
+ZST.TO
+ZSB.TO
+ZFL.TO
+ZHY.TO
+ZRE.TO
+ZUT.TO
+ZWC.TO
+ZWU.TO
+ZWH.TO
+ZWA.TO
+ZPAY.TO
+ZGLD.TO   # Gold Bullion
+ZUQ.TO
+ZLD.TO
+ZEA.TO
+ZEM.TO
+ZDM.TO
+ZWE.TO
+ZGI.TO
+ZUH.TO
+ZBK.TO
+ZWK.TO
+ZID.TO
+ZCH.TO
+ZMI.TO
+ZPW.TO
+ZFH.TO
+ZHP.TO
+ZWG.TO
+
+# ---------------- TD ETFs ----------------
+TEC.TO    # Global Technology Leaders
+TTP.TO
+TPU.TO
+TPE.TO
+TDB.TO
+TCLB.TO
+TGRO.TO
+TBAL.TO
+TCON.TO
+TEQT.TO
+TQGD.TO
+TQCD.TO
+TCBN.TO
+
+# ---------------- RBC ETFs ----------------
+RBNK.TO   # Canadian Bank Yield
+RCD.TO
+RUSA.TO
+RPD.TO
+
+# ---------------- CIBC ----------------
+CAGE.TO   # Avantis CIBC All-Equity Asset Allocation
+
+# ---------------- Global X (Horizons) ----------------
+HXT.TO    # S&P/TSX 60 (total return swap)
+HXS.TO
+HXQ.TO
+HXCN.TO
+HXDM.TO
+HXE.TO
+HXF.TO
+HSAV.TO   # High Interest Savings (accumulating)
+CASH.TO   # High Interest Savings
+HBAL.TO
+HGRO.TO
+HCON.TO
+HEQT.TO
+HURA.TO   # Uranium
+HBB.TO
+
+# ---------------- Hamilton ----------------
+HMAX.TO   # Canadian Financials Yield Maximizer
+HDIV.TO
+HYLD.TO
+HCAL.TO   # Enhanced Canadian Bank
+UMAX.TO
+QMAX.TO
+SMAX.TO
+FMAX.TO
+HBND.TO
+
+# ---------------- Evolve / Harvest / Purpose / Mackenzie ----------------
+BANK.TO   # Evolve Canadian Banks and Lifecos Enhanced Yield
+HTA.TO    # Harvest Tech Achievers
+HHL.TO
+HDIF.TO
+HPYT.TO
+PSA.TO    # Purpose High Interest Savings
+KILO.TO   # Purpose Gold Bullion
+MEQT.TO   # Mackenzie All-Equity Allocation
+MBAL.TO
+
+# ---------------- US broad-market ETFs ----------------
+SPY
+VOO
+VTI
+QQQ
+IWM
+DIA
+VEA
+VWO
+SCHD
+GLD
+SLV
+
+# ---------------- Bitcoin, priced in the money the site is about ----------------
+BTC-CAD
+BTC-USD
+IBIT
+FBTC
+BTCC.TO   # Purpose Bitcoin ETF
+FBTC.TO   # Fidelity Advantage Bitcoin ETF
+EBIT.TO
+MSTR
+COIN
+
+# ---------------- Gold, for the Austrian crowd ----------------
+GC=F      # Gold futures (USD)
