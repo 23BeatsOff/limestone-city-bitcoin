@@ -1,0 +1,19 @@
+{
+  "name": "The Canadian Debt Clock",
+  "short_name": "Debt Clock",
+  "description": "Canada's debt in real time, priced against Bitcoin's 21,000,000 hard cap.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ECE8E0",
+  "theme_color": "#ECE8E0",
+  "lang": "en-CA",
+  "categories": ["finance", "education", "news"],
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

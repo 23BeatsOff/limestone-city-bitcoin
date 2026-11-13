@@ -7,65 +7,107 @@ og_description: "Kingston's Bitcoin meetup - All are welcome!"
 og_type: "website"
 ---
 
-<main class="main-content home-main">
+<main class="home-kc">
 
-        <!-- Hero: welcome on the left, the logo as a record sleeve on the right -->
-        <section class="home-hero">
-            <div class="home-welcome">
-                <div class="eyebrow">Kingston's Bitcoin meetup</div>
-                <h1 class="home-title">Sound money,<br>slowly.</h1>
-                <p class="home-lead">
-                    Join us in the Limestone City to discuss Bitcoin, sound money, privacy, and freedom technology, and to build the local community around it. Anyone can stack and wait. We would rather build. All are welcome, from curious beginners to seasoned cypherpunks.
-                </p>
+        <!-- Opening: big title, logo on the left, who we are on the right -->
+        <section class="kc-band kc-hero">
+            <div class="kc-wrap">
+                <h1 class="kc-title">Limestone City Bitcoin</h1>
+                <div class="kc-two">
+                    <div class="kc-logo">
+                        <img src="./assets/images/logo-block.svg" alt="Limestone City Bitcoin logo" width="320" height="320">
+                    </div>
+                    <div class="kc-copy">
+                        <p>We are a Bitcoin-only group in Kingston, Ontario, focused on education, relationships and building the local community. Anyone can stack and wait. We would rather build.</p>
+                        <p>Whether you are a curious beginner or a seasoned cypherpunk, this group is for you. We talk about:</p>
+                        <ul>
+                            <li>Sound money and economics</li>
+                            <li>Wallets and holding your own keys</li>
+                            <li>Privacy and freedom technology</li>
+                            <li>Nodes, mining and the protocol</li>
+                            <li>Building a local Bitcoin community</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to action band -->
+        <section class="kc-band kc-dark" aria-labelledby="join-heading">
+            <div class="kc-wrap">
+                <h2 id="join-heading">Ready to join the community?</h2>
                 <div class="btn-row">
-                    <a href="learn.html" class="btn-primary btn-lg">Start here</a>
-                    <a href="meetups.html" class="btn-secondary btn-lg">Coming to a meetup?</a>
-                </div>
-            </div>
-
-            <div class="home-logo">
-                <div class="sleeve">
-                    <img src="./assets/images/logo-block.svg" alt="" width="360" height="360">
-                    <p class="sleeve-wordmark"><span>Limestone City</span><span>Bitcoin</span></p>
+                    <a href="https://signal.group/#CjQKIN65dM3kLRkn1UcJwmxcDUcBEww4IGvL1FFIGee557yaEhAs_fvpE6t8Fa9Yn_PncDi8" target="_blank" rel="noopener" class="btn-primary btn-lg">Join the Signal group</a>
+                    <a href="learn.html" class="btn-secondary btn-lg">New to Bitcoin? Start here</a>
                 </div>
             </div>
         </section>
 
-        <!-- The Long View, listed like the back of a record -->
-        <section class="home-section" aria-labelledby="long-view-heading">
-            <div class="home-section-intro">
-                <div class="eyebrow">From Block Bits</div>
-                <h2 id="long-view-heading">The Long View</h2>
-                <span class="hairline" aria-hidden="true"></span>
-                <p>A six-part series on freedom and the systems that shape us. By Long View, May 2026.</p>
-                <p><a href="long-view-index.html" class="entry-link">See the whole series →</a></p>
+        <!-- Three ways in -->
+        <section class="kc-band" aria-label="Explore the site">
+            <div class="kc-wrap">
+                <div class="kc-cards">
+                    <a href="learn.html" class="kc-card">
+                        <h3>Learn</h3>
+                        <p>Start from zero: what Bitcoin is, how to use it and how to hold your own keys.</p>
+                        <span class="kc-more">Start learning →</span>
+                    </a>
+                    <a href="build.html" class="kc-card">
+                        <h3>Build</h3>
+                        <p>Run a node, build your own signer and set up a 2-of-3 multisig.</p>
+                        <span class="kc-more">See the guides →</span>
+                    </a>
+                    <a href="long-view-index.html" class="kc-card">
+                        <h3>The Long View</h3>
+                        <p>A six-part series on freedom and the systems that shape us.</p>
+                        <span class="kc-more">Read the series →</span>
+                    </a>
+                </div>
+
+                <div class="featured-box kc-latest">
+                    <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
+                    <div class="eyebrow">Latest update</div>
+                    <h3 class="featured-title">Don't trust the hardware wallet companies</h3>
+                    <p class="featured-desc">
+                        By now it should be obvious: manufacturers leak customer lists, ship firmware that can pull your seed, and generate keys you can't check. Build your own signer, roll your own seed with dice, and keep your keys as stamped steel in a 2-of-3 multisig spread across separate places.
+                    </p>
+                    <p class="featured-desc"><a href="diy-seed-generation.html" class="entry-link">Roll your own seed →</a> &nbsp; <a href="multisig.html" class="entry-link">Learn 2-of-3 multisig →</a></p>
+                    <div style="clear: both;"></div>
+                </div>
             </div>
-            <ol class="tracklist">
-                <li><a href="long-view-1.html"><span class="track-num">01</span><span class="track-title">How Systems Shape You Without You Noticing</span><span class="track-time">4 min</span></a></li>
-                <li><a href="long-view-2.html"><span class="track-num">02</span><span class="track-title">Why Your Money Is Working Against You</span><span class="track-time">5 min</span></a></li>
-                <li><a href="long-view-3.html"><span class="track-num">03</span><span class="track-title">Who Taught You How to Think?</span><span class="track-time">4 min</span></a></li>
-                <li><a href="long-view-4.html"><span class="track-num">04</span><span class="track-title">The Crowd and the Individual</span><span class="track-time">4 min</span></a></li>
-                <li><a href="long-view-5.html"><span class="track-num">05</span><span class="track-title">Rules Without Rulers: What Bitcoin Actually Is</span><span class="track-time">5 min</span></a></li>
-                <li><a href="long-view-6.html"><span class="track-num">06</span><span class="track-title">Freedom Isn't Given. It's Chosen.</span><span class="track-time">5 min</span></a></li>
-            </ol>
         </section>
 
-        <!-- Featured: latest addition to the site -->
-        <section class="home-section" aria-labelledby="latest-heading">
-            <div class="home-section-intro">
-                <div class="eyebrow">Latest update</div>
-                <h2 id="latest-heading">Trust no vendor</h2>
-                <span class="hairline" aria-hidden="true"></span>
-            </div>
-            <div class="featured-box">
-                <img src="./assets/images/doodles/dice.svg" alt="" aria-hidden="true" class="doodle doodle-right">
-                <h3 class="featured-title">Don't trust the hardware wallet companies</h3>
-                <p class="featured-desc">
-                    By now it should be obvious: manufacturers leak customer lists, ship firmware that can pull your seed, and generate keys you can't check. Build your own signer, roll your own seed with dice, and keep your keys as stamped steel in a 2-of-3 multisig spread across separate places.
-                </p>
-                <p class="featured-desc"><a href="diy-seed-generation.html" class="entry-link">Roll your own seed →</a> &nbsp; <a href="multisig.html" class="entry-link">Learn 2-of-3 multisig →</a></p>
-                <div style="clear: both;"></div>
+        <!-- The debt clock, live -->
+        <section class="kc-band kc-tint" aria-labelledby="clock-heading">
+            <div class="kc-wrap kc-clock">
+                <div class="kc-clock-text">
+                    <h2 id="clock-heading" class="eyebrow">The Canadian Debt Clock · live</h2>
+                    <div class="kc-clock-number" id="home-debt">$1.38 trillion</div>
+                    <p class="kc-clock-lead">Canada's federal debt, ticking in real time and priced in hard money.</p>
+                    <a href="debt-clock/" class="btn-primary">Open the debt clock</a>
+                    <div class="kc-stats">
+                        <div class="header-stat">
+                            <div class="label">Block height</div>
+                            <p id="block-height" class="height">-------</p>
+                        </div>
+                        <div class="header-stat" title="Satoshis per US dollar. Watch the rate in sats, not fiat price">
+                            <div class="label">Moscow time</div>
+                            <p id="moscow-time" class="height">--:--</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="./debt-clock/assets/doodles/city-hall.svg" alt="" aria-hidden="true" width="220" height="220" class="kc-clock-plate">
             </div>
         </section>
 
     </main>
+
+    <!-- Live federal debt figure, using the debt clock's own engine -->
+    <script type="module">
+        import { snapshot } from "./debt-clock/js/clock.js";
+        import { money } from "./debt-clock/js/format.js";
+        const el = document.getElementById("home-debt");
+        const tick = () => { el.textContent = money(snapshot(Date.now()).federalDebt); };
+        tick();
+        setInterval(tick, 100);
+    </script>

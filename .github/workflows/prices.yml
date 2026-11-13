@@ -1,0 +1,61 @@
+# Nightly stock-price refresh for "The True Return" on the debt clock
+# (docs/debt-clock). The back end lives in debt-clock-backend/.
+#
+# Fetches five years of daily prices for the ticker universe (see
+# debt-clock-backend/scripts/fetch_prices.py) and force-pushes them as a single-commit orphan
+# `data` branch, so the repo never accumulates price history. The site reads
+# https://raw.githubusercontent.com/<repo>/data/prices/<SYMBOL>.json, which
+# GitHub serves with CORS enabled.
+name: Refresh stock prices
+
+on:
+  schedule:
+    # 02:30 UTC Tue-Sat = 22:30 ET Mon-Fri, after the North American close.
+    - cron: "30 2 * * 2-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prices
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Start from the last publish so a transient Yahoo error keeps
+      # yesterday's file for that symbol instead of dropping the symbol.
+      - name: Seed from the current data branch
+        run: |
+          mkdir -p out/prices
+          if git fetch -q origin data:refs/remotes/origin/data 2>/dev/null; then
+            git archive origin/data prices | tar -x -C out
+            echo "seeded $(ls out/prices | wc -l) files from the previous publish"
+          else
+            echo "no data branch yet; starting empty"
+          fi
+
+      - name: Fetch prices
+        run: python3 debt-clock-backend/scripts/fetch_prices.py out/prices
+
+      - name: Publish to the data branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd out
+          git init -q
+          git checkout -q -b data
+          git config user.name "price-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "prices $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" data
