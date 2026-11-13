@@ -12,10 +12,32 @@ og_type: "website"
         <h1 class="page-title">Meetups</h1>
         <p class="page-subtitle">Kingston's Bitcoin Community, In Person.</p>
 
-        <div class="callout-box" style="margin-bottom: 40px;">
-            <h2 style="margin-top: 0; color: var(--ink); font-size: 20px;">Check Back Soon</h2>
-            <p>Check back soon for our next scheduled meetup. Join our Signal group to be the first to know when a date is confirmed, or reach out if you would like to help make it happen.</p>
-        </div>
+        <!-- UPCOMING MEETUPS, PULLED FROM NOSTR AND MEETUP.COM
+             data-npubs: the Nostr accounts whose calendar events appear here.
+                         To add a meetup group, paste its npub on a new line.
+             data-relays: the public relays the page asks.
+             data-meetup-feed: Meetup.com events, refreshed by a GitHub job.
+                         Its groups are listed in meetups-backend/groups.txt. -->
+        <section id="nostr-events" aria-labelledby="upcoming-heading" style="width: 100%; margin-bottom: 40px;"
+            data-npubs="
+                npub17exm4s7zmaxuyeljm0w22gfuhqlf82zedqjf3eaxk55m7tv3ug9see3cl4
+            "
+            data-meetup-feed="https://raw.githubusercontent.com/23BeatsOff/limestone-city-bitcoin/meetup-data/meetups.json"
+            data-relays="
+                wss://relay.damus.io
+                wss://nos.lol
+                wss://relay.primal.net
+            ">
+            <h2 id="upcoming-heading" class="contact-heading">Upcoming</h2>
+            <p class="event-status" data-status hidden>Checking Nostr for upcoming meetups…</p>
+            <div class="callout-box" data-fallback style="margin-bottom: 24px;">
+                <h3 style="margin-top: 0; color: var(--ink); font-size: 20px;">Check Back Soon</h3>
+                <p>Check back soon for our next scheduled meetup. Join our Signal group to be the first to know when a date is confirmed, or reach out if you would like to help make it happen.</p>
+            </div>
+            <div data-events></div>
+            <button type="button" class="btn-secondary" data-more hidden style="margin-top: 24px;">Show more meetups</button>
+            <p class="event-note">Meetups appear here automatically, from Nostr calendar events and from Bitcoin groups across Canada on Meetup.com. Every Nostr event's signature is checked in your browser.</p>
+        </section>
 
         <div class="contact-block">
             <h2 class="contact-heading">Stay Informed</h2>
@@ -29,14 +51,6 @@ og_type: "website"
             <a href="contact.html" class="btn-secondary" style="margin-top: 10px;">Get in Touch</a>
         </div>
 
-        <div class="contact-block">
-            <h2 class="contact-heading">Nearby Meetups</h2>
-            <p class="page-body" style="margin-bottom: 20px;">Between our gatherings, here are some active communities nearby worth checking out.</p>
-            <div class="entry">
-                <h3 class="entry-title">Ottawa Bitcoin Meetup</h3>
-                <p class="entry-desc">A monthly gathering for everyone interested or active in Bitcoin in Ottawa.</p>
-                <a href="https://www.meetup.com/ottawa-bitcoin-group/" target="_blank" class="entry-link">View Meetup →</a>
-            </div>
-        </div>
-
     </main>
+
+    <script type="module" src="./js/meetups.js?v={{ site.time | date: '%Y%m%d%H%M' }}"></script>

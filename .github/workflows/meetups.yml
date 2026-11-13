@@ -1,0 +1,59 @@
+# Refreshes the Meetup.com events shown on the Meetups page.
+#
+# Fetches upcoming events for the groups in meetups-backend/groups.txt and
+# force-pushes them as a single-commit orphan `meetup-data` branch. The page
+# reads https://raw.githubusercontent.com/<repo>/meetup-data/meetups.json.
+name: Refresh meetups
+
+on:
+  schedule:
+    # Four times a day.
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "meetups-backend/**"
+      - ".github/workflows/meetups.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: meetups
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Start from the last publish so a failed group keeps its last events.
+      - name: Seed from the current meetup-data branch
+        run: |
+          mkdir -p out
+          if git fetch -q origin meetup-data:refs/remotes/origin/meetup-data 2>/dev/null; then
+            git show origin/meetup-data:meetups.json > out/meetups.json || rm -f out/meetups.json
+          fi
+
+      - name: Fetch meetups
+        run: python3 meetups-backend/fetch_meetups.py out
+
+      - name: Publish to the meetup-data branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd out
+          git init -q
+          git checkout -q -b meetup-data
+          git config user.name "meetup-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -q -m "meetups $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" meetup-data

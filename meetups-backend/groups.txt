@@ -1,0 +1,27 @@
+# Meetup.com groups whose upcoming events appear on the Meetups page.
+# One group per line: the last part of the group's Meetup.com address.
+# Example: https://www.meetup.com/ottawa-bitcoin-group/  ->  ottawa-bitcoin-group
+# Lines starting with # are notes.
+
+# Ontario
+ottawa-bitcoin-group
+CanadaBitcoin
+the-bitcoin-bay
+simcoe-county-bitcoin-meetup
+
+# Quebec
+bitcoin-montreal
+quebec-bitcoin-meetup-group
+
+# Atlantic
+halifax-bitcoin-meetup
+
+# Prairies
+bitcoin-manitoba-meetup-group
+yycbitcoin
+calgary-bitcoin
+yegbitcoin
+
+# British Columbia
+bitcoinvan
+victoriabitcoin

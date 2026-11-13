@@ -1773,3 +1773,31 @@ body {
 .footer-icons a:hover img {
     filter: brightness(0) invert(1) opacity(1);
 }
+
+
+/* 16. MEETUPS FROM NOSTR */
+.event-when {
+    margin: 0 0 6px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.event-where {
+    margin: 0 0 8px;
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--ink);
+}
+
+.event-host,
+.event-status,
+.event-note {
+    margin: 8px 0;
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.event .entry-desc {
+    white-space: pre-line;
+}
